@@ -18,6 +18,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var secondMelt: UILabel!
     @IBOutlet weak var secondBoil: UILabel!
     @IBOutlet weak var secondDiscoveredBy: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = element.name.capitalized
@@ -27,8 +28,17 @@ class SecondViewController: UIViewController {
         DispatchQueue.main.async {
             if let url = URL(string: "http://images-of-elements.com/\(self.element.name.lowercased()).jpg") {
                 ImageHelper.shared.fetchImage(urlString: url.absoluteString) { (appError, image) in
-                    if let appError = appError {
-                        print("Image Error \(appError)")
+                    if let _ = appError {
+                        if let url = URL(string: "https://sciencenotes.org/wp-content/uploads/2015/04/\(String(format: "%02d", self.element.number))-\(self.element.name.capitalized)-Tile.png") {
+                            ImageHelper.shared.fetchImage(urlString: url.absoluteString, completionHandler: { (appError, image) in
+                                if let appError = appError {
+                                    print("SecondImage Error : \(appError)")
+                                } else if let image = image {
+                                    self.secondImage.image = image
+                                }
+                            })
+                            
+                        }
                     } else if let image = image {
                         self.secondImage.image = image
                     }
@@ -52,6 +62,22 @@ class SecondViewController: UIViewController {
             secondDiscoveredBy.text = "Discovered by: \(discoveredBy)"
         } else {
             secondDiscoveredBy.text = "No idea who found this."
+        }
+    }
+    
+    @IBAction func favoritePost(_ sender: UIButton) {
+        let faveElement = Favorite.init(favoritedBy: "Potato", elementName: element.name, elementSymbol: element.symbol)
+        do {
+            let data = try JSONEncoder().encode(faveElement)
+            ElementAPIClient.favoriteElement(data: data) { (success) in
+                if success {
+                    print("Worked")
+                } else {
+                    print("Didn't work")
+                }
+            }
+        } catch {
+            print("didn't work at all")
         }
     }
 }

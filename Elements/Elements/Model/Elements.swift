@@ -17,3 +17,9 @@ struct Elements: Codable {
     let number: Int
     let symbol: String
 }
+
+struct Favorite: Codable {
+    let favoritedBy: String
+    let elementName: String
+    let elementSymbol: String
+}
