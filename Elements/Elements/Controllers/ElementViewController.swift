@@ -55,7 +55,7 @@ extension ElementViewController: UITableViewDataSource {
         guard let cell = elementTableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementViewCell else { return UITableViewCell() }
         let elementToSet = elements[indexPath.row]
         cell.elementName.text = elementToSet.name
-        cell.atomicWeight.text = String(format: "Atomic Mass: %.2f", elementToSet.atomicMass)
+        cell.atomicWeight.text = "\(elementToSet.symbol)(\(elementToSet.number))  Atomic Mass: \(elementToSet.atomicMass)"
         cell.updateCellIcon(element: elementToSet)
         return cell
     }
@@ -63,6 +63,6 @@ extension ElementViewController: UITableViewDataSource {
 
 extension ElementViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 150
     }
 }
