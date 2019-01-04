@@ -9,7 +9,7 @@
 import UIKit
 
 class ElementDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var elementDetailImage: UIImageView!
     @IBOutlet weak var nameSymbolLabel: UILabel!
     @IBOutlet weak var elementNumber: UILabel!
@@ -19,24 +19,22 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var discoveredLabel: UILabel!
     
     
-    public var element = Element!
+    public var element: Element!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        update
+        updateElementInfo()
     }
+    
+    
     func updateElementInfo () {
-//        elementNameLabel.text =
-//        userDobLabel.text = user.dob
-//        userPhoneLabel.text = user.phone
-//        userEmailLabel.text = user.email
-//        userLocationLabel.text = user.location.fullLocation
-//        do {
-//            let imageData = try Data(contentsOf: user.picture.large)
-//            userImageView.image = UIImage.init(data: imageData)
-//        } catch {
-//            print("Error: \(error)")
-//        }
+        nameSymbolLabel.text = String("\(element.name)(\(element.symbol))")
+        elementNumber.text = String(element.number)
+        elementWeight.text = String(element.atomicMass)
+        meltPoint.text = String(element.melt)
+        boilPoint.text = String(element.boil)
+        discoveredLabel.text = element.discoveredBy
+        
     }
-
+    
 }
