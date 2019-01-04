@@ -20,6 +20,7 @@
 		D671906921DFC1D40039C4CD /* FavoriteElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671906821DFC1D40039C4CD /* FavoriteElementsViewController.swift */; };
 		D671906B21DFC27E0039C4CD /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671906A21DFC27D0039C4CD /* ElementCell.swift */; };
 		D671906D21DFDF680039C4CD /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671906C21DFDF680039C4CD /* ElementAPIClient.swift */; };
+		D671906F21DFF7190039C4CD /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671906E21DFF7190039C4CD /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D671906821DFC1D40039C4CD /* FavoriteElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteElementsViewController.swift; sourceTree = "<group>"; };
 		D671906A21DFC27D0039C4CD /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		D671906C21DFDF680039C4CD /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
+		D671906E21DFF7190039C4CD /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D671906421DFBEC90039C4CD /* Element.swift */,
+				D671906E21DFF7190039C4CD /* Favorite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				D671906B21DFC27E0039C4CD /* ElementCell.swift in Sources */,
 				D671906921DFC1D40039C4CD /* FavoriteElementsViewController.swift in Sources */,
 				D671906221DFB8480039C4CD /* AppError.swift in Sources */,
+				D671906F21DFF7190039C4CD /* Favorite.swift in Sources */,
 				D671906D21DFDF680039C4CD /* ElementAPIClient.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
 				D671906021DFB83F0039C4CD /* ImageHelper.swift in Sources */,

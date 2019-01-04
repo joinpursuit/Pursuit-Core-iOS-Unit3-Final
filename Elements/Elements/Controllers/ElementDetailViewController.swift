@@ -27,6 +27,17 @@ class ElementDetailViewController: UIViewController {
         updateDetailUI()
         
         //***set image here
+        //if image is available, do this
+        //otherwise set background color black
+        
+        /*
+         UIGraphicsBeginImageContext(self.view.frame.size);
+         [[UIImage imageNamed:@"image.png"] drawInRect:self.view.bounds];
+         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+         UIGraphicsEndImageContext();
+         
+         self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+         */
     }
     
     func updateDetailUI() {
@@ -43,8 +54,24 @@ class ElementDetailViewController: UIViewController {
     
     @IBAction func addToFavorite(_ sender: UIBarButtonItem) {
         //set body
+        let favorite = Favorite.init(favoritedBy: "Jian Ting", elementName: element.name, elementSymbol: element.symbol)
         
         //do (set data & call APIClient) & catch (encoding error)
+        do {
+            let data = try JSONEncoder().encode(favorite)
+            
+            ElementAPIClient.favoriteElement(data: data) { (appError, success) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if success {
+                    print("successfully favorited podcast")
+                } else {
+                    print("was not favorited")
+                }
+            } 
+        } catch {
+            print("encoding error: \(error)")
+        }
     }
     
 }
