@@ -115,7 +115,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discovered By:  unknown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-ly-aMe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discovery By:  unknown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-ly-aMe">
                                 <rect key="frame" x="8" y="391" width="398" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -166,7 +166,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="elementBoilingPoint" destination="jlL-UT-YMu" id="CUh-Iz-4Tv"/>
-                        <outlet property="elementDiscoverBy" destination="vSe-ly-aMe" id="U9Q-4L-iWs"/>
+                        <outlet property="elementDiscoveryBy" destination="vSe-ly-aMe" id="U9Q-4L-iWs"/>
                         <outlet property="elementImage" destination="VdN-b0-AzA" id="0sg-5K-DoU"/>
                         <outlet property="elementMeltingPoint" destination="jlL-UT-YMu" id="n9G-M6-4ie"/>
                         <outlet property="elementName" destination="Pel-iy-xuL" id="TRb-FH-br7"/>

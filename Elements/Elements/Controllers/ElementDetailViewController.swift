@@ -18,7 +18,7 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var elementImage: UIImageView!
     @IBOutlet weak var elementMeltingPoint: UILabel!
     @IBOutlet weak var elementBoilingPoint: UILabel!
-    @IBOutlet weak var elementDiscoverBy: UILabel!
+    @IBOutlet weak var elementDiscoveryBy: UILabel!
     
     var element: Element!
 
@@ -39,7 +39,7 @@ class ElementDetailViewController: UIViewController {
         }
 
         if let discoverPerson = element.discovered_by {
-            elementDiscoverBy.text = "Discovered By: " + discoverPerson
+            elementDiscoveryBy.text = "Discovery By: " + discoverPerson
         }
         
         
