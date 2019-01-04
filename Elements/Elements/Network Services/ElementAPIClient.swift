@@ -29,4 +29,21 @@ final class ElementAPIClient {
             }
         }
     }
+    
+    static func favoriteElement(data: Data, completionHander: @escaping (AppError?, Bool) -> Void) {
+        NetworkHelper.shared.performUploadTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites", httpMethod: "POST", httpBody: data) { (appError, data, httpResponse) in
+            if let appError = appError {
+                completionHander(appError, false)
+            }
+            guard let response = httpResponse,
+                (200...299).contains(response.statusCode) else {
+                    let statusCode = httpResponse?.statusCode ?? -999
+                    completionHander(AppError.badStatusCode(statusCode.description), false)
+                    return
+                }
+                if let _ = data {
+                    completionHander(nil, true)
+                }
+            }
+    }
 }
