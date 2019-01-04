@@ -8,14 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ElementsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    print("Test to check I'm commiting changes correctly")
-  }
+    }
 
 
 }
