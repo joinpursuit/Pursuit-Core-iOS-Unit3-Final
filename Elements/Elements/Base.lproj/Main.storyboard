@@ -21,13 +21,36 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="By0-Bp-acS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ElementCell" textLabel="4rk-mN-HdJ" detailTextLabel="sX7-Na-rnb" imageView="75W-xl-IbK" style="IBUITableViewCellStyleSubtitle" id="By0-Bp-acS">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="By0-Bp-acS" id="ikl-Lx-Xl4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4rk-mN-HdJ">
+                                                    <rect key="frame" x="74" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sX7-Na-rnb">
+                                                    <rect key="frame" x="74" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="placeholderImage" id="75W-xl-IbK">
+                                                    <rect key="frame" x="15" y="0.0" width="44" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cty-bD-6A9" kind="show" id="kkX-50-7x0"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -50,6 +73,35 @@
             </objects>
             <point key="canvasLocation" x="578" y="680"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ESK-cz-z1s">
+            <objects>
+                <viewController id="cty-bD-6A9" customClass="DetailViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PRT-yv-Wzd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wU6-Hi-7sv">
+                                <rect key="frame" x="0.0" y="67" width="375" height="267"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wU6-Hi-7sv" firstAttribute="width" secondItem="PRT-yv-Wzd" secondAttribute="width" id="HEo-ol-608"/>
+                            <constraint firstItem="wU6-Hi-7sv" firstAttribute="centerY" secondItem="0rI-XK-45o" secondAttribute="centerY" constant="-165" id="Q5y-pe-LAv"/>
+                            <constraint firstItem="wU6-Hi-7sv" firstAttribute="height" secondItem="PRT-yv-Wzd" secondAttribute="height" multiplier="0.4" id="oXC-8B-Jbf"/>
+                            <constraint firstItem="wU6-Hi-7sv" firstAttribute="centerX" secondItem="0rI-XK-45o" secondAttribute="centerX" id="wSm-Nv-O4X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0rI-XK-45o"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="wU6-Hi-7sv" id="cQG-MR-C6q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gRL-9H-mod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1520.8" y="679.61019490254876"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fCj-pb-4N5">
             <objects>
@@ -69,4 +121,7 @@
             <point key="canvasLocation" x="-462" y="680"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholderImage" width="512" height="512"/>
+    </resources>
 </document>

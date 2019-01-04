@@ -8,17 +8,13 @@
 
 import Foundation
 
-struct ElementData: Codable {
-    let elements: [Element]
-}
 struct Element: Codable {
     let name: String
-    let atomic_mass: Double
-    let discovered_by: String
+//    let atomic_mass: Double
+//    let discovered_by: String
     let number: Int
-    let melt: Double
-    let boil: Double
-    let symbol: String
+//    let melt: Double
+//    let boil: Double
+//    let symbol: String
     let spectral_img: URL
 }
-
