@@ -32,8 +32,8 @@ class ElementDetailViewController: UIViewController {
         elementSymbol.text = element.symbol
         elementNum.text = element.number.description
         elementWeight.text = element.atomicMass.description
-        elementMelting.text = "Melting Point: \(String(describing: element.melt))"
-        elementBoiling.text = "Boiling Point: \(String(describing: element.boil))"
+        elementMelting.text = "Melting Point: \(element.melt ?? 0)"
+        elementBoiling.text = "Boiling Point: \(element.boil ?? 0)"
         elementDiscovered.text = "Discovered By: \(element.discoveredBy ?? "Unknown")"
         elementName.text = element.name
         if let image = ImageHelper.shared.image(forKey: "http://images-of-elements.com/\(element.name.lowercased()).jpg" as NSString) {

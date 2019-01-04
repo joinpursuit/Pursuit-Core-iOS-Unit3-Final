@@ -20,6 +20,7 @@
 		D58149BE21DFC35B006C1E2F /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58149BD21DFC35B006C1E2F /* ElementCell.swift */; };
 		D58149C021DFC6A8006C1E2F /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58149BF21DFC6A8006C1E2F /* ElementDetailViewController.swift */; };
 		D58149C221DFCEFB006C1E2F /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58149C121DFCEFB006C1E2F /* Favorite.swift */; };
+		D58149CD21DFDB88006C1E2F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58149CC21DFDB88006C1E2F /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D58149BD21DFC35B006C1E2F /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		D58149BF21DFC6A8006C1E2F /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
 		D58149C121DFCEFB006C1E2F /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		D58149CC21DFDB88006C1E2F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesViewController.swift; path = Elements/Controllers/FavoritesViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				5734756321DA90C700FB6177 /* ElementsViewController.swift */,
 				D58149BF21DFC6A8006C1E2F /* ElementDetailViewController.swift */,
+				D58149CC21DFDB88006C1E2F /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				D58149B521DFB161006C1E2F /* Element.swift in Sources */,
 				5734756421DA90C700FB6177 /* ElementsViewController.swift in Sources */,
 				D58149C221DFCEFB006C1E2F /* Favorite.swift in Sources */,
+				D58149CD21DFDB88006C1E2F /* FavoritesViewController.swift in Sources */,
 				D58149AF21DFB00D006C1E2F /* NetworkHelper.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
 				D58149BE21DFC35B006C1E2F /* ElementCell.swift in Sources */,
