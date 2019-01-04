@@ -12,6 +12,14 @@
 		5734756721DA90C700FB6177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756521DA90C700FB6177 /* Main.storyboard */; };
 		5734756921DA90C800FB6177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5734756821DA90C800FB6177 /* Assets.xcassets */; };
 		5734756C21DA90C800FB6177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756A21DA90C800FB6177 /* LaunchScreen.storyboard */; };
+		BF747A3C21DFB551009328C4 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A3B21DFB551009328C4 /* NetworkHelper.swift */; };
+		BF747A3F21DFB58A009328C4 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A3E21DFB58A009328C4 /* AppError.swift */; };
+		BF747A4121DFB5AF009328C4 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A4021DFB5AF009328C4 /* ImageHelper.swift */; };
+		BF747A4321DFB5DB009328C4 /* ElementAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A4221DFB5DB009328C4 /* ElementAPI.swift */; };
+		BF747A4621DFBA93009328C4 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A4521DFBA93009328C4 /* Element.swift */; };
+		BF747A4921DFBB74009328C4 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A4821DFBB74009328C4 /* ElementDetailViewController.swift */; };
+		BF747A4B21DFC02F009328C4 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A4A21DFC02F009328C4 /* ElementTableViewCell.swift */; };
+		BF747A4D21DFE813009328C4 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF747A4C21DFE813009328C4 /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		5734756821DA90C800FB6177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5734756B21DA90C800FB6177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5734756D21DA90C800FB6177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF747A3B21DFB551009328C4 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		BF747A3E21DFB58A009328C4 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		BF747A4021DFB5AF009328C4 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		BF747A4221DFB5DB009328C4 /* ElementAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPI.swift; sourceTree = "<group>"; };
+		BF747A4521DFBA93009328C4 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		BF747A4821DFBB74009328C4 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
+		BF747A4A21DFC02F009328C4 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
+		BF747A4C21DFE813009328C4 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +70,12 @@
 		5734756021DA90C700FB6177 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				5734756321DA90C700FB6177 /* ViewController.swift */,
+				BF747A4421DFBA74009328C4 /* Models */,
+				BF747A4721DFBAB5009328C4 /* Controller */,
 				5734756521DA90C700FB6177 /* Main.storyboard */,
 				5734757321DA90F500FB6177 /* Supporting Files */,
 				5734756D21DA90C800FB6177 /* Info.plist */,
+				BF747A3D21DFB560009328C4 /* Network Services */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -70,6 +88,36 @@
 				5734756A21DA90C800FB6177 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF747A3D21DFB560009328C4 /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF747A3B21DFB551009328C4 /* NetworkHelper.swift */,
+				BF747A3E21DFB58A009328C4 /* AppError.swift */,
+				BF747A4021DFB5AF009328C4 /* ImageHelper.swift */,
+				BF747A4221DFB5DB009328C4 /* ElementAPI.swift */,
+			);
+			path = "Network Services";
+			sourceTree = "<group>";
+		};
+		BF747A4421DFBA74009328C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF747A4521DFBA93009328C4 /* Element.swift */,
+				BF747A4C21DFE813009328C4 /* Favorite.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BF747A4721DFBAB5009328C4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF747A4A21DFC02F009328C4 /* ElementTableViewCell.swift */,
+				5734756321DA90C700FB6177 /* ViewController.swift */,
+				BF747A4821DFBB74009328C4 /* ElementDetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +191,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF747A4B21DFC02F009328C4 /* ElementTableViewCell.swift in Sources */,
+				BF747A4921DFBB74009328C4 /* ElementDetailViewController.swift in Sources */,
+				BF747A3F21DFB58A009328C4 /* AppError.swift in Sources */,
+				BF747A4121DFB5AF009328C4 /* ImageHelper.swift in Sources */,
 				5734756421DA90C700FB6177 /* ViewController.swift in Sources */,
+				BF747A4D21DFE813009328C4 /* Favorite.swift in Sources */,
+				BF747A4321DFB5DB009328C4 /* ElementAPI.swift in Sources */,
+				BF747A3C21DFB551009328C4 /* NetworkHelper.swift in Sources */,
+				BF747A4621DFBA93009328C4 /* Element.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
