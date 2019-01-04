@@ -9,7 +9,7 @@
 import UIKit
 
 class ElementsViewController: UIViewController {
-
+  
   @IBOutlet weak var elementsTableView: UITableView!
   
   
@@ -22,13 +22,13 @@ class ElementsViewController: UIViewController {
     }
   }
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      elementsTableView.dataSource = self
-      elementsTableView.delegate = self
-      searchElement()
-
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    elementsTableView.dataSource = self
+    elementsTableView.delegate = self
+    searchElement()
+    
+  }
   
   private func searchElement() {
     ElementAPIClient.searchElement{ (appError, elements) in
@@ -37,11 +37,11 @@ class ElementsViewController: UIViewController {
       } else if let elements = elements {
         self.elementsforTable = elements
         print(self.elementsforTable.count)
-
+        
       }
     }
   }
-
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let indexPath = elementsTableView.indexPathForSelectedRow,
       let elementInDetailVC = segue.destination as? DetailedElementsVC else {fatalError("segue or indexPath error")}
@@ -50,7 +50,7 @@ class ElementsViewController: UIViewController {
     elementInDetailVC.elementsForDeatiled = currentElementToSegue
     
   }
-
+  
 }
 
 extension ElementsViewController: UITableViewDataSource {
@@ -63,7 +63,7 @@ extension ElementsViewController: UITableViewDataSource {
     
     let currentElement = elementsforTable[indexPath.row]
     
-    cell.configureCell(element: currentElement)
+    cell.configureCell(element: currentElement, key: currentElement.number)
     
     
     return cell

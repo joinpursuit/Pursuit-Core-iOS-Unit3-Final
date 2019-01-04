@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailedElementsVC: UIViewController {
-
+  
   public var elementsForDeatiled: Elements!
   @IBOutlet weak var favoriteButton: UIBarButtonItem!
   
@@ -17,53 +17,48 @@ class DetailedElementsVC: UIViewController {
   
   @IBOutlet weak var discovery: UILabel!
   
-  
   @IBOutlet weak var number: UILabel!
   
   @IBOutlet weak var symbol: UILabel!
   
-  
   @IBOutlet weak var atomicMass: UILabel!
-  
   
   @IBOutlet weak var meltingpPoint: UILabel!
   
   @IBOutlet weak var boilingPoint: UILabel!
   
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    title = elementsForDeatiled.name
+    UpdateUI(imageKey: elementsForDeatiled.name.lowercased())
+  }
   
-  
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-     
-      title = elementsForDeatiled.name
-      UpdateUI()
-    }
-  
-  private func UpdateUI(){
-    if let image = ImageHelper.shared.image(forKey: "http://images-of-elements.com/argon.jpg" as NSString) {
-      imageDetailed.image = image
-    } else {
-      ImageHelper.shared.fetchImage(urlString: "http://images-of-elements.com/argon.jpg") { (appError, image) in
-        if let appError = appError {
-          print(appError.errorMessage())
-        } else if let image = image {
-          self.imageDetailed.image = image
+  private func UpdateUI(imageKey: String){
+    
+    ImageHelper.shared.fetchImage(urlString: "http://images-of-elements.com/\(imageKey).jpg") { (appError, image) in
+      if let appError = appError {
+        print(appError.errorMessage())
+        DispatchQueue.main.async {
+          self.imageDetailed.image = UIImage.init(named: "placeholderImage")
         }
+        
+      } else if let image = image {
+        self.imageDetailed.image = image
       }
     }
     number.text = "\( elementsForDeatiled.number)"
     symbol.text = elementsForDeatiled.symbol
-    atomicMass.text = "\(elementsForDeatiled.atomic_mass)"
+    atomicMass.text = "Relative Atomic Mass: \(elementsForDeatiled.atomic_mass)"
     
     if let discoveredBy = elementsForDeatiled.discovered_by{
       discovery.text = "Discovered by: " + discoveredBy
     } else {
       discovery.text = "Discovered by: Unknown"
     }
-      
-      
+    
+    
     if let meltingPoint = elementsForDeatiled.melt{
       meltingpPoint.text = "Melting point: " + String(meltingPoint)
     } else {
@@ -73,7 +68,7 @@ class DetailedElementsVC: UIViewController {
       boilingPoint.text = "Boiling point: " + String(boilPoint)
     } else {
       boilingPoint.text = "Not in data base yet"
-
+      
     }
     
   }
@@ -85,7 +80,7 @@ class DetailedElementsVC: UIViewController {
     present(alertController, animated:  true, completion: nil)
   }
   
-
+  
   
   @IBAction func addToFavorites(_ sender: UIBarButtonItem) {
     let favorite = Favorite.init(favoritedBy: "Eli Peraza", elementName: elementsForDeatiled.name, elementSymbol: elementsForDeatiled.symbol)
@@ -108,5 +103,5 @@ class DetailedElementsVC: UIViewController {
     }
   }
   
-
+  
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 class ElementsCustomCell: UITableViewCell {
-
-
+  
+  
   @IBOutlet weak var elementName: UILabel!
   
   @IBOutlet weak var elementInfo: UILabel!
@@ -22,9 +22,18 @@ class ElementsCustomCell: UITableViewCell {
   
   private var urlString = ""
   
-  public func configureCell(element: Elements) {
+  public func configureCell(element: Elements, key: Int) {
+    var keyToSet = String(key)
+    if keyToSet.count == 1 {
+      keyToSet = "00" + keyToSet
+    } else if keyToSet.count == 2 {
+      keyToSet = "0" + keyToSet
+    } else {
+      keyToSet = String(key)
+    }
+    print(keyToSet)
     
-    urlString = "http://www.theodoregray.com/periodictable/Tiles/018/s7.JPG"
+    urlString = "http://www.theodoregray.com/periodictable/Tiles/\(keyToSet)/s7.JPG"
     
     elementName.text = element.name
     elementInfo.text = "\(element.symbol) (\(element.number)) \(element.atomic_mass)"
@@ -40,7 +49,9 @@ class ElementsCustomCell: UITableViewCell {
             self.elementImage.image = image
           }
         }
-        self.activityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+          self.activityIndicator.stopAnimating()
+        }
       }
     }
   }

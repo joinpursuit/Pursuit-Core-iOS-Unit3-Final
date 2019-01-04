@@ -53,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E0DE64121DFFD91009EDC52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E97DC6821DFBAB500975501 /* ElementsCustomCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1E97DC5F21DFB42600975501 /* Network Docs */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +111,7 @@
 			children = (
 				5734756521DA90C700FB6177 /* Main.storyboard */,
 				1E97DC6A21DFCEFF00975501 /* TODOs.rtf */,
-				1E97DC6821DFBAB500975501 /* ElementsCustomCell.swift */,
+				1E0DE64121DFFD91009EDC52 /* Views */,
 				1E97DC6521DFB4BD00975501 /* View Controllers */,
 				1E97DC6021DFB44D00975501 /* Models */,
 				1E97DC5F21DFB42600975501 /* Network Docs */,

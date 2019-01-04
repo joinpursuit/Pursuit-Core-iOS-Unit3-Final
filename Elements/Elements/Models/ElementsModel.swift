@@ -19,7 +19,7 @@ struct Elements: Codable {
   let summary: String
   let symbol: String
   
-
+  
   
 }
 
