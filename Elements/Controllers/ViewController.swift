@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     private var elements = [Element]() {
         didSet {
             DispatchQueue.main.async {
-                self.title = "\(self.elements.count)"
+                self.title = "All Elements"
                 self.tableView.reloadData()
             }
         }
@@ -38,17 +38,6 @@ class ViewController: UIViewController {
         detailVC.selectedElement = elementToSegue
     }
     
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let indexPath = tableView.indexPathForSelectedRow,
-//            let detailVC = segue.destination as? PodcastDetailViewController else {
-//                fatalError("indexPath, detailVC nil")
-//        }
-//        let podcasts = podcast[indexPath.row]
-//        detailVC.selectedPodcast = podcasts
-//    }
-    
-    
     private func searchElement() {
         ElementAPIClient.searchElement{ (appError, elements) in
             if let appError = appError {
@@ -70,7 +59,9 @@ extension ViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath)
         let theElement = elements[indexPath.row]
         cell.textLabel?.text = theElement.name
-       
+        cell.detailTextLabel?.text = theElement.category
+        
+        
         if let image = ImageHelper.shared.image(forKey: "http://www.theodoregray.com/periodictable/Tiles/\((String(format:"%03d", theElement.number)))//s7.JPG" as NSString) {
             cell.imageView?.image = image
         } else {

@@ -9,12 +9,13 @@
 import Foundation
 
 struct Element: Codable {
-    let name: String
-//    let atomic_mass: Double
-//    let discovered_by: String
-    let number: Int
-//    let melt: Double
-//    let boil: Double
-//    let symbol: String
-    let spectral_img: URL
+    var name: String
+    var category: String
+    var atomic_mass: Double
+    var number: Int
+    var melt: Double?
+    var boil: Double?
+    var symbol: String
+    var summary: String
+   
 }

@@ -24,8 +24,8 @@ final class ElementAPIClient{
             if let data = data {
                 do {
                     let elementdata = try JSONDecoder().decode([Element].self, from: data)
-                                                            completionHandle(nil,elementdata)
-                                                            print(elementdata)
+                                                completionHandle(nil,elementdata)
+                                                print(elementdata)
 
                 } catch {
                     completionHandle(AppError.decodingError(error), nil)
@@ -35,7 +35,7 @@ final class ElementAPIClient{
         
     }
     static func favoriteElement(data: Data, completionHandle: @escaping(AppError?, Bool) -> Void) {
-        NetworkHelper.shared.performUploadTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites", httpMethod: "POST", httpBody: nil) { (appError, data, httpResponse) in
+        NetworkHelper.shared.performUploadTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites", httpMethod: "POST", httpBody: data) { (appError, data, httpResponse) in
             if let appError = appError {
                 completionHandle(appError, false)
             }
