@@ -47,7 +47,7 @@ final class ElementAPIClient {
             }
     }
     
-    static func getMyFavorites(name: String, completionHandler: @escaping (AppError?, [Favorite]?) -> Void) {
+    static func getMyFavorites(completionHandler: @escaping (AppError?, [Favorite]?) -> Void) {
         NetworkHelper.shared.performDataTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites", httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
             if let appError = appError {
                 completionHandler(appError, nil)
@@ -59,8 +59,7 @@ final class ElementAPIClient {
             }
             if let data = data {
                 do {
-                    var favoritesData = try JSONDecoder().decode([Favorite].self, from: data)
-                    favoritesData = favoritesData.filter{ $0.favoritedBy == name }
+                    let favoritesData = try JSONDecoder().decode([Favorite].self, from: data)
                     completionHandler(nil, favoritesData)
                 } catch {
                     completionHandler(AppError.decodingError(error), nil)

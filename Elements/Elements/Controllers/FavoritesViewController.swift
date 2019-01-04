@@ -23,17 +23,14 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         favoritesTableView.dataSource = self
-        fetchFavorites()
+        fetchFavorites(name: Constants.Name)
     }
-    private func fetchFavorites() {
-        guard let encodedName = Constants.Name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-            return
-        }
-        ElementAPIClient.getMyFavorites(name: encodedName) { (appError, favorites) in
+    private func fetchFavorites(name: String) {
+        ElementAPIClient.getMyFavorites() { (appError, favorites) in
             if let appError = appError {
                 print(appError.errorMessage())
             } else if let favorites = favorites {
-                self.myfavorites = favorites
+                self.myfavorites = favorites.filter{ $0.favoritedBy == name }
             }
         }
     }
