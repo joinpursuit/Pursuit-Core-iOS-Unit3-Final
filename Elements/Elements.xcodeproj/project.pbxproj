@@ -19,6 +19,9 @@
 		A54FF71221DFB0CF008B1147 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FF71121DFB0CF008B1147 /* ElementDetailViewController.swift */; };
 		A54FF71421DFB114008B1147 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FF71321DFB114008B1147 /* Element.swift */; };
 		A54FF71A21DFB18C008B1147 /* ElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FF71921DFB18C008B1147 /* ElementTableViewCell.swift */; };
+		A54FF71D21DFDE78008B1147 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FF71C21DFDE78008B1147 /* Favorite.swift */; };
+		A54FF71F21DFE327008B1147 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FF71E21DFE327008B1147 /* FavoritesViewController.swift */; };
+		A54FF72421DFE500008B1147 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FF72321DFE500008B1147 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		A54FF71121DFB0CF008B1147 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
 		A54FF71321DFB114008B1147 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		A54FF71921DFB18C008B1147 /* ElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementTableViewCell.swift; sourceTree = "<group>"; };
+		A54FF71C21DFDE78008B1147 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		A54FF71E21DFE327008B1147 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		A54FF72321DFE500008B1147 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +74,12 @@
 		5734756021DA90C700FB6177 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				5734756521DA90C700FB6177 /* Main.storyboard */,
 				A54FF71021DFB02F008B1147 /* Network Services */,
 				A54FF71B21DFB197008B1147 /* Model */,
 				A54FF71821DFB15C008B1147 /* Views */,
 				A54FF71521DFB12B008B1147 /* Controllers */,
-				5734756521DA90C700FB6177 /* Main.storyboard */,
+				A54FF72221DFE4DE008B1147 /* Utilities */,
 				5734757321DA90F500FB6177 /* Supporting Files */,
 				5734756D21DA90C800FB6177 /* Info.plist */,
 			);
@@ -105,6 +112,7 @@
 			children = (
 				5734756321DA90C700FB6177 /* ElementViewController.swift */,
 				A54FF71121DFB0CF008B1147 /* ElementDetailViewController.swift */,
+				A54FF71E21DFE327008B1147 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -121,8 +129,17 @@
 			isa = PBXGroup;
 			children = (
 				A54FF71321DFB114008B1147 /* Element.swift */,
+				A54FF71C21DFDE78008B1147 /* Favorite.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A54FF72221DFE4DE008B1147 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A54FF72321DFE500008B1147 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,10 +218,13 @@
 				A54FF70D21DFAE93008B1147 /* ImageHelper.swift in Sources */,
 				A54FF71421DFB114008B1147 /* Element.swift in Sources */,
 				5734756421DA90C700FB6177 /* ElementViewController.swift in Sources */,
+				A54FF71D21DFDE78008B1147 /* Favorite.swift in Sources */,
+				A54FF71F21DFE327008B1147 /* FavoritesViewController.swift in Sources */,
 				A54FF70921DFAE87008B1147 /* NetworkHelper.swift in Sources */,
 				A54FF70F21DFB028008B1147 /* ElementAPIClient.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
 				A54FF71221DFB0CF008B1147 /* ElementDetailViewController.swift in Sources */,
+				A54FF72421DFE500008B1147 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Pu-ZX-nYA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="79U-L9-IW4">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Element View Controller-->
+        <!--Elements-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ElementViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,6 +60,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Elements" id="QiY-iu-xGZ"/>
                     <navigationItem key="navigationItem" id="hwY-fa-QZ0"/>
                     <connections>
                         <outlet property="searchBar" destination="EvT-QB-fWv" id="eT0-e6-5pR"/>
@@ -68,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884.057971014493" y="20.758928571428569"/>
+            <point key="canvasLocation" x="1884" y="21"/>
         </scene>
         <!--Title-->
         <scene sceneID="vwk-22-54l">
@@ -79,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VdN-b0-AzA">
-                                <rect key="frame" x="22" y="484" width="370" height="370"/>
+                                <rect key="frame" x="22" y="435" width="370" height="370"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VdN-b0-AzA" secondAttribute="height" multiplier="1:1" id="u8D-j2-WtI"/>
                                 </constraints>
@@ -129,7 +130,11 @@
                         <viewLayoutGuide key="safeArea" id="Gf3-dT-Sdy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ygW-T4-2ex">
-                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="gqS-YQ-Ejk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="gqS-YQ-Ejk">
+                            <connections>
+                                <action selector="addToFavorites:" destination="cLq-wy-EaY" id="07f-RU-SYb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="elementImage" destination="VdN-b0-AzA" id="0sg-5K-DoU"/>
@@ -137,16 +142,77 @@
                         <outlet property="elementNumber" destination="6Ee-0b-joY" id="Hoy-LL-8AI"/>
                         <outlet property="elementSymbol" destination="aLr-hg-Vr7" id="Maq-Eo-fVP"/>
                         <outlet property="elementWeight" destination="yEG-BA-AYf" id="fZ2-85-WN3"/>
+                        <outlet property="favoriteButton" destination="gqS-YQ-Ejk" id="sn2-AM-nqr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hlu-0X-qCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2560.8695652173915" y="20.758928571428569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Favorites-->
+        <scene sceneID="ESA-Z8-wLt">
+            <objects>
+                <viewController title="My Favorites" id="dGs-oL-DQD" customClass="FavoritesViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HN8-jf-MbZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bJA-tk-Ha6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteCell" id="eVj-kf-VBT">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVj-kf-VBT" id="LPG-Zz-API">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="55z-Oa-fc9" firstAttribute="bottom" secondItem="bJA-tk-Ha6" secondAttribute="bottom" id="8tV-ge-OdX"/>
+                            <constraint firstItem="bJA-tk-Ha6" firstAttribute="top" secondItem="55z-Oa-fc9" secondAttribute="top" id="AQK-VI-ruA"/>
+                            <constraint firstItem="55z-Oa-fc9" firstAttribute="trailing" secondItem="bJA-tk-Ha6" secondAttribute="trailing" id="IHd-V8-MWO"/>
+                            <constraint firstItem="bJA-tk-Ha6" firstAttribute="leading" secondItem="55z-Oa-fc9" secondAttribute="leading" id="jTc-NQ-MTl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="55z-Oa-fc9"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="spE-iZ-De0"/>
+                    <connections>
+                        <outlet property="favoritesTableView" destination="bJA-tk-Ha6" id="eWR-KT-G8l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5I-Fh-yYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1259" y="-743"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MIk-6a-JOH">
+            <objects>
+                <tabBarController id="79U-L9-IW4" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oon-n9-Mnm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="6Pu-ZX-nYA" kind="relationship" relationship="viewControllers" id="pXk-8P-DP8"/>
+                        <segue destination="dGs-oL-DQD" kind="relationship" relationship="viewControllers" id="VGD-JD-tEE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAX-jv-fWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="-743"/>
+        </scene>
+        <!--Elements-->
         <scene sceneID="lY4-KN-Hsp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Pu-ZX-nYA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Elements" id="5J7-RZ-TLT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yw8-Hb-d1s">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

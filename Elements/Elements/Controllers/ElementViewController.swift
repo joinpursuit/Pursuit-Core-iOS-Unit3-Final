@@ -77,7 +77,7 @@ extension ElementViewController: UITableViewDataSource {
         let elementToSet = elements[indexPath.row]
         //cell.configureCell(element: elementToSet)
         cell.textLabel?.text = elementToSet.name
-        cell.detailTextLabel?.text = "\(elementToSet.symbol)(\(elementToSet.number)) \(String(format: "%.2f", elementToSet.atomic_mass))"
+        cell.detailTextLabel?.text = "\(elementToSet.symbol)(\(elementToSet.number)) \(elementToSet.atomic_mass)"
         
         let imageURL = "http://www.theodoregray.com/periodictable/Tiles/\(formatElementNumber.elementNumberWithThreeDigits(element: elementToSet))/s7.JPG"
         
