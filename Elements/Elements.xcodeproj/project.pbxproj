@@ -110,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				61D3FFF221DFBDD10032E7BB /* Elements.swift */,
-				61D3FFF421DFC2270032E7BB /* ElementAPIClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +120,7 @@
 				61D3FFE221DFB1AC0032E7BB /* AppError.swift */,
 				61D3FFE421DFB1D30032E7BB /* ImageHelper.swift */,
 				61D3FFE021DFB19F0032E7BB /* NetworkHelper.swift */,
+				61D3FFF421DFC2270032E7BB /* ElementAPIClient.swift */,
 			);
 			path = NetworkHelpers;
 			sourceTree = "<group>";

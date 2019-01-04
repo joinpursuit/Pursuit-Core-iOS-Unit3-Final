@@ -33,9 +33,9 @@ class ElementsVC: UIViewController {
 
     //Load Data
     private func loadData(){
-        ElementAPIClient.getElements(keyword: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements") { (appError, element) in
+        ElementApiClient().getElements { (appError, element) in
             if let appError = appError {
-                print(appError.errorMessage())
+                print(appError.localizedDescription)
             } else if let element = element {
                 self.element = element
             }
