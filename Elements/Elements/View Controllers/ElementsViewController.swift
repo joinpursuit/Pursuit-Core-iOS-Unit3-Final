@@ -42,7 +42,14 @@ class ElementsViewController: UIViewController {
     }
   }
 
-
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let indexPath = elementsTableView.indexPathForSelectedRow,
+      let elementInDetailVC = segue.destination as? DetailedElementsVC else {fatalError("segue or indexPath error")}
+    
+    let currentElementToSegue = elementsforTable[indexPath.row]
+    elementInDetailVC.elementsForDeatiled = currentElementToSegue
+    
+  }
 
 }
 
@@ -57,7 +64,9 @@ extension ElementsViewController: UITableViewDataSource {
     let currentElement = elementsforTable[indexPath.row]
     
     cell.elementName.text = currentElement.name
-
+    cell.elementInfo.text = "\(currentElement.symbol) (\(currentElement.number)) \(currentElement.atomic_mass)"
+    
+    
     return cell
     
   }
