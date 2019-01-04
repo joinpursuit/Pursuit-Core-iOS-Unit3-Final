@@ -23,7 +23,6 @@ final class elementAPIClient {
             if let data = data {
                 do {
                   let elementData = try JSONDecoder().decode([Element].self, from: data)
-                    print("got data")
                     completionHandler(nil, elementData)
                 } catch {
                     completionHandler(AppError.decodingError(error), nil)
@@ -31,9 +30,4 @@ final class elementAPIClient {
             }
         }
     }
-    
-    
-    
-    
-    
 }
