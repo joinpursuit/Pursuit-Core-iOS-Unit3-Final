@@ -27,6 +27,7 @@ class DetailedElementsVC: UIViewController {
   
   @IBOutlet weak var boilingPoint: UILabel!
   
+  @IBOutlet weak var nameForDetailed: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,6 +53,8 @@ class DetailedElementsVC: UIViewController {
     symbol.text = elementsForDeatiled.symbol
     atomicMass.text = "Relative Atomic Mass: \(elementsForDeatiled.atomic_mass)"
     
+    nameForDetailed.text = elementsForDeatiled.name
+    
     if let discoveredBy = elementsForDeatiled.discovered_by{
       discovery.text = "Discovered by: " + discoveredBy
     } else {
@@ -62,12 +65,12 @@ class DetailedElementsVC: UIViewController {
     if let meltingPoint = elementsForDeatiled.melt{
       meltingpPoint.text = "Melting point: " + String(meltingPoint)
     } else {
-      meltingpPoint.text = "Not in data base yet"
+      meltingpPoint.text = "Melting point: consult further"
     }
     if let boilPoint = elementsForDeatiled.boil{
       boilingPoint.text = "Boiling point: " + String(boilPoint)
     } else {
-      boilingPoint.text = "Not in data base yet"
+      boilingPoint.text = "Boiling Point: consult further"
       
     }
     
