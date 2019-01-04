@@ -9,7 +9,10 @@
 import UIKit
 
 class ElementDetailViewController: UIViewController {
-    @IBOutlet weak var elementDetailImage: UIImageView!
+    
+    @IBOutlet var detailBackgroundView: UIView!
+    @IBOutlet weak var elementDetailName: UILabel!
+    @IBOutlet weak var elementDetailView: UIView!
     @IBOutlet weak var elementDetailSymbol: UILabel!
     @IBOutlet weak var elementDetailNumber: UILabel!
     @IBOutlet weak var elementDetailWeight: UILabel!
@@ -17,10 +20,51 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var elementDetailBoil: UILabel!
     @IBOutlet weak var elementDetailDiscover: UILabel!
     
+    
+    public var element: ElementData!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = element.name
+        updateObject()
 
     }
+    
+    private func updateObject() {
+        let imageUrl = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
+        if let image = ImageHelper.shared.image(forKey: imageUrl as NSString) {
+            detailBackgroundView.backgroundColor = UIColor(patternImage: image)
+        } else {
+            ImageHelper.shared.fetchImage(urlString: imageUrl) { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    self.detailBackgroundView.backgroundColor = UIColor(patternImage: image)
+                }
+            }
+        }
+        elementDetailName.text = element.name
+        elementDetailSymbol.text = element.symbol
+        elementDetailNumber.text = String(element.number)
+        elementDetailWeight.text = String(element.atomicMass)
+        if let discovered = element.discoveredBy {
+            elementDetailDiscover.text = "Discovered by: \(discovered)"
+        }
+        if let melt = element.melt {
+            elementDetailMelt.text = "Melting Point: \(String(melt))"
+        }
+        if let boil = element.boil {
+            elementDetailBoil.text = "Boiling Point: \(String(boil))"
+        }
+    }
+    
+    
+    
+    
 
-
+    @IBAction func favoritesPressed(_ sender: Any) {
+    }
+    
 }

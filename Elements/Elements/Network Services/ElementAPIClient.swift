@@ -30,6 +30,8 @@ final class ElementAPIClient {
             }
         }
     }
+    
+
 
     
     static func getElementImage(num: Int)-> String {

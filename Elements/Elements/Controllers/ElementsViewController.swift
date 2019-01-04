@@ -34,7 +34,14 @@ class ElementsViewController: UIViewController {
             }
         }
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow,
+            let elementDetailViewController = segue.destination as? ElementDetailViewController else {
+                fatalError("indexPath, detailVC nil")
+        }
+        let element = elements[indexPath.row]
+        elementDetailViewController.element = element
+    }
 }
 
 extension ElementsViewController: UITableViewDataSource {
@@ -45,7 +52,7 @@ extension ElementsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementCell
             else { fatalError("error getting element cell") }
-        var elementToSetUp = elements[indexPath.row]
+        let elementToSetUp = elements[indexPath.row]
         cell.elementName.text = elementToSetUp.name
         cell.elementInfo.text = "\(elementToSetUp.symbol)(\(elementToSetUp.number)) \(elementToSetUp.atomicMass)"
 
@@ -62,29 +69,6 @@ extension ElementsViewController: UITableViewDataSource {
                     
                 }
             }
-        
-        
-        
-//        ElementAPIClient.getElementImage(number: elementToSetUp.number) { (appError, element) in
-//            if let appError = appError {
-//                print(appError.errorMessage())
-//            } else {
-//                if let imageUrl = url {
-//                    if let image = ImageClient.getImage(StringURL: imageUrl) {
-//                        self.imageView.image = image
-//                    }
-//                }
-//            }
-//        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
         }
         return cell
     }
