@@ -30,7 +30,13 @@ class ElementsCell: UITableViewCell {
         elementSymbol.text? = element.symbol
         ImageHelper.shared.fetchImage(urlString: "http://www.theodoregray.com/periodictable/Tiles/\(threeDigitNum)/s7.JPG") { (error, image) in
             if let image = image {
-                self.elementImage?.image = image
+                DispatchQueue.main.async {
+                    self.elementImage?.image = image
+                    
+                }
+                
+            } else if let error = error {
+                print(error)
             }
         }
         

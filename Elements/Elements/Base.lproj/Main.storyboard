@@ -28,14 +28,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ic-jL-qit">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ic-jL-qit">
                                                     <rect key="frame" x="149" y="33" width="200" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duG-iQ-vy3">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duG-iQ-vy3">
                                                     <rect key="frame" x="149" y="78" width="200" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -48,28 +49,18 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="duG-iQ-vy3" secondAttribute="trailing" constant="11" id="0OH-P4-NfE"/>
                                                 <constraint firstItem="P9Z-Um-5BF" firstAttribute="top" secondItem="Ina-sl-lNS" secondAttribute="top" constant="11" id="11j-kc-mXH"/>
-                                                <constraint firstItem="P9Z-Um-5BF" firstAttribute="top" secondItem="Ina-sl-lNS" secondAttribute="topMargin" constant="11" id="3Q4-oA-p2t"/>
                                                 <constraint firstItem="P9Z-Um-5BF" firstAttribute="leading" secondItem="Ina-sl-lNS" secondAttribute="leadingMargin" constant="11" id="FAm-Gr-IWm"/>
                                                 <constraint firstItem="6Ic-jL-qit" firstAttribute="top" secondItem="Ina-sl-lNS" secondAttribute="topMargin" constant="22" id="FSY-Sa-kGU"/>
                                                 <constraint firstItem="6Ic-jL-qit" firstAttribute="leading" secondItem="P9Z-Um-5BF" secondAttribute="trailing" constant="11" id="FT9-0e-JuS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6Ic-jL-qit" secondAttribute="trailing" constant="11" id="NY2-Kj-TNx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="duG-iQ-vy3" secondAttribute="trailing" constant="11" id="WQv-he-M7V"/>
                                                 <constraint firstItem="6Ic-jL-qit" firstAttribute="top" secondItem="Ina-sl-lNS" secondAttribute="topMargin" constant="22" id="Y0J-ie-7Eo"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="duG-iQ-vy3" secondAttribute="bottom" constant="22" id="ber-Gq-f0g"/>
-                                                <constraint firstItem="duG-iQ-vy3" firstAttribute="leading" secondItem="P9Z-Um-5BF" secondAttribute="trailing" constant="11" id="evX-YA-p22"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6Ic-jL-qit" secondAttribute="trailing" constant="11" id="nLL-cm-hqT"/>
-                                                <constraint firstItem="duG-iQ-vy3" firstAttribute="top" secondItem="6Ic-jL-qit" secondAttribute="bottom" constant="22" id="pln-sO-lJV"/>
-                                                <constraint firstItem="duG-iQ-vy3" firstAttribute="top" secondItem="6Ic-jL-qit" secondAttribute="bottom" constant="11" id="qtr-zM-RFE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="duG-iQ-vy3" secondAttribute="bottom" constant="22" id="tDQ-9I-CwJ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="P9Z-Um-5BF" secondAttribute="bottom" constant="11" id="wCJ-eB-wHz"/>
                                             </constraints>
-                                            <connections>
-                                                <outlet property="elementImage" destination="P9Z-Um-5BF" id="z7z-nK-MPD"/>
-                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="elementImage" destination="P9Z-Um-5BF" id="2K5-v4-q2h"/>
                                             <outlet property="elementName" destination="6Ic-jL-qit" id="Eqd-bH-36a"/>
                                             <outlet property="elementSymbol" destination="duG-iQ-vy3" id="nHQ-kT-HPp"/>
                                             <segue destination="Wlp-jn-v8n" kind="show" id="Xje-a7-2pi"/>

@@ -25,8 +25,10 @@ class ElementsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
+      
         loadData()
-       // tableView.delegate = self
+       
         
         
     }
@@ -69,8 +71,8 @@ extension ElementsViewController: UITableViewDataSource {
         return cell 
     }
 }
-extension ElementsDetailViewController: UITableViewDelegate {
+extension ElementsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 150
     }
 }
