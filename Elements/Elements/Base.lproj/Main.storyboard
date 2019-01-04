@@ -84,19 +84,60 @@
                                     <constraint firstAttribute="width" secondItem="VdN-b0-AzA" secondAttribute="height" multiplier="1:1" id="u8D-j2-WtI"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="QO3-bG-dVF">
+                                <rect key="frame" x="66" y="99" width="282" height="282"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ee-0b-joY">
+                                        <rect key="frame" x="0.0" y="0.0" width="282" height="64.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLr-hg-Vr7">
+                                        <rect key="frame" x="0.0" y="64.5" width="282" height="125.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="68"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-iy-xuL">
+                                        <rect key="frame" x="0.0" y="190" width="282" height="46"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.011" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEG-BA-AYf">
+                                        <rect key="frame" x="0.0" y="236" width="282" height="46"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QO3-bG-dVF" secondAttribute="height" multiplier="1:1" id="PK8-bp-6dC"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Gf3-dT-Sdy" firstAttribute="bottom" secondItem="VdN-b0-AzA" secondAttribute="bottom" constant="8" id="0el-PI-7lD"/>
-                            <constraint firstItem="VdN-b0-AzA" firstAttribute="leading" secondItem="uPu-wJ-Q40" secondAttribute="leading" constant="22" id="GAG-eB-xo4"/>
-                            <constraint firstItem="VdN-b0-AzA" firstAttribute="centerX" secondItem="Gf3-dT-Sdy" secondAttribute="centerX" id="UIW-he-z6X"/>
-                            <constraint firstAttribute="trailing" secondItem="VdN-b0-AzA" secondAttribute="trailing" constant="22" id="kie-bh-N4T"/>
+                            <constraint firstItem="Gf3-dT-Sdy" firstAttribute="trailing" secondItem="VdN-b0-AzA" secondAttribute="trailing" constant="22" id="1iR-hU-hso"/>
+                            <constraint firstItem="QO3-bG-dVF" firstAttribute="leading" secondItem="Gf3-dT-Sdy" secondAttribute="leading" constant="66" id="TXz-im-Z3V"/>
+                            <constraint firstItem="Gf3-dT-Sdy" firstAttribute="trailing" secondItem="QO3-bG-dVF" secondAttribute="trailing" constant="66" id="Zzu-9T-4jy"/>
+                            <constraint firstItem="VdN-b0-AzA" firstAttribute="leading" secondItem="Gf3-dT-Sdy" secondAttribute="leading" constant="22" id="g5A-HB-2H9"/>
+                            <constraint firstItem="QO3-bG-dVF" firstAttribute="top" secondItem="Gf3-dT-Sdy" secondAttribute="top" constant="11" id="iB6-bJ-DjG"/>
+                            <constraint firstItem="Gf3-dT-Sdy" firstAttribute="bottom" secondItem="VdN-b0-AzA" secondAttribute="bottom" constant="8" id="lpd-nd-Hf3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gf3-dT-Sdy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ygW-T4-2ex">
                         <barButtonItem key="rightBarButtonItem" title="Favorite" id="gqS-YQ-Ejk"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="elementImage" destination="VdN-b0-AzA" id="0sg-5K-DoU"/>
+                        <outlet property="elementName" destination="Pel-iy-xuL" id="TRb-FH-br7"/>
+                        <outlet property="elementNumber" destination="6Ee-0b-joY" id="Hoy-LL-8AI"/>
+                        <outlet property="elementSymbol" destination="aLr-hg-Vr7" id="Maq-Eo-fVP"/>
+                        <outlet property="elementWeight" destination="yEG-BA-AYf" id="fZ2-85-WN3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hlu-0X-qCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
