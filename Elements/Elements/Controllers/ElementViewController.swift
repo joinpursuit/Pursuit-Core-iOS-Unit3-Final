@@ -8,12 +8,21 @@
 
 import UIKit
 
-class ElementViewController: UIViewController {
+class ElementViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     private var refreshControl: UIRefreshControl!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        searchBar.delegate = self
+        getElementsData()
+        setupRefreshControl()
+        tableView.delegate = self
+    }
     
     @objc private func fetchElements() {
         refreshControl.endRefreshing()
@@ -44,13 +53,7 @@ class ElementViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-    super.viewDidLoad()
-    tableView.dataSource = self
-    searchBar.delegate = self
-    getElementsData()
-    setupRefreshControl()
-  }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? ElementDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -58,13 +61,10 @@ class ElementViewController: UIViewController {
         destination.element = elementToSend
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
-
-//extension ElementTableViewCell: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 300
-//    }
-//}
 
 extension ElementViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,22 +79,20 @@ extension ElementViewController: UITableViewDataSource {
         cell.textLabel?.text = elementToSet.name
         cell.detailTextLabel?.text = "\(elementToSet.symbol)(\(elementToSet.number)) \(elementToSet.atomic_mass)"
      //   cell.imageView?.image = UIImage(named: "placeholderImage")
-                if let safeURL = elementToSet.spectral_img?.absoluteString {
-                    if let image = ImageHelper.shared.image(forKey: safeURL as NSString) {
-                        cell.imageView?.image = image
-                    } else {
-                        ImageHelper.shared.fetchImage(urlString: safeURL) { (appError, image) in
-                            if let appError = appError {
-                                print(appError.errorMessage())
-                            } else if let image = image {
-                                if elementToSet.spectral_img?.absoluteString == safeURL {
-                                    cell.imageView?.image = image
-                                }
-                            }
-                        }
-                    }
+        
+
+        let imageURL = "http://www.theodoregray.com/periodictable/Tiles/\(formatElementNumber.elementNumberWithThreeDigits(element: elementToSet))/s7.JPG"
+        if let url = URL.init(string: imageURL) {
+            do {
+                let data = try Data.init(contentsOf: url)
+                if let image = UIImage.init(data: data) {
+                    cell.imageView?.image = image
                 }
-        return cell
+            } catch {
+                print("image error is: \(error)")
+            }
+        }
+    return cell
     }
 }
 

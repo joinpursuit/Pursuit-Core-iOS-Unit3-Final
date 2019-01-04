@@ -11,10 +11,19 @@ import Foundation
 struct Element: Codable {
     let name: String
     let symbol: String
-    let spectral_img: URL?
     let discovered_by: String?
     let number: Int
     let atomic_mass: Double
     let boil: Double?
     let melt: Double?
+}
+
+struct formatElementNumber {
+    static func elementNumberWithThreeDigits(element: Element) -> String {
+        if element.number < 10 {
+            return "00\(element.number.description)"
+        } else {
+            return "0\(element.number.description)"
+        }
+    }
 }
