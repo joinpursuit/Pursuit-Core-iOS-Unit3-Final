@@ -88,16 +88,92 @@
             </objects>
             <point key="canvasLocation" x="919" y="32"/>
         </scene>
-        <!--View Controller-->
+        <!--Element Detail View Controller-->
         <scene sceneID="QRH-2u-CMs">
             <objects>
-                <viewController id="ehB-db-rXG" sceneMemberID="viewController">
+                <viewController id="ehB-db-rXG" customClass="ElementDetailViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZS-46-BSA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cfb-Wv-GXl">
+                                <rect key="frame" x="44" y="99" width="287" height="287"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cfb-Wv-GXl" secondAttribute="height" multiplier="1:1" id="uRm-xw-Ggq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czr-n8-Gt0">
+                                <rect key="frame" x="11" y="408" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lQ-Rf-Oba">
+                                <rect key="frame" x="11" y="451" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atomic Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgK-G0-HFM">
+                                <rect key="frame" x="11" y="494" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melting point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9z-Ev-XaR">
+                                <rect key="frame" x="11" y="537" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boiling Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="va5-uK-Wt2">
+                                <rect key="frame" x="11" y="580" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dicovered By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ho-Fr-w79">
+                                <rect key="frame" x="11" y="623" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1lQ-Rf-Oba" firstAttribute="leading" secondItem="pkt-6P-tCz" secondAttribute="leading" constant="11" id="0eo-Xc-IDa"/>
+                            <constraint firstItem="1lQ-Rf-Oba" firstAttribute="top" secondItem="Czr-n8-Gt0" secondAttribute="bottom" constant="22" id="3ae-92-7dt"/>
+                            <constraint firstItem="va5-uK-Wt2" firstAttribute="leading" secondItem="pkt-6P-tCz" secondAttribute="leading" constant="11" id="86D-IK-Uud"/>
+                            <constraint firstItem="Cfb-Wv-GXl" firstAttribute="top" secondItem="pkt-6P-tCz" secondAttribute="top" constant="11" id="Fdr-af-jro"/>
+                            <constraint firstItem="pkt-6P-tCz" firstAttribute="trailing" secondItem="Cfb-Wv-GXl" secondAttribute="trailing" constant="44" id="GMB-mK-lXH"/>
+                            <constraint firstItem="UgK-G0-HFM" firstAttribute="leading" secondItem="pkt-6P-tCz" secondAttribute="leading" constant="11" id="NXs-NC-pHw"/>
+                            <constraint firstItem="pkt-6P-tCz" firstAttribute="trailing" secondItem="Czr-n8-Gt0" secondAttribute="trailing" constant="11" id="PLw-7d-HaY"/>
+                            <constraint firstItem="7ho-Fr-w79" firstAttribute="leading" secondItem="pkt-6P-tCz" secondAttribute="leading" constant="11" id="SIF-Xx-Doz"/>
+                            <constraint firstItem="f9z-Ev-XaR" firstAttribute="top" secondItem="UgK-G0-HFM" secondAttribute="bottom" constant="22" id="VcI-zs-wXF"/>
+                            <constraint firstItem="Czr-n8-Gt0" firstAttribute="top" secondItem="Cfb-Wv-GXl" secondAttribute="bottom" constant="22" id="Wkm-NX-zWf"/>
+                            <constraint firstItem="UgK-G0-HFM" firstAttribute="top" secondItem="1lQ-Rf-Oba" secondAttribute="bottom" constant="22" id="YbL-Tg-Ctm"/>
+                            <constraint firstItem="pkt-6P-tCz" firstAttribute="trailing" secondItem="va5-uK-Wt2" secondAttribute="trailing" constant="11" id="Yv2-1e-iUn"/>
+                            <constraint firstItem="pkt-6P-tCz" firstAttribute="trailing" secondItem="7ho-Fr-w79" secondAttribute="trailing" constant="11" id="cFh-Gb-Mfa"/>
+                            <constraint firstItem="Cfb-Wv-GXl" firstAttribute="leading" secondItem="pkt-6P-tCz" secondAttribute="leading" constant="44" id="e1z-m3-x7U"/>
+                            <constraint firstItem="7ho-Fr-w79" firstAttribute="top" secondItem="va5-uK-Wt2" secondAttribute="bottom" constant="22" id="jL2-bq-2yb"/>
+                            <constraint firstItem="pkt-6P-tCz" firstAttribute="trailing" secondItem="f9z-Ev-XaR" secondAttribute="trailing" constant="11" id="orO-Oq-ibq"/>
+                            <constraint firstItem="pkt-6P-tCz" firstAttribute="trailing" secondItem="1lQ-Rf-Oba" secondAttribute="trailing" constant="11" id="qth-yo-JYi"/>
+                            <constraint firstItem="pkt-6P-tCz" firstAttribute="trailing" secondItem="UgK-G0-HFM" secondAttribute="trailing" constant="11" id="s2n-PT-8z5"/>
+                            <constraint firstItem="va5-uK-Wt2" firstAttribute="top" secondItem="f9z-Ev-XaR" secondAttribute="bottom" constant="22" id="uJ7-5K-k11"/>
+                            <constraint firstItem="Czr-n8-Gt0" firstAttribute="leading" secondItem="pkt-6P-tCz" secondAttribute="leading" constant="11" id="uMU-sH-pXR"/>
+                            <constraint firstItem="f9z-Ev-XaR" firstAttribute="leading" secondItem="pkt-6P-tCz" secondAttribute="leading" constant="11" id="z7h-0b-d0h"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pkt-6P-tCz"/>
                     </view>
+                    <connections>
+                        <outlet property="atomicWeight" destination="UgK-G0-HFM" id="tA9-wk-ZrX"/>
+                        <outlet property="boilingPoint" destination="va5-uK-Wt2" id="Xzj-sS-mvr"/>
+                        <outlet property="discoveredBy" destination="7ho-Fr-w79" id="uLH-YN-vip"/>
+                        <outlet property="elementImage" destination="Cfb-Wv-GXl" id="2If-F2-gLR"/>
+                        <outlet property="elementNumber" destination="1lQ-Rf-Oba" id="os3-3i-cUT"/>
+                        <outlet property="elementSymbol" destination="Czr-n8-Gt0" id="W4n-4F-xeV"/>
+                        <outlet property="meltingPoint" destination="f9z-Ev-XaR" id="cyp-ZQ-ohe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBW-0G-BRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

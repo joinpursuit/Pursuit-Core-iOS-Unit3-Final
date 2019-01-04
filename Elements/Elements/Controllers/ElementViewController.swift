@@ -36,6 +36,13 @@ class ElementViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? ElementDetailViewController,
+            let cellSelected = elementTableView.indexPathForSelectedRow else { return }
+        let userSelected = elements[cellSelected.row]
+        destination.element = userSelected
+    }
+    
 }
 
 extension ElementViewController: UITableViewDataSource {
@@ -47,7 +54,8 @@ extension ElementViewController: UITableViewDataSource {
         guard let cell = elementTableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementViewCell else { return UITableViewCell() }
         let elementToSet = elements[indexPath.row]
         cell.elementName.text = elementToSet.name
-        cell.atomicWeight.text = "Atomic Weight: \(elementToSet.atomicMass)"
+        cell.atomicWeight.text = String(format: "Atomic Mass: %.2f", elementToSet.atomicMass)
+        
         return cell
     }
     
