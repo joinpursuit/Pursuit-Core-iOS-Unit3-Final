@@ -20,6 +20,7 @@
 		96CF735B21DFBCCA007D3BF3 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF735A21DFBCCA007D3BF3 /* ElementCell.swift */; };
 		96CF735D21DFC4FD007D3BF3 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF735C21DFC4FD007D3BF3 /* ElementDetailViewController.swift */; };
 		96CF735F21DFCF08007D3BF3 /* FavoriteElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF735E21DFCF08007D3BF3 /* FavoriteElement.swift */; };
+		96CF736121DFD67A007D3BF3 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF736021DFD67A007D3BF3 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		96CF735A21DFBCCA007D3BF3 /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		96CF735C21DFC4FD007D3BF3 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
 		96CF735E21DFCF08007D3BF3 /* FavoriteElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteElement.swift; sourceTree = "<group>"; };
+		96CF736021DFD67A007D3BF3 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				5734756321DA90C700FB6177 /* ElementViewController.swift */,
+				96CF736021DFD67A007D3BF3 /* FavoriteViewController.swift */,
 				96CF735A21DFBCCA007D3BF3 /* ElementCell.swift */,
 				96CF735C21DFC4FD007D3BF3 /* ElementDetailViewController.swift */,
 				5734756521DA90C700FB6177 /* Main.storyboard */,
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CF736121DFD67A007D3BF3 /* FavoriteViewController.swift in Sources */,
 				96CF735121DFB12D007D3BF3 /* AppError.swift in Sources */,
 				96CF735D21DFC4FD007D3BF3 /* ElementDetailViewController.swift in Sources */,
 				96CF735F21DFCF08007D3BF3 /* FavoriteElement.swift in Sources */,
@@ -347,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9P5SSDN939;
 				INFOPLIST_FILE = Elements/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -366,7 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9P5SSDN939;
 				INFOPLIST_FILE = Elements/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

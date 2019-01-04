@@ -61,6 +61,33 @@ final class ElementAPI{
         
     }
     
+    static func favoriteElemntsChosen(complete: @escaping (AppError?, [FavoriteElement]?)-> Void){
+        NetworkHelper.shared.performDataTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites", httpMethod: "GET", httpBody: nil) { (appError, data, urlResponse) in
+            if let error = appError{
+                complete(error, nil)
+                
+            }
+            
+            if let response = urlResponse{
+                (200...299).contains(response.statusCode)
+            } else {
+                let statusCode = urlResponse?.statusCode ?? -999
+                complete(AppError.badStatusCode(String(statusCode)), nil)
+                return
+            }
+            
+            if let elementData = data{
+                do {
+                    let element = try JSONDecoder().decode([FavoriteElement].self, from: elementData)
+                    complete(nil, element.filter(){$0.favoritedBy == "Jason"})
+                } catch {
+                    complete(AppError.decodingError(error), nil)
+                }
+            }
+            
+            
+        }
+    }
     
     
     

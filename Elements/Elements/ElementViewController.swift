@@ -59,9 +59,10 @@ extension ElementViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = ElementTableView.dequeueReusableCell(withIdentifier: "elementCell") as? ElementCell else {return UITableViewCell()}
+        let selectedElement = elements[indexPath.row]
         
-        cell.elementName.text = elements[indexPath.row].name
-        cell.elementSymbol.text = "\(elements[indexPath.row].symbol), \(elements[indexPath.row].atomic_mass)"
+        cell.elementName.text = selectedElement.name
+        cell.elementSymbol.text = "\(selectedElement.symbol), \(selectedElement.atomic_mass)"
 //
 //        func number(elementNumber: Int){
 //            ImageHelper.shared.fetchImage(urlString:  "http://www.theodoregray.com/periodictable/Tiles/\(elementNumber)/s7.JPG") { (appError, image) in
@@ -81,9 +82,9 @@ extension ElementViewController: UITableViewDataSource{
         
          func image(){
             
-            switch elements[indexPath.row].number {
+            switch selectedElement.number {
             case 0...9:
-                ImageHelper.shared.fetchImage(urlString:  "http://www.theodoregray.com/periodictable/Tiles/00\(elements[indexPath.row].number)/s7.JPG") { (appError, image) in
+                ImageHelper.shared.fetchImage(urlString:  "http://www.theodoregray.com/periodictable/Tiles/00\(selectedElement.number)/s7.JPG") { (appError, image) in
                     if let error = appError{
                         print(error)
                     }
@@ -92,7 +93,7 @@ extension ElementViewController: UITableViewDataSource{
                     }
                 }
             case 10...99:
-                ImageHelper.shared.fetchImage(urlString:  "http://www.theodoregray.com/periodictable/Tiles/0\(elements[indexPath.row].number)/s7.JPG") { (appError, image) in
+                ImageHelper.shared.fetchImage(urlString:  "http://www.theodoregray.com/periodictable/Tiles/0\(selectedElement.number)/s7.JPG") { (appError, image) in
                     if let error = appError{
                         print(error)
                     }
@@ -101,7 +102,7 @@ extension ElementViewController: UITableViewDataSource{
                     }
                 }
             default:
-                ImageHelper.shared.fetchImage(urlString:  "http://www.theodoregray.com/periodictable/Tiles/\(elements[indexPath.row].number)/s7.JPG") { (appError, image) in
+                ImageHelper.shared.fetchImage(urlString:  "http://www.theodoregray.com/periodictable/Tiles/\(selectedElement.number)/s7.JPG") { (appError, image) in
                     if let error = appError{
                         print(error)
                     }
