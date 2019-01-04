@@ -10,9 +10,9 @@ import Foundation
 
 struct Favorite: Codable {
 
-  let id: String
-  let elementName: String
   let favoritedBy: String
+  let elementName: String
   let elementSymbol: String
   
 }
+
