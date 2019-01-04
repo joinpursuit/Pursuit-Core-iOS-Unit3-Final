@@ -10,15 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    public var elements = [Element]()
+    public var elements = [Element]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
+    tableView.delegate = self
     title = "Elements"
-
+   loadElements()
   }
+    
+    private func loadElements() {
+        elementAPIClient.getElements { (appError, element) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let element = element {
+                self.elements = element
+            }
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -27,8 +45,16 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? ElementCellTableViewCell else { return UITableViewCell() }
+        let indexpath = elements[indexPath.row]
+        cell.elementName.text = indexpath.name
+        
+        return cell
     }
-    
-    
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
 }

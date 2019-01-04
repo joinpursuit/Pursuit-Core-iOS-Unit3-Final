@@ -13,6 +13,20 @@ class ElementCellTableViewCell: UITableViewCell {
     @IBOutlet weak var elementName: UILabel!
     @IBOutlet weak var elementDescription: UILabel!
     
+    private func updateUI() {
+        if let image = ImageHelper.shared.image(forKey: "" as NSString) {
+            elementImage.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: "") { (appError, image) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    self.elementImage.image = image
+                }
+            }
+        }
+    }
+    
    
     
     override func awakeFromNib() {
