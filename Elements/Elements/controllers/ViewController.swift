@@ -37,6 +37,13 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexpath = tableView.indexPathForSelectedRow,
+            let destination = segue.destination as? ElementDetailController else { fatalError("indexpath VC found nil")}
+        let element = elements[indexpath.row]
+        destination.element = element
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
