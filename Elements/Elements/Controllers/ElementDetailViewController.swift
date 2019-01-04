@@ -47,23 +47,10 @@ class ElementDetailViewController: UIViewController {
         } else {
             discoveredBy.text = "Unsure of who discovered \(element.name)"
         }
-        
-        
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
   
     @IBAction func favorite(_ sender: UIBarButtonItem) {
-        let favoriteEle = FavoriteElements.init(elementName: element.name, favoritedBy: "IDK what I'm doing", elementSymbol: element.symbol )
+        let favoriteEle = FavoriteElements.init(elementName: element.name, favoritedBy: "IanBailey", elementSymbol: element.symbol )
         
         do {
             let data = try JSONEncoder().encode(favoriteEle)

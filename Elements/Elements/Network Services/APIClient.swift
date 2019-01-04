@@ -39,5 +39,29 @@ static func uploadData(data: Data, completionHandler: @escaping ((AppError?, Boo
         }
         
     }
+
+
+static func getFavorites(completionHandler: @escaping (AppError?, [FavoriteElements]?) -> Void) {
+    let getFavoritesEndpoint = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
+    NetworkHelper.shared.performDataTask(endpointURLString: getFavoritesEndpoint, httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
+        if let appError = appError {
+            completionHandler(appError, nil)
+        }
+        guard let response = httpResponse,
+            (200...299).contains(response.statusCode) else {
+                let statusCode = httpResponse?.statusCode ?? -999
+                completionHandler(AppError.badStatusCode(String(statusCode)), nil)
+                return
+        }
+        if let data = data {
+            do {
+                let favorites = try JSONDecoder().decode([FavoriteElements].self, from: data)
+                completionHandler(nil, favorites)
+            } catch {
+                completionHandler(AppError.decodingError(error), nil)
+            }
+        }
+    }
 }
 
+}
