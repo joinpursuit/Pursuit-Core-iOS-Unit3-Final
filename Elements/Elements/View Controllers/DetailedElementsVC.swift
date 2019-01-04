@@ -18,13 +18,63 @@ class DetailedElementsVC: UIViewController {
   @IBOutlet weak var discovery: UILabel!
   
   
+  @IBOutlet weak var number: UILabel!
+  
+  @IBOutlet weak var symbol: UILabel!
+  
+  
+  @IBOutlet weak var atomicMass: UILabel!
+  
+  
+  @IBOutlet weak var meltingpPoint: UILabel!
+  
+  @IBOutlet weak var boilingPoint: UILabel!
+  
+  
+  
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-      discovery.text = elementsForDeatiled.name
+     
       title = elementsForDeatiled.name
+      UpdateUI()
     }
   
   private func UpdateUI(){
+    if let image = ImageHelper.shared.image(forKey: "http://images-of-elements.com/argon.jpg" as NSString) {
+      imageDetailed.image = image
+    } else {
+      ImageHelper.shared.fetchImage(urlString: "http://images-of-elements.com/argon.jpg") { (appError, image) in
+        if let appError = appError {
+          print(appError.errorMessage())
+        } else if let image = image {
+          self.imageDetailed.image = image
+        }
+      }
+    }
+    number.text = "\( elementsForDeatiled.number)"
+    symbol.text = elementsForDeatiled.symbol
+    atomicMass.text = "\(elementsForDeatiled.atomic_mass)"
+    
+    if let discoveredBy = elementsForDeatiled.discovered_by{
+      discovery.text = "Discovered by: " + discoveredBy
+    } else {
+      discovery.text = "Discovered by: Unknown"
+    }
+      
+      
+    if let meltingPoint = elementsForDeatiled.melt{
+      meltingpPoint.text = "Melting point: " + String(meltingPoint)
+    } else {
+      meltingpPoint.text = "Not in data base yet"
+    }
+    if let boilPoint = elementsForDeatiled.boil{
+      boilingPoint.text = "Boiling point: " + String(boilPoint)
+    } else {
+      boilingPoint.text = "Not in data base yet"
+
+    }
     
   }
   

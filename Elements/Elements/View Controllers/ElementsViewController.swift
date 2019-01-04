@@ -63,8 +63,7 @@ extension ElementsViewController: UITableViewDataSource {
     
     let currentElement = elementsforTable[indexPath.row]
     
-    cell.elementName.text = currentElement.name
-    cell.elementInfo.text = "\(currentElement.symbol) (\(currentElement.number)) \(currentElement.atomic_mass)"
+    cell.configureCell(element: currentElement)
     
     
     return cell
