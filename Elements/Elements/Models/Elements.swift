@@ -10,10 +10,10 @@ import Foundation
 
 struct Elements: Codable {
     var name: String
-    var atomic_mass: Double
-    var boil: Double
-    var discovered_by: String
-    var melt: Double
-    var number: Double
-    var symbol: String
+//    var atomic_mass: Double
+//    var boil: Double
+//    var discovered_by: String
+//    var melt: Double
+//    var number: Double
+//    var symbol: String
 }
