@@ -31,10 +31,9 @@ class ElementDetailViewController: UIViewController {
         nameSymbolLabel.text = String("\(element.name)(\(element.symbol))")
         elementNumber.text = String(element.number)
         elementWeight.text = String(element.atomicMass)
-        meltPoint.text = String(element.melt)
-        boilPoint.text = String(element.boil)
+        meltPoint.text = String(format:"%f", element.melt ?? "melting point not found")
+        boilPoint.text = String(format:"%f", element.boil ?? "boiling point not found")
         discoveredLabel.text = element.discoveredBy
-        
     }
     
 }
