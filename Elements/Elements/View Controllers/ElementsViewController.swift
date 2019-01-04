@@ -36,7 +36,7 @@ class ElementsViewController: UIViewController {
         print(appError.errorMessage())
       } else if let elements = elements {
         self.elementsforTable = elements
-        print(self.elementsforTable.count)
+        print("This is how many elements I'm getting: \(self.elementsforTable.count)")
         
       }
     }

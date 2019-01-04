@@ -31,7 +31,6 @@ class DetailedElementsVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     title = elementsForDeatiled.name
     UpdateUI(imageKey: elementsForDeatiled.name.lowercased())
   }

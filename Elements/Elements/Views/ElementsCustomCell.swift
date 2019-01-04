@@ -30,9 +30,7 @@ class ElementsCustomCell: UITableViewCell {
       keyToSet = "0" + keyToSet
     } else {
       keyToSet = String(key)
-    }
-    print(keyToSet)
-    
+    }    
     urlString = "http://www.theodoregray.com/periodictable/Tiles/\(keyToSet)/s7.JPG"
     
     elementName.text = element.name
