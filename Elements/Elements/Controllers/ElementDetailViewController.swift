@@ -68,6 +68,7 @@ class ElementDetailViewController: UIViewController {
             print("encoding error: \(error)")
         }
     }
+    
     private func updateElementImage(element: Element) {
         ImageHelper.shared.fetchImage(urlString: "http://images-of-elements.com/\(element.name.lowercased()).jpg") { (appError, image) in
             if let appError = appError {

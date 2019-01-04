@@ -23,6 +23,7 @@ class ElementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        elementTableView.delegate = self
         elementTableView.dataSource = self
         uploadData()
     }
@@ -57,5 +58,11 @@ extension ElementViewController: UITableViewDataSource {
         cell.atomicWeight.text = String(format: "Atomic Mass: %.2f", elementToSet.atomicMass)
         cell.updateCellIcon(element: elementToSet)
         return cell
+    }
+}
+
+extension ElementViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 }

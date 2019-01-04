@@ -14,14 +14,21 @@ class ElementViewCell: UITableViewCell {
     @IBOutlet weak var elementName: UILabel!
     @IBOutlet weak var atomicWeight: UILabel!
     
-    
     public func updateCellIcon(element: Element) {
-    
+//        let elementNumber = element.number
+//        switch elementNumber {
+//        case 0...9:
+//            return elementNumber
+//        case 10...99:
+//            return elementNumber
+//        default:
+//        }
         ImageHelper.shared.fetchImage(urlString: "http://www.theodoregray.com/periodictable/Tiles/00\(element.number)/s7.JPG") { (appError, image) in
             if let appError = appError {
                 print(appError.errorMessage())
             } else if let image = image {
                 self.elementImage.image = image
+                
             }
         }
     }
