@@ -55,7 +55,7 @@ extension ElementViewController: UITableViewDataSource {
         let elementToSet = elements[indexPath.row]
         cell.elementName.text = elementToSet.name
         cell.atomicWeight.text = String(format: "Atomic Mass: %.2f", elementToSet.atomicMass)
-        
+        cell.updateCellIcon(element: elementToSet)
         return cell
     }
 }

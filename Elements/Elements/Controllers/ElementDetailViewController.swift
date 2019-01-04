@@ -25,6 +25,7 @@ class ElementDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         uploadData()
+        updateElementImage(element: element)
     }
     
     private func uploadData() {
@@ -65,6 +66,15 @@ class ElementDetailViewController: UIViewController {
             }
         } catch {
             print("encoding error: \(error)")
+        }
+    }
+    private func updateElementImage(element: Element) {
+        ImageHelper.shared.fetchImage(urlString: "http://images-of-elements.com/\(element.name.lowercased()).jpg") { (appError, image) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let image = image {
+                self.elementImage.image = image
+            }
         }
     }
 }

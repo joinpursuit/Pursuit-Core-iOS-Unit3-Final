@@ -14,9 +14,15 @@ class ElementViewCell: UITableViewCell {
     @IBOutlet weak var elementName: UILabel!
     @IBOutlet weak var atomicWeight: UILabel!
     
-    public func cellIcon() {
-        if let image = ImageHelper.shared.image(forKey: "http://www.theodoregray.com/periodictable/Tiles/ElementNumberWithThreeDigits/s7.JPG") {
-          elementImage.image = image
+    
+    public func updateCellIcon(element: Element) {
+    
+        ImageHelper.shared.fetchImage(urlString: "http://www.theodoregray.com/periodictable/Tiles/00\(element.number)/s7.JPG") { (appError, image) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let image = image {
+                self.elementImage.image = image
+            }
         }
     }
 }
