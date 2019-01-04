@@ -12,6 +12,14 @@
 		5734756721DA90C700FB6177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756521DA90C700FB6177 /* Main.storyboard */; };
 		5734756921DA90C800FB6177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5734756821DA90C800FB6177 /* Assets.xcassets */; };
 		5734756C21DA90C800FB6177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756A21DA90C800FB6177 /* LaunchScreen.storyboard */; };
+		751D55B021DFB1C300BA6A06 /* ElementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55AF21DFB1C300BA6A06 /* ElementsModel.swift */; };
+		751D55B421DFB48500BA6A06 /* ElementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55B321DFB48500BA6A06 /* ElementsCell.swift */; };
+		751D55B621DFB54A00BA6A06 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55B521DFB54A00BA6A06 /* NetworkHelper.swift */; };
+		751D55B821DFB57600BA6A06 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55B721DFB57600BA6A06 /* AppError.swift */; };
+		751D55BA21DFB59E00BA6A06 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55B921DFB59E00BA6A06 /* ImageHelper.swift */; };
+		751D55BC21DFB6EB00BA6A06 /* ElementalAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55BB21DFB6EB00BA6A06 /* ElementalAPIClient.swift */; };
+		751D55BE21DFBD0500BA6A06 /* ElementsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55BD21DFBD0500BA6A06 /* ElementsDetailViewController.swift */; };
+		751D55C021DFEAE900BA6A06 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D55BF21DFEAE900BA6A06 /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		5734756821DA90C800FB6177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5734756B21DA90C800FB6177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5734756D21DA90C800FB6177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		751D55AF21DFB1C300BA6A06 /* ElementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsModel.swift; sourceTree = "<group>"; };
+		751D55B321DFB48500BA6A06 /* ElementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsCell.swift; sourceTree = "<group>"; };
+		751D55B521DFB54A00BA6A06 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		751D55B721DFB57600BA6A06 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		751D55B921DFB59E00BA6A06 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		751D55BB21DFB6EB00BA6A06 /* ElementalAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementalAPIClient.swift; sourceTree = "<group>"; };
+		751D55BD21DFBD0500BA6A06 /* ElementsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsDetailViewController.swift; sourceTree = "<group>"; };
+		751D55BF21DFEAE900BA6A06 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +54,8 @@
 		5734755521DA90C700FB6177 = {
 			isa = PBXGroup;
 			children = (
+				751D55B321DFB48500BA6A06 /* ElementsCell.swift */,
+				751D55AF21DFB1C300BA6A06 /* ElementsModel.swift */,
 				5734756021DA90C700FB6177 /* Elements */,
 				5734755F21DA90C700FB6177 /* Products */,
 			);
@@ -55,7 +73,13 @@
 			isa = PBXGroup;
 			children = (
 				5734756321DA90C700FB6177 /* ViewController.swift */,
+				751D55BB21DFB6EB00BA6A06 /* ElementalAPIClient.swift */,
+				751D55B521DFB54A00BA6A06 /* NetworkHelper.swift */,
+				751D55B721DFB57600BA6A06 /* AppError.swift */,
+				751D55B921DFB59E00BA6A06 /* ImageHelper.swift */,
 				5734756521DA90C700FB6177 /* Main.storyboard */,
+				751D55BD21DFBD0500BA6A06 /* ElementsDetailViewController.swift */,
+				751D55BF21DFEAE900BA6A06 /* Favorite.swift */,
 				5734757321DA90F500FB6177 /* Supporting Files */,
 				5734756D21DA90C800FB6177 /* Info.plist */,
 			);
@@ -144,7 +168,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5734756421DA90C700FB6177 /* ViewController.swift in Sources */,
+				751D55B021DFB1C300BA6A06 /* ElementsModel.swift in Sources */,
+				751D55B821DFB57600BA6A06 /* AppError.swift in Sources */,
+				751D55BC21DFB6EB00BA6A06 /* ElementalAPIClient.swift in Sources */,
+				751D55B621DFB54A00BA6A06 /* NetworkHelper.swift in Sources */,
+				751D55C021DFEAE900BA6A06 /* Favorite.swift in Sources */,
+				751D55BE21DFBD0500BA6A06 /* ElementsDetailViewController.swift in Sources */,
+				751D55B421DFB48500BA6A06 /* ElementsCell.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
+				751D55BA21DFB59E00BA6A06 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,14 +323,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B4ALR5M7T7;
 				INFOPLIST_FILE = Elements/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.pursuit.Elements;
+				PRODUCT_BUNDLE_IDENTIFIER = org.pursuit.Elements11223344556677;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,14 +342,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B4ALR5M7T7;
 				INFOPLIST_FILE = Elements/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.pursuit.Elements;
+				PRODUCT_BUNDLE_IDENTIFIER = org.pursuit.Elements11223344556677;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
