@@ -19,7 +19,7 @@ class DetailElementVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        title = Elements
+//        title = 
     }
 
     
