@@ -59,15 +59,47 @@ extension ElementViewController: UITableViewDataSource {
         cell.elementName.text = element.name
         cell.elementInfo.text = "\(element.symbol)(\(element.number)) \(element.atomicMass)"
         
-//        if let image = ImageHelper.shared.image(forKey: <#T##NSString#>)
-//        ImageHelper.shared.fetchImage(urlString: <#T##String#>) { (appError, image) in
-//
-//        }
-//
+        let imageUrlString = getImageString(element: element)
+        if imageUrlString == "" {
+            cell.elementImage.image = UIImage.init(named: "imgPlaceHolder")
+        } else if let image = ImageHelper.shared.image(forKey: imageUrlString as NSString) {
+            cell.elementImage.image = image
+        } else {
+            ImageHelper.shared.fetchImage(urlString: imageUrlString) { (appError, image) in
+                if let appError = appError {
+                    cell.elementImage.image = UIImage.init(named: "imgPlaceHolder")
+                    print(appError.errorMessage())
+                } else if let image = image {
+                    cell.elementImage.image = image
+                }
+            }
+        }
+
         return cell
     }
     
-    //private func getThumbnail
+    
+    private func getImageString(element: Element) -> String {
+        var imageUrlString: String = ""
+
+        switch String(element.number).count {
+        case 1:
+            imageUrlString = "http://www.theodoregray.com/periodictable/Tiles/00\(element.number)/s7.JPG"
+        case 2:
+            imageUrlString = "http://www.theodoregray.com/periodictable/Tiles/0\(element.number)/s7.JPG"
+        case 3:
+            imageUrlString = "http://www.theodoregray.com/periodictable/Tiles/\(element.number)/s7.JPG"
+        default:
+            return imageUrlString
+        }
+        return imageUrlString
+    }
+        
+
+        
+        
+    
+    
 }
 
 extension ElementViewController: UITableViewDelegate {
