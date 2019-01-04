@@ -81,7 +81,7 @@ class DetailViewController: UIViewController {
         // using JSONEncoder()
         do {
             let data = try JSONEncoder().encode(favorite)
-            APIClient.favoritePodcast(data: data) { (appError, success) in
+            APIClient.favoriteElement(data: data) { (appError, success) in
                 if let appError = appError {
                     DispatchQueue.main.async {
                         self.showAlert(title: "Error Message", message: appError.errorMessage())
