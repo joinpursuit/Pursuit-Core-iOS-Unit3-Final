@@ -45,7 +45,7 @@ class ElementDetailViewController: UIViewController {
     }
     
     @IBAction func addToFavorites(_ sender: UIBarButtonItem) {
-        let favorite = Favorite.init(name: element.name, number: element.number, symbol: element.symbol)
+        let favorite = Favorite.init(favoritedBy: "Diego Estrella III", elementName: element.name, elementSymbol: element.symbol)
         do {
             let data = try JSONEncoder().encode(favorite)
             ElementAPIClient.getFavoriteElement(data: data) { (appError, success) in
