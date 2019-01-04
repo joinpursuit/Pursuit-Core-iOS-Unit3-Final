@@ -12,7 +12,7 @@
         <!--PeriodicTable-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PeriodicTableViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYV-7H-xvc">
-                                <rect key="frame" x="67" y="423" width="279" height="37"/>
+                                <rect key="frame" x="67" y="423" width="299" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-LW-gPa">
-                                <rect key="frame" x="20" y="658" width="374" height="37"/>
+                                <rect key="frame" x="20" y="658" width="394" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                             <constraint firstItem="tRq-kP-etw" firstAttribute="top" secondItem="e13-QZ-nPg" secondAttribute="top" constant="10" id="FOq-yE-9P1"/>
                             <constraint firstItem="cWt-ck-O3p" firstAttribute="top" secondItem="tRq-kP-etw" secondAttribute="bottom" constant="30" id="JAv-Lt-PXl"/>
                             <constraint firstItem="e13-QZ-nPg" firstAttribute="bottom" secondItem="tRq-kP-etw" secondAttribute="bottom" constant="465" id="LHE-GP-inV"/>
-                            <constraint firstItem="HYV-7H-xvc" firstAttribute="centerX" secondItem="tRq-kP-etw" secondAttribute="centerX" id="WGW-ra-K0Z"/>
+                            <constraint firstItem="HYV-7H-xvc" firstAttribute="centerX" secondItem="tRq-kP-etw" secondAttribute="centerX" constant="10" id="WGW-ra-K0Z"/>
                             <constraint firstItem="LmG-Sj-ZL6" firstAttribute="leading" secondItem="T1q-Z7-9gZ" secondAttribute="leading" id="YuY-7s-HYa"/>
                             <constraint firstItem="e13-QZ-nPg" firstAttribute="trailing" secondItem="tRq-kP-etw" secondAttribute="trailing" constant="68" id="a4i-EN-8Wm"/>
                             <constraint firstItem="e13-QZ-nPg" firstAttribute="trailing" secondItem="T1q-Z7-9gZ" secondAttribute="trailing" constant="102" id="bxM-Lu-jvW"/>

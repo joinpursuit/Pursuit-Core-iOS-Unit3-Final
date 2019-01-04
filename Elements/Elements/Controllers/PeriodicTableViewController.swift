@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PeriodicTableViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   private var elements = [Element]() {
     didSet {
@@ -30,7 +30,6 @@ class ViewController: UIViewController {
       }
       if let elements = elements{
         self.elements = elements
-        dump(elements)
       }
     }
   }
@@ -60,7 +59,7 @@ class ViewController: UIViewController {
     elementDetailledView.element = elements[indexPath.row]
   }
 }
-extension ViewController:UITableViewDataSource{
+extension PeriodicTableViewController:UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return elements.count
   }
@@ -76,8 +75,8 @@ extension ViewController:UITableViewDataSource{
     return cell
   }
 }
-extension ViewController:UITableViewDelegate{
+extension PeriodicTableViewController:UITableViewDelegate{
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 300
+    return 200
   }
 }

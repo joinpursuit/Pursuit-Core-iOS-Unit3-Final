@@ -14,7 +14,7 @@ final class ElementApiClient{
       if let error = error {
         completionHandler(AppError.decodingError(error),nil)
       }
-      guard let response = httpResponse, (200...299).contains(httpResponse?.statusCode ?? -999 ) else {let statusCode = httpResponse?.statusCode ?? -999
+      guard let response = httpResponse, (200...299).contains(response.statusCode) else {let statusCode = httpResponse?.statusCode ?? -999
         completionHandler(AppError.badStatusCode(String(statusCode)), nil)
         return}
   
@@ -34,7 +34,7 @@ final class ElementApiClient{
   if let error = error {
     completionHandler(error,false)
     }
-  guard let response = httpResponse, (200...299).contains(httpResponse?.statusCode ?? -999) else {
+  guard let response = httpResponse, (200...299).contains(response.statusCode) else {
     let statusCode = httpResponse?.statusCode ?? -999
     completionHandler(AppError.badStatusCode(String(statusCode)), false)
     return
@@ -51,7 +51,7 @@ final class ElementApiClient{
       if let error = error {
         completionHandler(AppError.decodingError(error),nil)
       }
-      guard let response = httpResponse, (200...299).contains(httpResponse?.statusCode ?? -999 ) else {let statusCode = httpResponse?.statusCode ?? -999
+      guard let response = httpResponse, (200...299).contains(response.statusCode) else {let statusCode = httpResponse?.statusCode ?? -999
         completionHandler(AppError.badStatusCode(String(statusCode)), nil)
         return}
       if let data = data {
