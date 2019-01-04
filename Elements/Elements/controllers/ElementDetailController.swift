@@ -54,5 +54,16 @@ class ElementDetailController: UIViewController {
             }
         }
     }
+    
+    @IBAction func addToFavorite(_ sender: UIBarButtonItem) {
+      let favorite = Favorite.init(id: "\(element.number)", elementName: element.name, favoritedBy: "Oniel", elementSymbol: element.symbol)
+        do {
+           let data = try JSONEncoder().encode(favorite)
+        } catch {
+            
+        }
+        
+    }
+    
 
 }
