@@ -16,6 +16,9 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var elementName: UILabel!
     @IBOutlet weak var elementWeight: UILabel!
     @IBOutlet weak var elementImage: UIImageView!
+    @IBOutlet weak var elementMeltingPoint: UILabel!
+    @IBOutlet weak var elementBoilingPoint: UILabel!
+    @IBOutlet weak var elementDiscoverBy: UILabel!
     
     var element: Element!
 
@@ -26,6 +29,20 @@ class ElementDetailViewController: UIViewController {
         elementNumber.text = element.number.description
         elementWeight.text = String(format: "%.3f", element.atomic_mass)
         elementSymbol.text = element.symbol
+
+        if let meltingPoint = element.melt {
+            elementMeltingPoint.text = "Melting Point: " + meltingPoint.description
+        } 
+        
+        if let boilingPoint = element.boil {
+            elementBoilingPoint.text = "Boiling Point: " + boilingPoint.description
+        }
+
+        if let discoverPerson = element.discovered_by {
+            elementDiscoverBy.text = "Discovered By: " + discoverPerson
+        }
+        
+        
         
         let imageURL = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
         
