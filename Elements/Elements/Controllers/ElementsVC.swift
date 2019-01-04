@@ -9,44 +9,45 @@
 import UIKit
 
 class ElementsVC: UIViewController {
-
-    //tableView
-    @IBOutlet weak var tableView: UITableView!
     
-    // instance of the model
-    var elements = [Elements](){
-        didSet{//after it loads change the value
-            DispatchQueue.main.async {
+    @IBOutlet weak var tableView: UITableView!
+ 
+    var allElements = [Elements](){
+        didSet{
                 self.tableView.reloadData()
             }
-        }
+    
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self//sets cells according to data
-        tableView.delegate = self // intrinsic height
-        loadData() // gives me my data
+        tableView.dataSource = self
+        tableView.delegate = self
+//        loadData()
+        getInfo()
     }
     
-
-    //Load Data
-    private func loadData() {
-        ElementApiClient.getElement { (error, elements) in
-            if let error = error {
-                print("#Error:\(error)")
-                print("#Error:\(error.errorMessage())")
-                print("#Error:\(error.localizedDescription)")
-            } else if let elements = elements {
-                self.elements = elements
-                print(elements)
-            }
+    func getInfo() {
+        APIManager.manager.getElement({ (infoFromOnline) in
+            self.allElements = infoFromOnline
+        }) { (error) in
+            print(error)
         }
-
     }
+//    private func loadData() {
+//        ElementAPIManager.manager.getElement { (error, elements) in
+//            if let error = error {
+//                print("#Error:\(error)")
+//                print("#Error:\(error.localizedDescription)")
+//            } else if let elements = elements {
+//                self.elements = elements
+//                print(elements)
+//            }
+//        }
+//    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //send to DetailVC
+        
     }
 
 }
@@ -59,14 +60,15 @@ extension ElementsVC: UITableViewDelegate {
 
 extension ElementsVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+//        return allElements.count
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementCell else {fatalError("ElementCell not found") }
-        cell.name.text = "Joshua"
-        cell.otherThing.text = "Viera"
+//        cell.name.text = allElements.name
+//        cell.otherThing.text = allElements
         return cell
     }
 }

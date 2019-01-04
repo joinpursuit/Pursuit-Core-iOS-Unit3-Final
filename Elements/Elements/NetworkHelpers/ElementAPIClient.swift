@@ -4,50 +4,47 @@
 //
 //  Created by Joshua Viera on 1/4/19.
 //  Copyright © 2019 Pursuit. All rights reserved.
+////
 //
-
-import Foundation
-
-class ElementApiClient {
-
-
-
-    static func getElement(completionHandler: @escaping (AppError?, [Elements]?) -> Void) {
-        NetworkHelper.shared.performDataTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements",
-            httpMethod:"GET",
-            httpBody: nil)
-        { (appError, data, httpResponse) in
-
-            if let appError = appError{
-                completionHandler(appError, nil)
-                print("appError")
-            }
-            guard let response = httpResponse, (200...299).contains(response.statusCode) else {
-                let statusCode = httpResponse?.statusCode ?? -999
-                completionHandler(AppError.badStatusCode(String(statusCode)), nil)
-                print("response")
-                return
-            }
-
-            if let data = data {
-                do {
-                    let element = try JSONDecoder().decode([Elements].self, from: data)
-                    completionHandler(nil, element)
-                    print("WE GOT DATA")
-                } catch {
-                    print("Catch: \(error)")
-                    completionHandler(AppError.decodingError(error), nil)
-                }
-            }
-        }
-        //performDataTask regular GET request
-        //performUpload Task : (tip: JSON Encoder)
-        //Upload POST request
-    }
-
-
-
-
+//import Foundation
+//
+////class ElementApiClient {
+//
+//
+//
+////    static func getElement(completionHandler: @escaping (AppError?, [Elements]?) -> Void) {
+////        NetworkHelper.shared.performDataTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements",
+////            httpMethod:"GET",
+////            httpBody: nil)
+////        { (appError, data, httpResponse) in
+////
+////            if let appError = appError{
+////                completionHandler(appError, nil)
+////                print("appError")
+////            }
+////            guard let response = httpResponse, (200...299).contains(response.statusCode) else {
+////                let statusCode = httpResponse?.statusCode ?? -999
+////                completionHandler(AppError.badStatusCode(String(statusCode)), nil)
+////                print("response")
+////                return
+////            }
+////
+////            if let data = data {
+////                do {
+////                    let element = try JSONDecoder().decode([Elements].self, from: data)
+////                    completionHandler(nil, element)
+////                    print("WE GOT DATA")
+////                } catch {
+////                    print("Catch: \(error)")
+////                    completionHandler(AppError.decodingError(error), nil)
+////                }
+////            }
+////        }
+////    }
+//
+//
+//
+//
 //class ElementApiClient {
 //
 //    static let manager = ElementApiClient()
@@ -82,4 +79,5 @@ class ElementApiClient {
 //            }
 //            }.resume()
 //    }
-}
+//}
+//
