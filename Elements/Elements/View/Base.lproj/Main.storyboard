@@ -162,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="2156" y="858.62068965517244"/>
         </scene>
-        <!--Element Detail View Controller-->
+        <!--Title-->
         <scene sceneID="vTQ-xb-7EY">
             <objects>
                 <viewController id="rks-L0-xvY" customClass="ElementDetailViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,6 +251,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ru4-Vu-qek"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="hCY-Wp-H3z">
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="XNU-LC-hfC">
+                            <connections>
+                                <action selector="addToFavorite:" destination="rks-L0-xvY" id="Sjy-is-xWA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="elementAtomicWeight" destination="yh1-bf-VhP" id="nMo-m6-D09"/>
+                        <outlet property="elementDescription" destination="BOa-Et-c9l" id="nPA-BA-pmU"/>
+                        <outlet property="elementName" destination="NiI-cc-mdS" id="tkR-bS-lLc"/>
+                        <outlet property="elementNum" destination="uH5-Ir-Gwz" id="nMF-pV-OjA"/>
+                        <outlet property="elementPhase" destination="vdD-ue-57O" id="OAW-eQ-ofs"/>
+                        <outlet property="elementSymbol" destination="6q1-8L-2XD" id="Lkl-ot-8un"/>
+                        <outlet property="titleElementName" destination="EeT-ph-Ybw" id="NhL-cd-6u3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zax-Vr-YkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,7 +288,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmi-4m-QMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="484"/>
+            <point key="canvasLocation" x="46" y="400"/>
         </scene>
         <!--Elements-->
         <scene sceneID="JXi-Bf-E4x">

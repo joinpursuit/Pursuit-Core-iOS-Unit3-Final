@@ -21,7 +21,7 @@ class ElementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //elementsTableView.dataSource = self
+        elementsTableView.dataSource = self
         elementsTableView.delegate = self
         
         ElementAPIClient.getAllElements { (appError, elements) in
@@ -46,15 +46,27 @@ class ElementViewController: UIViewController {
 
 }
 
-//extension ElementViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
+extension ElementViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allElements.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = elementsTableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementCell else {
+            fatalError("ElementCell Error")
+        }
+        let element = allElements[indexPath.row]
+        cell.elementName.text = element.name
+        cell.elementInfo.text = "\(element.symbol)(\(element.number)) \(element.atomicMass)"
+        
+//        if let image = ImageHelper.shared.image(forKey: <#T##NSString#>)
+//        ImageHelper.shared.fetchImage(urlString: <#T##String#>) { (appError, image) in
 //
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//}
+//        }
+//
+        return cell
+    }
+}
 
 extension ElementViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
