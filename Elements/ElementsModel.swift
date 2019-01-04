@@ -15,12 +15,5 @@ struct Element: Codable {
     let melt: Double?
     let boil: Double?
     let discovered_by: String?
-//}; private enum CodingKeys: String, CodingKey {
-//    case name
-//    case symbol
-//    case number
-//    case atomicMass = "atomic_mass"
-//    case melt
-//    case boil
-//    case discoveredBy = "discovered_by"
+
 }
