@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ElementCell" rowHeight="72" id="f7s-kC-gjx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ElementCell" rowHeight="72" id="f7s-kC-gjx" customClass="ElementCell" customModule="Elements" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f7s-kC-gjx" id="k8W-BX-PRM">
@@ -65,6 +65,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="elementDetailLabel" destination="Ctw-c8-oD6" id="CrG-Iq-f25"/>
+                                            <outlet property="elementImage" destination="pJL-zG-lRB" id="qEA-FR-6Ua"/>
+                                            <outlet property="elementName" destination="euA-fL-Xe8" id="Ua7-5g-VHU"/>
                                             <segue destination="OFE-r8-yOY" kind="show" id="u2D-cl-A9S"/>
                                         </connections>
                                     </tableViewCell>
@@ -94,7 +97,7 @@
         <!--ElementNameHere-->
         <scene sceneID="xqh-IW-DOx">
             <objects>
-                <viewController title="ElementNameHere" id="OFE-r8-yOY" sceneMemberID="viewController">
+                <viewController title="ElementNameHere" id="OFE-r8-yOY" customClass="ElementDetailViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MPX-Xi-HPP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,6 +176,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dAy-bF-vJj"/>
                     </view>
+                    <connections>
+                        <outlet property="boilPoint" destination="Jdz-ep-olF" id="rNX-Gq-GDU"/>
+                        <outlet property="discoveredLabel" destination="t0X-q6-iA9" id="gQb-RD-hW2"/>
+                        <outlet property="elementDetailImage" destination="8g2-GG-0hc" id="dR1-bb-Q8Y"/>
+                        <outlet property="elementNumber" destination="Q1B-nh-z7b" id="vsC-9S-cyE"/>
+                        <outlet property="elementWeight" destination="BF8-J9-yur" id="Thd-FA-KKP"/>
+                        <outlet property="meltPoint" destination="5jP-ns-2BJ" id="FYt-l1-J25"/>
+                        <outlet property="nameSymbolLabel" destination="4rm-UQ-WCm" id="ZpL-6X-Ep7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evm-nt-lqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
