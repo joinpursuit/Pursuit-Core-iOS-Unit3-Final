@@ -29,6 +29,7 @@ class ElementDetailViewController: UIViewController {
         updateUI()
     }
     func updateUI() {
+        title = element.name
         elementSymbol.text = element.symbol
         elementNum.text = element.number.description
         elementWeight.text = element.atomicMass.description
