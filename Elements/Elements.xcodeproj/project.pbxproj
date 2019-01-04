@@ -19,6 +19,7 @@
 		62006C4B21DFAF550036DA87 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62006C4A21DFAF550036DA87 /* Element.swift */; };
 		62006C4E21DFB4330036DA87 /* ElementViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62006C4D21DFB4330036DA87 /* ElementViewCell.swift */; };
 		62006C5121DFB6AA0036DA87 /* ElementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62006C5021DFB6AA0036DA87 /* ElementDetailViewController.swift */; };
+		62006C5321DFDDD90036DA87 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62006C5221DFDDD90036DA87 /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		62006C4A21DFAF550036DA87 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		62006C4D21DFB4330036DA87 /* ElementViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementViewCell.swift; sourceTree = "<group>"; };
 		62006C5021DFB6AA0036DA87 /* ElementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailViewController.swift; sourceTree = "<group>"; };
+		62006C5221DFDDD90036DA87 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				62006C4A21DFAF550036DA87 /* Element.swift */,
+				62006C5221DFDDD90036DA87 /* Favorite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				62006C4721DFADC00036DA87 /* ImageHelper.swift in Sources */,
 				5734756421DA90C700FB6177 /* ElementViewController.swift in Sources */,
 				62006C4321DFAD5B0036DA87 /* NetworkHelper.swift in Sources */,
+				62006C5321DFDDD90036DA87 /* Favorite.swift in Sources */,
 				62006C4921DFAEE80036DA87 /* ElementAPIClient.swift in Sources */,
 				62006C4E21DFB4330036DA87 /* ElementViewCell.swift in Sources */,
 				62006C4B21DFAF550036DA87 /* Element.swift in Sources */,

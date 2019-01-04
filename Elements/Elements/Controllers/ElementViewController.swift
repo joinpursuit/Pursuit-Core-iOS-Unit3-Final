@@ -58,6 +58,4 @@ extension ElementViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }

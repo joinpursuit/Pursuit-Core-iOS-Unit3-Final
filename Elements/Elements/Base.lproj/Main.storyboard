@@ -88,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="919" y="32"/>
         </scene>
-        <!--Element Detail View Controller-->
+        <!--Title-->
         <scene sceneID="QRH-2u-CMs">
             <objects>
                 <viewController id="ehB-db-rXG" customClass="ElementDetailViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
@@ -165,6 +165,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pkt-6P-tCz"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="vBY-am-4uc">
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="ZdW-kF-lDV">
+                            <connections>
+                                <action selector="addToFavorites:" destination="ehB-db-rXG" id="FMB-gj-Vuy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="atomicWeight" destination="UgK-G0-HFM" id="tA9-wk-ZrX"/>
                         <outlet property="boilingPoint" destination="va5-uK-Wt2" id="Xzj-sS-mvr"/>
@@ -172,6 +179,7 @@
                         <outlet property="elementImage" destination="Cfb-Wv-GXl" id="2If-F2-gLR"/>
                         <outlet property="elementNumber" destination="1lQ-Rf-Oba" id="os3-3i-cUT"/>
                         <outlet property="elementSymbol" destination="Czr-n8-Gt0" id="W4n-4F-xeV"/>
+                        <outlet property="favoriteButton" destination="ZdW-kF-lDV" id="Ntb-5A-T39"/>
                         <outlet property="meltingPoint" destination="f9z-Ev-XaR" id="cyp-ZQ-ohe"/>
                     </connections>
                 </viewController>
