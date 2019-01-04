@@ -32,6 +32,12 @@ class ElementDetailController: UIViewController {
     title = element.name
         updateUI()
     }
+    private func getAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alert in}
+         alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
     func updateUI() {
         view.backgroundColor = .gray
@@ -59,11 +65,23 @@ class ElementDetailController: UIViewController {
       let favorite = Favorite.init(id: "\(element.number)", elementName: element.name, favoritedBy: "Oniel", elementSymbol: element.symbol)
         do {
            let data = try JSONEncoder().encode(favorite)
+            elementAPIClient.addToFavorites(data: data) { (appError, success) in
+                if let appError = appError {
+                    DispatchQueue.main.async {
+                    self.getAlert(title: "Error message", message: appError.errorMessage())
+                    }
+                } else if success {
+                    DispatchQueue.main.async {
+                        self.getAlert(title: "Added to favorites!", message: "")
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.getAlert(title: "was not favorited", message: "")
+                    }
+                }
+            }
         } catch {
-            
+            print("Encoding error \(error)")
         }
-        
     }
-    
-
 }
