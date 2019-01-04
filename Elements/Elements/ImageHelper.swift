@@ -16,8 +16,12 @@ public final class ImageHelper {
         imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB used
     }
     public static let shared = ImageHelper()
-    
     private var imageCache: NSCache<NSString, UIImage>
+    
+    public func image(forKey key: NSString) -> UIImage? {
+        return imageCache.object(forKey: key)
+    }
+    
     
     public func fetchImage(urlString: String, completionHandler: @escaping (AppError?, UIImage?) -> Void) {
         NetworkHelper.shared.performDataTask(endpointURLString: urlString, httpMethod: "GET", httpBody: nil) { (error, data, response) in
@@ -54,7 +58,4 @@ public final class ImageHelper {
         }
     }
     
-    public func image(forKey key: NSString) -> UIImage? {
-        return imageCache.object(forKey: key)
-    }
 }

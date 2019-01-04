@@ -24,23 +24,25 @@ class ElementDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = element.name
+        
         updateDetailUI()
-        
-        //***set image here
-        //if image is available, do this
-        //otherwise set background color black
-        
-        /*
-         UIGraphicsBeginImageContext(self.view.frame.size);
-         [[UIImage imageNamed:@"image.png"] drawInRect:self.view.bounds];
-         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-         UIGraphicsEndImageContext();
-         
-         self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-         */
+        setBackgroundImage()
     }
     
-    func updateDetailUI() {
+    private func setBackgroundImage() {
+        ImageHelper.shared.fetchImage(urlString: "http://images-of-elements.com/\(element.name.lowercased()).jpg") { (appError, image) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let image = image {
+                let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+                backgroundImage.image = image
+                backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+                self.view.insertSubview(backgroundImage, at: 0)
+            }
+        }
+    }
+    
+    private func updateDetailUI() {
         titleElementName.text = element.name
         elementPhase.text = element.phase
         elementDescription.text = element.summary

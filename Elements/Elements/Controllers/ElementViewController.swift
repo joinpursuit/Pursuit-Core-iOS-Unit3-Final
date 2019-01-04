@@ -66,6 +66,8 @@ extension ElementViewController: UITableViewDataSource {
 //
         return cell
     }
+    
+    //private func getThumbnail
 }
 
 extension ElementViewController: UITableViewDelegate {
