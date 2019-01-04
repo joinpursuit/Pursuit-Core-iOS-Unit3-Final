@@ -19,6 +19,7 @@ class ElementDetailViewController: UIViewController {
     @IBOutlet weak var elementDetailMelt: UILabel!
     @IBOutlet weak var elementDetailBoil: UILabel!
     @IBOutlet weak var elementDetailDiscover: UILabel!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     
     public var element: ElementData!
@@ -64,7 +65,22 @@ class ElementDetailViewController: UIViewController {
     
     
 
-    @IBAction func favoritesPressed(_ sender: Any) {
+    @IBAction func favoritesPressed(_ sender: UIBarButtonItem) {
+        let favorite = Favorite.init(name: element.name, favoritedBy: "Stephanie")
+        do {
+            let data = try JSONEncoder().encode(favorite)
+            ElementAPIClient.favoriteElement(data: data) { (appError, success) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if success {
+                    print("successfully favorited podcast")
+                } else {
+                    print("was not favorited")
+                }
+            }
+        } catch {
+            print("encoding error: \(error)")
+        }
     }
     
 }

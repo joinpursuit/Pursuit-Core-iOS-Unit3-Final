@@ -9,5 +9,7 @@
 import Foundation
 
 struct Favorite: Codable {
-    
+    let name: String
+    let favoritedBy: String
+
 }
