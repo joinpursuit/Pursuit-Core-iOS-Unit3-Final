@@ -22,8 +22,10 @@ struct formatElementNumber {
     static func elementNumberWithThreeDigits(element: Element) -> String {
         if element.number < 10 {
             return "00\(element.number.description)"
-        } else {
+        } else if element.number < 100 {
             return "0\(element.number.description)"
+        } else {
+            return element.number.description
         }
     }
 }

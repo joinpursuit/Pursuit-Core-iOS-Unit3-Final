@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ElementViewController: UIViewController, UITableViewDelegate {
+class ElementViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -18,10 +18,10 @@ class ElementViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         searchBar.delegate = self
         getElementsData()
         setupRefreshControl()
-        tableView.delegate = self
     }
     
     @objc private func fetchElements() {
@@ -53,14 +53,14 @@ class ElementViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? ElementDetailViewController, let indexPath = tableView.indexPathForSelectedRow else { return }
         let elementToSend = elements[indexPath.row]
         destination.element = elementToSend
     }
+}
 
+extension ElementViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -78,10 +78,22 @@ extension ElementViewController: UITableViewDataSource {
         //cell.configureCell(element: elementToSet)
         cell.textLabel?.text = elementToSet.name
         cell.detailTextLabel?.text = "\(elementToSet.symbol)(\(elementToSet.number)) \(elementToSet.atomic_mass)"
-     //   cell.imageView?.image = UIImage(named: "placeholderImage")
         
-
         let imageURL = "http://www.theodoregray.com/periodictable/Tiles/\(formatElementNumber.elementNumberWithThreeDigits(element: elementToSet))/s7.JPG"
+        
+        //i'm not using this because it doesn't load all the images for the tableView.
+//        if let image = ImageHelper.shared.image(forKey: imageURL as NSString) {
+//            cell.imageView?.image = image
+//        } else {
+//            ImageHelper.shared.fetchImage(urlString: imageURL) { (appError, image) in
+//                if let appError = appError {
+//                    print(appError.errorMessage())
+//                } else if let image = image {
+//                    cell.imageView?.image = image
+//                }
+//            }
+//        }
+        
         if let url = URL.init(string: imageURL) {
             do {
                 let data = try Data.init(contentsOf: url)
@@ -90,6 +102,7 @@ extension ElementViewController: UITableViewDataSource {
                 }
             } catch {
                 print("image error is: \(error)")
+                cell.imageView?.image = UIImage(named: "placeholderImage")
             }
         }
     return cell
