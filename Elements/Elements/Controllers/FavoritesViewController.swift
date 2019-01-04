@@ -51,17 +51,17 @@ extension FavoritesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath)
         let favorite = favorites[indexPath.row]
         cell.textLabel?.text = favorite.elementName
-        if let image = ImageHelper.shared.image(forKey: favorite.spectral_img.absoluteString as NSString) {
-            cell.imageView?.image = image
-        } else {
-            ImageHelper.shared.fetchImage(urlString: favorite.spectral_img.absoluteString) { (appError, image) in
-                if let appError = appError {
-                    print(appError.errorMessage())
-                } else if let image = image {
-                    cell.imageView?.image = image
-                }
-            }
-        }
+//        if let image = ImageHelper.shared.image(forKey: favorite.spectral_img.absoluteString as NSString) {
+//            cell.imageView?.image = image
+//        } else {
+//            ImageHelper.shared.fetchImage(urlString: favorite.spectral_img.absoluteString) { (appError, image) in
+//                if let appError = appError {
+//                    print(appError.errorMessage())
+//                } else if let image = image {
+//                    cell.imageView?.image = image
+//                }
+//            }
+//        }
         return cell
     }
 }

@@ -65,17 +65,17 @@ class ElementsDetailViewController: UIViewController {
         } else {
             elementsMeltingPoint.text = "No name given for who discovered this element"
         }
-        if let image = ImageHelper.shared.image(forKey: element.spectral_img.absoluteString as NSString) {
-            elementsImage.image = image
-        } else {
-            ImageHelper.shared.fetchImage(urlString: element.spectral_img.absoluteString) { (appError, image) in
-                if let appError = appError {
-                    print(appError.errorMessage())
-                } else if let image = image {
-                    self.elementsImage.image = image
-                }
-            }
-        }
+//        if let image = ImageHelper.shared.image(forKey: element.spectral_img.absoluteString as NSString) {
+//            elementsImage.image = image
+//        } else {
+//            ImageHelper.shared.fetchImage(urlString: element.spectral_img.absoluteString) { (appError, image) in
+//                if let appError = appError {
+//                    print(appError.errorMessage())
+//                } else if let image = image {
+//                    self.elementsImage.image = image
+//                }
+//            }
+//        }
     }
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -85,7 +85,7 @@ class ElementsDetailViewController: UIViewController {
     }
 
     @IBAction func addToFavorites(_ sender: UIBarButtonItem) {
-        let favorite = Favorites.init(favoritedBy: Constants.Name, elementName: element.name, elementSymbol: element.symbol, spectral_img: element.spectral_img)
+        let favorite = Favorites.init(favoritedBy: Constants.Name, elementName: element.name, elementSymbol: element.symbol)
         do {
             let data = try JSONEncoder().encode(favorite)
             ElementsAPIClient.favoriteElement(data: data) { (appError, success) in

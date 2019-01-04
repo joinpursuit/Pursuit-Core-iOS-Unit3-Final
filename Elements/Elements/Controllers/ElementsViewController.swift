@@ -34,7 +34,10 @@ class ElementsViewController: UIViewController {
     private func loadData() {
         ElementsAPIClient.getElements { (error, elements) in
             if let element = elements {
-                return 
+                DispatchQueue.main.async {
+                    self.elements = element
+                }
+                
             }
         }
         
@@ -60,9 +63,7 @@ extension ElementsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementsCell", for: indexPath) as? ElementsCell else {
-            fatalError("ElementsCell error")
-        }
+         let cell = tableView.dequeueReusableCell(withIdentifier: "ElementsCell", for: indexPath) as! ElementsCell 
         let element = elements[indexPath.row]
         cell.configureCell(element: element)
         return cell 

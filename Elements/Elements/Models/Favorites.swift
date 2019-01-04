@@ -8,8 +8,8 @@
 
 import Foundation
 struct Favorites: Codable {
-    let favoritedBy: String
-    let elementName: String
+    let favoritedBy: String?
+    let elementName: String?
     let elementSymbol: String
-    let spectral_img: URL
+    
 }
