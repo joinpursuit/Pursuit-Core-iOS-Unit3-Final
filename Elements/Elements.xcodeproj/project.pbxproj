@@ -7,17 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5517EB5C21DFCE5800863FCE /* ElementDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5517EB5B21DFCE5800863FCE /* ElementDetailController.swift */; };
+		5517EB5E21DFF74B00863FCE /* ElementNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5517EB5D21DFF74B00863FCE /* ElementNumber.swift */; };
+		5517EB6021E0084600863FCE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5517EB5F21E0084600863FCE /* Favorite.swift */; };
+		551BB82921DFB2C000008A93 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BB82821DFB2C000008A93 /* AppError.swift */; };
+		551BB82B21DFB2D600008A93 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BB82A21DFB2D600008A93 /* NetworkHelper.swift */; };
+		551BB82D21DFB2E100008A93 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BB82C21DFB2E100008A93 /* ImageHelper.swift */; };
+		551BB82F21DFB2FE00008A93 /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BB82E21DFB2FE00008A93 /* ElementAPIClient.swift */; };
+		551BB83221DFB49C00008A93 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BB83121DFB49C00008A93 /* Elements.swift */; };
+		551BB83421DFC3B200008A93 /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551BB83321DFC3B200008A93 /* ElementCell.swift */; };
 		5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734756121DA90C700FB6177 /* AppDelegate.swift */; };
-		5734756421DA90C700FB6177 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734756321DA90C700FB6177 /* ViewController.swift */; };
+		5734756421DA90C700FB6177 /* ElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734756321DA90C700FB6177 /* ElementViewController.swift */; };
 		5734756721DA90C700FB6177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756521DA90C700FB6177 /* Main.storyboard */; };
 		5734756921DA90C800FB6177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5734756821DA90C800FB6177 /* Assets.xcassets */; };
 		5734756C21DA90C800FB6177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756A21DA90C800FB6177 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5517EB5B21DFCE5800863FCE /* ElementDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementDetailController.swift; sourceTree = "<group>"; };
+		5517EB5D21DFF74B00863FCE /* ElementNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementNumber.swift; sourceTree = "<group>"; };
+		5517EB5F21E0084600863FCE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		551BB82821DFB2C000008A93 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		551BB82A21DFB2D600008A93 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		551BB82C21DFB2E100008A93 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		551BB82E21DFB2FE00008A93 /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
+		551BB83121DFB49C00008A93 /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
+		551BB83321DFC3B200008A93 /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		5734755E21DA90C700FB6177 /* Elements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5734756121DA90C700FB6177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5734756321DA90C700FB6177 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5734756321DA90C700FB6177 /* ElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementViewController.swift; sourceTree = "<group>"; };
 		5734756621DA90C700FB6177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5734756821DA90C800FB6177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5734756B21DA90C800FB6177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +53,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		551BB82621DFB25400008A93 /* Controllers  */ = {
+			isa = PBXGroup;
+			children = (
+				5734756321DA90C700FB6177 /* ElementViewController.swift */,
+				5517EB5B21DFCE5800863FCE /* ElementDetailController.swift */,
+			);
+			path = "Controllers ";
+			sourceTree = "<group>";
+		};
+		551BB82721DFB28F00008A93 /* Network Helper */ = {
+			isa = PBXGroup;
+			children = (
+				551BB82821DFB2C000008A93 /* AppError.swift */,
+				551BB82A21DFB2D600008A93 /* NetworkHelper.swift */,
+				551BB82C21DFB2E100008A93 /* ImageHelper.swift */,
+				551BB82E21DFB2FE00008A93 /* ElementAPIClient.swift */,
+			);
+			name = "Network Helper";
+			sourceTree = "<group>";
+		};
+		551BB83021DFB48700008A93 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				551BB83121DFB49C00008A93 /* Elements.swift */,
+				5517EB5F21E0084600863FCE /* Favorite.swift */,
+				551BB83321DFC3B200008A93 /* ElementCell.swift */,
+				5517EB5D21DFF74B00863FCE /* ElementNumber.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		5734755521DA90C700FB6177 = {
 			isa = PBXGroup;
 			children = (
@@ -54,7 +103,9 @@
 		5734756021DA90C700FB6177 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				5734756321DA90C700FB6177 /* ViewController.swift */,
+				551BB83021DFB48700008A93 /* model */,
+				551BB82721DFB28F00008A93 /* Network Helper */,
+				551BB82621DFB25400008A93 /* Controllers  */,
 				5734756521DA90C700FB6177 /* Main.storyboard */,
 				5734757321DA90F500FB6177 /* Supporting Files */,
 				5734756D21DA90C800FB6177 /* Info.plist */,
@@ -143,8 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5734756421DA90C700FB6177 /* ViewController.swift in Sources */,
+				5517EB5C21DFCE5800863FCE /* ElementDetailController.swift in Sources */,
+				551BB83221DFB49C00008A93 /* Elements.swift in Sources */,
+				551BB82B21DFB2D600008A93 /* NetworkHelper.swift in Sources */,
+				551BB82D21DFB2E100008A93 /* ImageHelper.swift in Sources */,
+				5734756421DA90C700FB6177 /* ElementViewController.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
+				5517EB6021E0084600863FCE /* Favorite.swift in Sources */,
+				551BB82F21DFB2FE00008A93 /* ElementAPIClient.swift in Sources */,
+				551BB83421DFC3B200008A93 /* ElementCell.swift in Sources */,
+				551BB82921DFB2C000008A93 /* AppError.swift in Sources */,
+				5517EB5E21DFF74B00863FCE /* ElementNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RFPRDQU6MN;
 				INFOPLIST_FILE = Elements/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,7 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RFPRDQU6MN;
 				INFOPLIST_FILE = Elements/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
