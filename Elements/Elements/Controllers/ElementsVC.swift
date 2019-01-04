@@ -47,14 +47,16 @@ class ElementsVC: UIViewController {
 //    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let destination = segue.destination as? DetailElementVC {
+//            destination.boilingPoint.text = allElements[tableView.indexPathForSelectedRow?.row ?? 0]
+//            destination.number.text = allElements[tableView.indexPathForSelectedRow?.row ?? 0]
     }
 
 }
-
+}
 extension ElementsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 175
     }
 }
 
@@ -68,7 +70,7 @@ extension ElementsVC : UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementCell else {fatalError("ElementCell not found") }
 //        cell.name.text = allElements.name
-//        cell.otherThing.text = allElements
+//        cell.otherThing.text = "\(allElements.symbol)(\(allElements.number))\(allElements.atomic_mass)"
         return cell
     }
 }
