@@ -10,6 +10,8 @@ import UIKit
 
 class DetailElementVC: UIViewController {
 
+    public var element: Element!
+    
     @IBOutlet weak var symbol: UILabel!
     @IBOutlet weak var number: UILabel!
     @IBOutlet weak var weight: UILabel!
@@ -19,5 +21,6 @@ class DetailElementVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = element.name
     }
 }

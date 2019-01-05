@@ -90,7 +90,7 @@
         <!--Title-->
         <scene sceneID="Rso-42-zhA">
             <objects>
-                <viewController id="gyJ-0f-pt2" sceneMemberID="viewController">
+                <viewController id="gyJ-0f-pt2" customClass="DetailElementVC" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sWG-qt-zGJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

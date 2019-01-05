@@ -23,6 +23,7 @@ class ElementsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Element Chart"
         tableView.dataSource = self
         tableView.delegate = self
         loadData()
@@ -39,13 +40,18 @@ class ElementsVC: UIViewController {
     }
     
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let _ = segue.destination as? DetailElementVC {
-            
-    }
 
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let indexPath = tableView.indexPathForSelectedRow, let detailVC1 = segue.destination as? DetailElementVC else {
+        fatalError("indexPath, detailVC nil")
+        
+    }
+    let element = elements[indexPath.row]
+    detailVC1.element = element
 }
+    
 }
+
 extension ElementsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 175
