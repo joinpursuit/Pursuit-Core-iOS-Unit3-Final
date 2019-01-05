@@ -17,7 +17,6 @@ class FavoritesViewController: UIViewController {
             }
         }
     }
-    var name = "Oniel"
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -26,12 +25,12 @@ class FavoritesViewController: UIViewController {
     }
     
     func getFavorites() {
-      guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let encodedName = Fellow.Name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         elementAPIClient.getFavorites(name: encodedName) { (appError, favorites) in
             if let appError = appError {
                 print(appError.errorMessage())
             } else if let favorites = favorites {
-                self.favorites = favorites
+                self.favorites = favorites.filter{$0.favoritedBy == Fellow.Name}
             }
         }
         

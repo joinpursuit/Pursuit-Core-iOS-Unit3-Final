@@ -19,13 +19,13 @@ class ElementsViewController: UIViewController {
     }
     
     
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    tableView.dataSource = self
-    tableView.delegate = self
-    title = "Elements"
-   loadElements()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        title = "Elements"
+        loadElements()
+    }
     
     private func loadElements() {
         elementAPIClient.getElements { (appError, element) in
@@ -54,7 +54,7 @@ extension ElementsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? ElementCellTableViewCell else { return UITableViewCell() }
         let indexpath = elements[indexPath.row]
-       cell.configureCell(element: indexpath)
+        cell.configureCell(element: indexpath)
         return cell
     }
 }

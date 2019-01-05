@@ -35,13 +35,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZD-AC-4bC">
-                                                    <rect key="frame" x="170" y="78" width="179" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="170" y="55.5" width="179" height="30.5"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciF-hd-zRU">
-                                                    <rect key="frame" x="170" y="110" width="179" height="21"/>
+                                                    <rect key="frame" x="170" y="97" width="179" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                                 <constraint firstItem="NZD-AC-4bC" firstAttribute="leading" secondItem="xud-st-t6G" secondAttribute="trailing" constant="11" id="Rfg-GK-wuJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NZD-AC-4bC" secondAttribute="trailing" constant="11" id="TRw-Gd-Zxq"/>
                                                 <constraint firstItem="ciF-hd-zRU" firstAttribute="leading" secondItem="xud-st-t6G" secondAttribute="trailing" constant="11" id="UDl-MI-FhD"/>
-                                                <constraint firstItem="NZD-AC-4bC" firstAttribute="centerY" secondItem="xud-st-t6G" secondAttribute="centerY" id="Uoc-Mm-ZWh"/>
+                                                <constraint firstItem="NZD-AC-4bC" firstAttribute="centerY" secondItem="xud-st-t6G" secondAttribute="centerY" multiplier="0.8" id="Uoc-Mm-ZWh"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="xud-st-t6G" secondAttribute="bottom" constant="11" id="bxC-CD-3OB"/>
                                                 <constraint firstItem="ciF-hd-zRU" firstAttribute="top" secondItem="NZD-AC-4bC" secondAttribute="bottom" constant="11" id="jPO-2c-Xmh"/>
                                                 <constraint firstItem="xud-st-t6G" firstAttribute="top" secondItem="cVf-Uu-fp8" secondAttribute="topMargin" constant="11" id="qFk-P1-ZGD"/>
@@ -205,6 +205,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ZfA-Wa-JBq"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x5p-zW-9uQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

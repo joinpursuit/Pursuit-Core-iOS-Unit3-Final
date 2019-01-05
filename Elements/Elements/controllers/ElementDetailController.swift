@@ -26,16 +26,16 @@ class ElementDetailController: UIViewController {
     @IBOutlet weak var elementDescription: UITextView!
     
     var element: Element!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    title = element.name
+        title = element.name
         updateUI()
     }
     private func getAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { alert in}
-         alertController.addAction(okAction)
+        alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
     
@@ -49,7 +49,7 @@ class ElementDetailController: UIViewController {
         elementDiscoveredBy.text = "Discovered by: \(element.discovered_by ?? "unknown discovery")"
         elementDescription.text = element.summary
         if let image = ImageHelper.shared.image(forKey: "http://images-of-elements.com/\(element.name.lowercased()).jpg" as NSString) {
-           elementDetailImage.image = image
+            elementDetailImage.image = image
         } else {
             ImageHelper.shared.fetchImage(urlString: "http://images-of-elements.com/\(element.name.lowercased()).jpg") { (appError, image) in
                 if let appError = appError {
@@ -62,13 +62,13 @@ class ElementDetailController: UIViewController {
     }
     
     @IBAction func addToFavorite(_ sender: UIBarButtonItem) {
-      let favorite = Favorite.init(id: "\(element.number)", elementName: element.name, favoritedBy: "Oniel", elementSymbol: element.symbol)
+        let favorite = Favorite.init(id: "\(element.number)", elementName: element.name, favoritedBy: Fellow.Name, elementSymbol: element.symbol)
         do {
-           let data = try JSONEncoder().encode(favorite)
+            let data = try JSONEncoder().encode(favorite)
             elementAPIClient.addToFavorites(data: data) { (appError, success) in
                 if let appError = appError {
                     DispatchQueue.main.async {
-                    self.getAlert(title: "Error message", message: appError.errorMessage())
+                        self.getAlert(title: "Error message", message: appError.errorMessage())
                     }
                 } else if success {
                     DispatchQueue.main.async {
