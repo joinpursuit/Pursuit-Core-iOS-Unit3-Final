@@ -33,7 +33,6 @@ class FavoritesViewController: UIViewController {
                 self.favorites = favorites.filter{$0.favoritedBy == Fellow.Name}
             }
         }
-        
     }
 }
 
@@ -47,6 +46,7 @@ extension FavoritesViewController: UITableViewDataSource {
         let favorite = favorites[indexPath.row]
         cell.textLabel?.text = favorite.elementName
         cell.detailTextLabel?.text = "favorited by: \(favorite.favoritedBy)"
+        cell.backgroundColor = .gray
         return cell
     }
 }

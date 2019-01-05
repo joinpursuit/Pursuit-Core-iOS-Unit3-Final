@@ -8,15 +8,6 @@
 
 import Foundation
 
-//Name
-//Symbol(Number) Atomic Weight
-
-//symbol
-//number
-//weight
-//melting point
-//boiling point
-//discovery by
 
 struct Element: Codable {
     let name: String

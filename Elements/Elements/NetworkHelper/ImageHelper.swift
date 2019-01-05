@@ -10,11 +10,10 @@ import Foundation
 import UIKit
 
 public final class ImageHelper {
-    // Singleton instance to have only one instance in the app of the imageCache
     private init() {
         imageCache = NSCache<NSString, UIImage>()
-        imageCache.countLimit = 100 // number of objects
-        imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB used
+        imageCache.countLimit = 100
+        imageCache.totalCostLimit = 10 * 1024 * 1024
     }
     public static let shared = ImageHelper()
     
@@ -27,8 +26,6 @@ public final class ImageHelper {
                 return
             }
             if let response = response {
-                // response.allHeaderFields dictionary contains useful header information such as Content-Type, Content-Length
-                // response also has the mimeType, such as image/jpeg, text/html, image/png
                 let mimeType = response.mimeType ?? "no mimeType found"
                 var isValidImage = false
                 switch mimeType {

@@ -29,7 +29,8 @@ class ElementDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = element.name
+        title = element.name.uppercased() + " 🔬"
+       
         updateUI()
     }
     private func getAlert(title: String, message: String) {
@@ -41,7 +42,8 @@ class ElementDetailController: UIViewController {
     
     func updateUI() {
         view.backgroundColor = .gray
-        elementSymbol.text = "Symbol: \(element.symbol)"
+        elementSymbol.text = "\(element.symbol)"
+        elementSymbol.textColor = .white
         elementNumber.text = "Number: \(element.number)"
         elementWeight.text = "Weight: \(String(format: "%.3f", element.atomic_mass))"
         elementMeltingPoint.text = "Melting point: \(String(format: "%.3f", element.melt ?? "unknown melting point"))"

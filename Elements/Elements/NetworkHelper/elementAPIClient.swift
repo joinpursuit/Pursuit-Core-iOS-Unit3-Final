@@ -10,14 +10,14 @@ import Foundation
 
 final class elementAPIClient {
     static func getElements(completionHandler: @escaping (AppError?, [Element]?) -> Void) {
-        NetworkHelper.shared.performDataTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements", httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
+        NetworkHelper.shared.performDataTask(endpointURLString: MyUrl.GetElements, httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
             if let appError = appError {
                 completionHandler(appError, nil)
             }
             guard let response = httpResponse,
                 (200...299).contains(response.statusCode) else {
                     let statusCode = httpResponse?.statusCode ?? -999
-                    completionHandler(AppError.badStatusCode(String(statusCode)), nil)
+                completionHandler(AppError.badStatusCode(String(statusCode)), nil)
                     return
             }
             if let data = data {
@@ -32,7 +32,7 @@ final class elementAPIClient {
     }
     
     static func addToFavorites(data: Data, completionHandler: @escaping (AppError?, Bool) -> Void) {
-        NetworkHelper.shared.performUploadTask(endpointURLString: "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites", httpMethod: "POST", httpBody: data) { (appError, data, httpResponse) in
+        NetworkHelper.shared.performUploadTask(endpointURLString: MyUrl.PostFavorite, httpMethod: "POST", httpBody: data) { (appError, data, httpResponse) in
             if let appError = appError {
                 completionHandler(appError, false)
             }
@@ -49,7 +49,7 @@ final class elementAPIClient {
     }
     
     static func getFavorites(name: String, completionHandler: @escaping (AppError?, [Favorite]?) -> Void) {
-        let getFavoritesEndpoint = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
+        let getFavoritesEndpoint = MyUrl.GetFavorites
         NetworkHelper.shared.performDataTask(endpointURLString: getFavoritesEndpoint, httpMethod: "GET", httpBody: nil) { (appError, data, httpResponse) in
             if let appError = appError {
                 completionHandler(appError, nil)

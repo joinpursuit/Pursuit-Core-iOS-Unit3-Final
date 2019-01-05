@@ -23,7 +23,7 @@ class ElementsViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        title = "Elements"
+        title = "Elements 🧪"
         loadElements()
     }
     
@@ -39,7 +39,7 @@ class ElementsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexpath = tableView.indexPathForSelectedRow,
-            let destination = segue.destination as? ElementDetailController else { fatalError("indexpath VC found nil")}
+            let destination = segue.destination as? ElementDetailController else { fatalError("VC found nil")}
         let element = elements[indexpath.row]
         destination.element = element
     }
