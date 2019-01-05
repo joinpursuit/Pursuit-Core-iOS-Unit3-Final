@@ -19,6 +19,7 @@
 		61D3FFF121DFB93B0032E7BB /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3FFF021DFB93B0032E7BB /* ElementCell.swift */; };
 		61D3FFF321DFBDD10032E7BB /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3FFF221DFBDD10032E7BB /* Elements.swift */; };
 		61D3FFF521DFC2270032E7BB /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3FFF421DFC2270032E7BB /* ElementAPIClient.swift */; };
+		61F86CF421E145F400A5C290 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86CF321E145F400A5C290 /* FavoriteVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		61D3FFF021DFB93B0032E7BB /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		61D3FFF221DFBDD10032E7BB /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
 		61D3FFF421DFC2270032E7BB /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
+		61F86CF321E145F400A5C290 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				61D3FFEA21DFB4F30032E7BB /* DetailElementVC.swift */,
+				61F86CF321E145F400A5C290 /* FavoriteVC.swift */,
 				61D3FFE621DFB4460032E7BB /* ElementsVC.swift */,
 			);
 			path = Controllers;
@@ -200,6 +203,7 @@
 				61D3FFE721DFB4460032E7BB /* ElementsVC.swift in Sources */,
 				61D3FFEB21DFB4F30032E7BB /* DetailElementVC.swift in Sources */,
 				61D3FFE321DFB1AC0032E7BB /* AppError.swift in Sources */,
+				61F86CF421E145F400A5C290 /* FavoriteVC.swift in Sources */,
 				61D3FFE521DFB1D30032E7BB /* ImageHelper.swift in Sources */,
 				61D3FFE121DFB19F0032E7BB /* NetworkHelper.swift in Sources */,
 				61D3FFF321DFBDD10032E7BB /* Elements.swift in Sources */,

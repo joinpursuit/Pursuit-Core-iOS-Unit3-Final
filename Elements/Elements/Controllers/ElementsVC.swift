@@ -44,7 +44,6 @@ class ElementsVC: UIViewController {
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let indexPath = tableView.indexPathForSelectedRow, let detailVC1 = segue.destination as? DetailElementVC else {
         fatalError("indexPath, detailVC nil")
-        
     }
     let element = elements[indexPath.row]
     detailVC1.element = element
@@ -67,8 +66,8 @@ extension ElementsVC : UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementCell else {fatalError("ElementCell not found") }
         let path = elements[indexPath.row]
-        cell.name.text = path.name
-        cell.otherThing.text = "\(path.symbol)(\(path.number))\(path.atomicMass)"
+        cell.name.text = "\(path.name):"
+        cell.otherThing.text = "\(path.symbol)(\(path.number)) \n\(path.atomicMass)"
         return cell
     }
 }
