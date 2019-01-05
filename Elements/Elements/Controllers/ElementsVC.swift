@@ -12,44 +12,36 @@ class ElementsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
  
-    var allElements = [Elements](){
+    var elements = [Element](){
         didSet{
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-    
+        }
     }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-//        loadData()
-        getInfo()
+        loadData()
     }
     
-    func getInfo() {
-        APIManager.manager.getElement({ (infoFromOnline) in
-            self.allElements = infoFromOnline
-        }) { (error) in
-            print(error)
+    private func loadData() {
+        ElementAPIClient.getElements { (appError, element) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let element = element {
+                self.elements = element
+            }
         }
     }
-//    private func loadData() {
-//        ElementAPIManager.manager.getElement { (error, elements) in
-//            if let error = error {
-//                print("#Error:\(error)")
-//                print("#Error:\(error.localizedDescription)")
-//            } else if let elements = elements {
-//                self.elements = elements
-//                print(elements)
-//            }
-//        }
-//    }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DetailElementVC {
-//            destination.boilingPoint.text = allElements[tableView.indexPathForSelectedRow?.row ?? 0]
-//            destination.number.text = allElements[tableView.indexPathForSelectedRow?.row ?? 0]
+        if let _ = segue.destination as? DetailElementVC {
+            
     }
 
 }
@@ -62,15 +54,15 @@ extension ElementsVC: UITableViewDelegate {
 
 extension ElementsVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return allElements.count
-        return 20
+        return elements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementCell else {fatalError("ElementCell not found") }
-//        cell.name.text = allElements.name
-//        cell.otherThing.text = "\(allElements.symbol)(\(allElements.number))\(allElements.atomic_mass)"
+        let path = elements[indexPath.row]
+        cell.name.text = path.name
+        cell.otherThing.text = "\(path.symbol)(\(path.number))\(path.atomicMass)"
         return cell
     }
 }
