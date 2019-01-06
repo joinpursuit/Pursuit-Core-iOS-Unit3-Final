@@ -23,10 +23,12 @@ class FavoriteVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        title = "Favorites"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        fetchFavorites()
     }
     
     private func fetchFavorites() {
@@ -49,7 +51,8 @@ class FavoriteVC: UIViewController {
 extension FavoriteVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favorites.count
+        return favorites.filter{$0.favoritedBy.contains("Viera")}.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

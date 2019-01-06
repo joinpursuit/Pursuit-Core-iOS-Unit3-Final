@@ -163,7 +163,7 @@
                         <viewLayoutGuide key="safeArea" id="EmJ-KR-S0N"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="WCS-g7-hhk">
-                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="3rX-o0-agO">
+                        <barButtonItem key="rightBarButtonItem" image="fav" id="3rX-o0-agO">
                             <connections>
                                 <action selector="addToFavorite:" destination="gyJ-0f-pt2" id="6bo-oc-sRP"/>
                             </connections>
@@ -254,13 +254,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNc-dX-OV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="994"/>
+            <point key="canvasLocation" x="2578" y="994"/>
         </scene>
         <!--Item-->
         <scene sceneID="2U6-Xy-ElQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZIR-HX-uos" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XZd-66-g23"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="atom" id="XZd-66-g23"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mgB-fC-Coh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -275,11 +275,11 @@
             </objects>
             <point key="canvasLocation" x="1639.2" y="48.125937031484263"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="wBX-AE-vaR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fS6-fD-szL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="PnP-kL-Y6i"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="fav" id="PnP-kL-Y6i"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FbI-5c-XXO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -292,10 +292,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVf-iU-779" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="994"/>
+            <point key="canvasLocation" x="1639" y="994"/>
         </scene>
     </scenes>
     <resources>
+        <image name="atom" width="5.4822335243225098" height="5.4822335243225098"/>
+        <image name="fav" width="30" height="30"/>
         <image name="imageHolder" width="614" height="460"/>
     </resources>
 </document>

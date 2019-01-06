@@ -20,10 +20,9 @@ class ElementsVC: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Element Chart"
+        title = "Periodic Table"
         tableView.dataSource = self
         tableView.delegate = self
         loadData()

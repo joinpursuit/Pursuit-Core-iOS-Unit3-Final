@@ -27,7 +27,6 @@ class DetailElementVC: UIViewController {
     }
     
     func updateLabels() {
-        
         if let melt = element.melt{
             meltingPoint.text = "Melting Point: \(melt.description)"
         }
@@ -50,7 +49,7 @@ class DetailElementVC: UIViewController {
     }
     
     @IBAction func addToFavorite(_ sender: UIBarButtonItem) {
-        let favorite = Favorite(favoritedBy: "Joshua Viera", elementName: element.name, elementSymbol: element.symbol)
+        let favorite = Favorite(favoritedBy: Constants.Name, elementName: element.name, elementSymbol: element.symbol)
         
         do {
             let data = try JSONEncoder().encode(favorite)
@@ -70,4 +69,6 @@ class DetailElementVC: UIViewController {
             print("encoding error: \(error)")
         }
     }
+    
+    private var urlString = ""
 }

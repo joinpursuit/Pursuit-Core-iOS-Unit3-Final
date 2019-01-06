@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 final class Constants {
     static let Name = "Joshua Viera"
 }
