@@ -11,7 +11,7 @@ import UIKit
 class ElementsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
- 
+    
     var elements = [Element](){
         didSet{
             DispatchQueue.main.async {
@@ -20,7 +20,7 @@ class ElementsVC: UIViewController {
         }
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Element Chart"
@@ -39,15 +39,15 @@ class ElementsVC: UIViewController {
         }
     }
     
-
-
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard let indexPath = tableView.indexPathForSelectedRow, let detailVC1 = segue.destination as? DetailElementVC else {
-        fatalError("indexPath, detailVC nil")
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow, let detailVC1 = segue.destination as? DetailElementVC else {
+            fatalError("indexPath, detailVC nil")
+        }
+        let element = elements[indexPath.row]
+        detailVC1.element = element
     }
-    let element = elements[indexPath.row]
-    detailVC1.element = element
-}
     
 }
 

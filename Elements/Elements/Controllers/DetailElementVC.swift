@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailElementVC: UIViewController {
-
+    
     public var element: Element!
     
     @IBOutlet weak var photo: UIImageView!
@@ -27,7 +27,7 @@ class DetailElementVC: UIViewController {
     }
     
     func updateLabels() {
-    
+        
         if let melt = element.melt{
             meltingPoint.text = "Melting Point: \(melt.description)"
         }
@@ -41,6 +41,7 @@ class DetailElementVC: UIViewController {
         number.text = "Element Number: \(element.number)"
         weight.text = "Atomic Mass: \(element.atomicMass)"
     }
+    
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { alert in }
@@ -49,8 +50,8 @@ class DetailElementVC: UIViewController {
     }
     
     @IBAction func addToFavorite(_ sender: UIBarButtonItem) {
-        let favorite = Favorite(favoritedBy: "Joshua Viera", name: element.name, symbol: element.symbol)
-      
+        let favorite = Favorite(favoritedBy: "Joshua Viera", elementName: element.name, elementSymbol: element.symbol)
+        
         do {
             let data = try JSONEncoder().encode(favorite)
             
@@ -58,8 +59,7 @@ class DetailElementVC: UIViewController {
                 if let appError = appError {
                     self.showAlert(title: "Error Message:", message: appError.errorMessage())
                 } else if success {
-                    print(" \(self.element.name)")
-                    self.showAlert(title: "Successsfully Favorited\(self.element.name)", message: "")
+                    self.showAlert(title: "Successsfully Favorited \(self.element.name)", message: "")
                 } else {
                     DispatchQueue.main.async {
                         self.showAlert(title: "was not favorited", message: "")
@@ -69,5 +69,5 @@ class DetailElementVC: UIViewController {
         } catch {
             print("encoding error: \(error)")
         }
-}
+    }
 }

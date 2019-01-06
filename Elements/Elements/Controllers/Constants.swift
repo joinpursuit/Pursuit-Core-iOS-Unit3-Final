@@ -1,5 +1,5 @@
 //
-//  Favorite.swift
+//  Constants.swift
 //  Elements
 //
 //  Created by Joshua Viera on 1/6/19.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Favorite: Codable {
-    let favoritedBy: String
-    let elementName: String
-    let elementSymbol: String
+
+final class Constants {
+    static let Name = "Joshua Viera"
 }
