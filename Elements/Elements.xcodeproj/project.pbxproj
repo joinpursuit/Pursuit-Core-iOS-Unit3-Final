@@ -20,6 +20,7 @@
 		61D3FFF321DFBDD10032E7BB /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3FFF221DFBDD10032E7BB /* Elements.swift */; };
 		61D3FFF521DFC2270032E7BB /* ElementAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3FFF421DFC2270032E7BB /* ElementAPIClient.swift */; };
 		61F86CF421E145F400A5C290 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86CF321E145F400A5C290 /* FavoriteVC.swift */; };
+		61F86CF821E24A4A00A5C290 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86CF721E24A4A00A5C290 /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		61D3FFF221DFBDD10032E7BB /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
 		61D3FFF421DFC2270032E7BB /* ElementAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementAPIClient.swift; sourceTree = "<group>"; };
 		61F86CF321E145F400A5C290 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		61F86CF721E24A4A00A5C290 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		61D3FFDE21DFB1780032E7BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				61F86CF721E24A4A00A5C290 /* Favorite.swift */,
 				61D3FFF221DFBDD10032E7BB /* Elements.swift */,
 			);
 			path = Models;
@@ -205,6 +208,7 @@
 				61D3FFE321DFB1AC0032E7BB /* AppError.swift in Sources */,
 				61F86CF421E145F400A5C290 /* FavoriteVC.swift in Sources */,
 				61D3FFE521DFB1D30032E7BB /* ImageHelper.swift in Sources */,
+				61F86CF821E24A4A00A5C290 /* Favorite.swift in Sources */,
 				61D3FFE121DFB19F0032E7BB /* NetworkHelper.swift in Sources */,
 				61D3FFF321DFBDD10032E7BB /* Elements.swift in Sources */,
 				61D3FFF521DFC2270032E7BB /* ElementAPIClient.swift in Sources */,
