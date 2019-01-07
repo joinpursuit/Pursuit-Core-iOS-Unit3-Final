@@ -13,35 +13,20 @@ class ElementTableViewCell: UITableViewCell {
     @IBOutlet weak var elementImage: UIImageView!
     @IBOutlet weak var elementName: UILabel!
     @IBOutlet weak var elementDetailedInfo: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    private var urlString = ""
     
     public func configureCell(element: Element) {
         elementName.text = element.name
         elementDetailedInfo.text = "\(element.symbol)(\(element.number)) \(element.atomic_mass)"
         elementImage.image = UIImage(named: "placeholderImage")
-//        if let safeURL = element.spectral_img?.absoluteString {
-//            self.urlString = safeURL
-//            if let image = ImageHelper.shared.image(forKey: safeURL as NSString) {
-//                elementImage.image = image
-//            } else {
-//                activityIndicator.startAnimating()
-//                ImageHelper.shared.fetchImage(urlString: safeURL) { (appError, image) in
-//                    if let appError = appError {
-//                        print(appError.errorMessage())
-//                    } else if let image = image {
-//                        if self.urlString == safeURL {
-//                            self.elementImage.image = image
-//                        }
-//                    }
-//                    DispatchQueue.main.async {
-//                        self.activityIndicator.stopAnimating()
-//                    }
-//                }
-//            }
-//        }
-       
+        let imageURL = "http://www.theodoregray.com/periodictable/Tiles/\(formatElementNumber.elementNumberWithThreeDigits(element: element))/s7.JPG"
+        ImageHelper.shared.fetchImage(urlString: imageURL) { (appError, image) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let image = image {
+                self.elementImage.image = image
+            }
+        }
     }
-
 }
+
+

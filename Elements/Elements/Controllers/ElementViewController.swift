@@ -71,40 +71,9 @@ extension ElementViewController: UITableViewDataSource {
         return elements.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath)
-        //I had a lot of trouble using custom cell...I spent a very long time on it and it's not working so I'm going to complete this using a regular cell.
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementTableViewCell else { fatalError("ElementCell error") }
-        let elementToSet = elements[indexPath.row]
-        //cell.configureCell(element: elementToSet)
-        cell.textLabel?.text = elementToSet.name
-        cell.detailTextLabel?.text = "\(elementToSet.symbol)(\(elementToSet.number)) \(elementToSet.atomic_mass)"
-        
-        let imageURL = "http://www.theodoregray.com/periodictable/Tiles/\(formatElementNumber.elementNumberWithThreeDigits(element: elementToSet))/s7.JPG"
-        
-        //i'm not using this because it doesn't load all the images for the tableView.
-//        if let image = ImageHelper.shared.image(forKey: imageURL as NSString) {
-//            cell.imageView?.image = image
-//        } else {
-//            ImageHelper.shared.fetchImage(urlString: imageURL) { (appError, image) in
-//                if let appError = appError {
-//                    print(appError.errorMessage())
-//                } else if let image = image {
-//                    cell.imageView?.image = image
-//                }
-//            }
-//        }
-        
-        if let url = URL.init(string: imageURL) {
-            do {
-                let data = try Data.init(contentsOf: url)
-                if let image = UIImage.init(data: data) {
-                    cell.imageView?.image = image
-                }
-            } catch {
-                print("image error is: \(error)")
-                cell.imageView?.image = UIImage(named: "placeholderImage")
-            }
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ElementCell", for: indexPath) as? ElementTableViewCell else { fatalError("element table view cell not found") }
+        let element = elements[indexPath.row]
+        cell.configureCell(element: element)
     return cell
     }
 }

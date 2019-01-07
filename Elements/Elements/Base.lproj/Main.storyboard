@@ -27,30 +27,46 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ElementCell" textLabel="YLP-kU-5Wp" detailTextLabel="Rhb-oY-cbp" style="IBUITableViewCellStyleSubtitle" id="fna-Nd-sae">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ElementCell" rowHeight="106" id="fna-Nd-sae" customClass="ElementTableViewCell" customModule="Elements" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fna-Nd-sae" id="9sc-W2-N4B">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YLP-kU-5Wp">
-                                                    <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7R9-qe-xfN">
+                                                    <rect key="frame" x="31" y="0.0" width="145" height="105.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol(##) Atomic Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSB-xj-nBx">
+                                                    <rect key="frame" x="187" y="66" width="196" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rhb-oY-cbp">
-                                                    <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLy-lA-acs">
+                                                    <rect key="frame" x="187" y="19" width="196" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uLy-lA-acs" firstAttribute="leading" secondItem="7R9-qe-xfN" secondAttribute="trailing" constant="11" id="8it-n9-3SG"/>
+                                                <constraint firstItem="XSB-xj-nBx" firstAttribute="leading" secondItem="7R9-qe-xfN" secondAttribute="trailing" constant="11" id="Hnt-7d-81i"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uLy-lA-acs" secondAttribute="trailing" constant="11" id="LlF-11-aWN"/>
+                                                <constraint firstItem="7R9-qe-xfN" firstAttribute="height" secondItem="9sc-W2-N4B" secondAttribute="height" id="Pv2-c6-q1I"/>
+                                                <constraint firstItem="uLy-lA-acs" firstAttribute="top" secondItem="9sc-W2-N4B" secondAttribute="topMargin" constant="8" id="YLt-lO-PUg"/>
+                                                <constraint firstItem="7R9-qe-xfN" firstAttribute="centerY" secondItem="9sc-W2-N4B" secondAttribute="centerY" id="aOr-fQ-rrw"/>
+                                                <constraint firstItem="7R9-qe-xfN" firstAttribute="centerX" secondItem="9sc-W2-N4B" secondAttribute="centerX" multiplier="0.5" id="jcm-tl-iqG"/>
+                                                <constraint firstItem="7R9-qe-xfN" firstAttribute="width" secondItem="9sc-W2-N4B" secondAttribute="width" multiplier="0.35" id="nta-pg-3Wa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XSB-xj-nBx" secondAttribute="trailing" constant="11" id="oK6-eQ-6l4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XSB-xj-nBx" secondAttribute="bottom" constant="8" id="tTJ-al-pzJ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="elementDetailedInfo" destination="XSB-xj-nBx" id="egi-Kn-47j"/>
+                                            <outlet property="elementImage" destination="7R9-qe-xfN" id="jh6-Lb-sVE"/>
+                                            <outlet property="elementName" destination="uLy-lA-acs" id="t1w-10-Hzr"/>
                                             <segue destination="cLq-wy-EaY" kind="show" id="STH-Nm-0Kk"/>
                                         </connections>
                                     </tableViewCell>
@@ -69,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884" y="21"/>
+            <point key="canvasLocation" x="1882.608695652174" y="20.758928571428569"/>
         </scene>
         <!--Title-->
         <scene sceneID="vwk-22-54l">

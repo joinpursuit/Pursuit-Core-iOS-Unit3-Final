@@ -37,26 +37,19 @@ class ElementDetailViewController: UIViewController {
         if let boilingPoint = element.boil {
             elementBoilingPoint.text = "Boiling Point: " + boilingPoint.description
         }
-
+        
         if let discoverPerson = element.discovered_by {
             elementDiscoveryBy.text = "Discovery By: " + discoverPerson
         }
-        
-        
-        
         let imageURL = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
-        
-        if let url = URL.init(string: imageURL) {
-            do {
-                let data = try Data.init(contentsOf: url)
-                if let image = UIImage.init(data: data) {
-                    elementImage.image = image
-                }
-            } catch {
-                elementImage.image = UIImage(named: "placeholderImage")
+        ImageHelper.shared.fetchImage(urlString: imageURL) { (appError, image) in
+            if let appError = appError {
+                self.elementImage.image = UIImage(named: "placeholderImage")
+                print(appError.errorMessage())
+            } else if let image = image {
+                self.elementImage.image = image
             }
         }
-        
     }
     
     private func showAlert(title: String, message: String) {
