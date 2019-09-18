@@ -2,11 +2,11 @@
 
 ## Setup
 
-1. Fork this repo.
 1. Clone this repo to your laptop.
+1. Create a branch for your project.
 1. Work on the assessment as described below.
 1. Commit your work.
-1. Push it to your fork.
+1. Push it to your branch.
 1. Create a pull request.
 1. Submit your project to Canvas
 
@@ -224,10 +224,10 @@ This is a public read-only GET endpoint so no authentication is necessary.
 **Images**
 
 ```
-Thumbnail (for table view): http://www.theodoregray.com/periodictable/Tiles/ElementNumberWithThreeDigits/s7.JPG
+Thumbnail (for table view): http://www.theodoregray.com/periodictable/Tiles/{ElementIDWithThreeDigits}/s7.JPG
 Example: http://www.theodoregray.com/periodictable/Tiles/018/s7.JPG
 
-Full-size: (for detail view): http://images-of-elements.com/lowercasedElementName.jpg
+Full-size: (for detail view): http://images-of-elements.com/{lowercasedElementName}.jpg
 Example: http://images-of-elements.com/argon.jpg
 ```
 
