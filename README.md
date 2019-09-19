@@ -128,7 +128,7 @@ enum AppError: Error {
         * discovery by
 
     * has a button that, when pressed, selects this element as your favorite. This
-    should be implemented by a POST to the ```favorites``` endpoint.
+    should be implemented by a POST to the ```favorites``` endpoint. You will not need to update the UI for your `favorite`.
 
 
 Try to format the detail view as much like an individual element on a traditional periodic table as you can. You **cannot** use the thumbnail image inside the detail view controller, you need to format it yourself.
@@ -159,7 +159,7 @@ Use the file naming convention illustrated here to generate urls for images.
 
 These are both http urls, so you will need change your info.plist to [allow arbitrary loads](https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http).
 
-No full size images are available for atomic numbers 90 and up.
+No full size images are available for atomic numbers 90 and up. You can use a placeholder image
 
 **Favorites**
 
