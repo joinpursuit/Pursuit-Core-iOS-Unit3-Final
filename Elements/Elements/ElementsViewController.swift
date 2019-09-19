@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     elementTableView.delegate = self
@@ -52,8 +53,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let elementCell = elementTableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as! ElementTableViewCell
         elementCell.elementNameLabel.text = thisElement.name
         elementCell.elementSymbol.text = "\(thisElement.symbol)(\(thisElement.number)) \(thisElement.atomic_mass)"
+        
+        ImageHelper.shared.getThumbnailImage(urlStr: thisElement.number) { (result) in
+            DispatchQueue.main.async{
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let imageFromOnline):
+                    elementCell.elementImageLabel.image = imageFromOnline
+                }
+            }
         return elementCell
     }
+    
+    
+   
+    
     
 
 }

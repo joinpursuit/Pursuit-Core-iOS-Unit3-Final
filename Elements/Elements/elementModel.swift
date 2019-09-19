@@ -9,13 +9,6 @@
 import Foundation
 
 
-//Name
-//Symbol(Number) Atomic Weight
-
-//struct Elements: Codable {
-//
-//    let results: [ElementInfo]
-//}
 
 struct Elements: Codable {
     
@@ -27,5 +20,23 @@ struct Elements: Codable {
     let number: Int
     let symbol: String
     
+
+    
+    
+}
+
+var numberForElementUrl: String
+
+mutating func getNumberForElementImage (from data: Data) throws -> String {
+    if number <= 9 {
+        numberForElementUrl = "00\(number)"
+        return numberForElementUrl
+    }else if number < 90 {
+        numberForElementUrl = "0\(number)"
+        return numberForElementUrl
+    }else {
+        numberForElementUrl = "\(number)"
+        return numberForElementUrl
+    }
     
 }
