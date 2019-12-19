@@ -14,7 +14,9 @@ class ElementsViewController: UIViewController {
     
     var elements = [Element]() {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -22,7 +24,23 @@ class ElementsViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        loadData()
        
+    }
+    
+    func loadData() {
+        
+        ElementAPIClient.getElements { [weak self] (result) in // strong reference
+            switch result {
+                case .failure(let appError):
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "App Error", message: "\(appError)")
+                }
+            case .success(let elements):
+                self?.elements = elements
+            }
+        }
+        
     }
 }
 
@@ -32,16 +50,19 @@ extension ElementsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath)
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? ElementCell else {
+
+            fatalError("could not downcast to custom element cell")
+        }
         
         let element = elements[indexPath.row]
         
-        // configure cell
+        //cell.textLabel?.text = element.name
+        
+        cell.configureCell(for: element)
         
         return cell
     }
-    
-    
 }
 
 extension ElementsViewController: UITableViewDelegate {

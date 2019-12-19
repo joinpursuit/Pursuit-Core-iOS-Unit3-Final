@@ -9,10 +9,13 @@
 import UIKit
 
 class ElementCell: UITableViewCell {
-@IBOutlet weak var elementImage: UIImageView!
-@IBOutlet weak var elementNameLabel: UILabel!
-@IBOutlet weak var elementInfoLabel
-    : UILabel!
+    
+
+    @IBOutlet weak var elementImage: UIImageView!
+    
+    @IBOutlet weak var elementNameLabel: UILabel!
+    @IBOutlet weak var elementInfoLabel: UILabel!
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -20,8 +23,13 @@ class ElementCell: UITableViewCell {
     }
    
     func configureCell(for element: Element) {
+        
         elementNameLabel.text = element.name
         elementInfoLabel.text = "\(element.symbol)(\(element.number)) \(element.atomic_mass)"
+        
+        // get thumbnail image
+        
+        
     }
 
 }

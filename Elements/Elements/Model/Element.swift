@@ -10,12 +10,12 @@ import Foundation
 
 struct Element: Codable {
     let name: String
-    let discovered_by: String
+    let discovered_by: String?
     let number: Int
-    let melt: Double
+    let melt: Double?
     let symbol: String
-    let summary: String
-    let boil: Double
+    //let summary: String
+    let boil: Double?
     let atomic_mass: Double
-    let favoritedBy: String? 
+    //let favoritedBy: String?
 }
