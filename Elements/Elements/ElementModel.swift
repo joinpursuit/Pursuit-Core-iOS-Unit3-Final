@@ -11,14 +11,14 @@ import Foundation
 struct ElementInfo: Codable {
     
     let name: String
-    let atomic_mass: Double
+    let atomic_mass: Double?
     let discovered_by: String?
     let melt: Double?
     let number: Int
-    let phase: String
+    let phase: String?
     let symbol: String
     let boil: Double?
-    let favoritedBy: String
+    let favoritedBy: String?
 }
 
 

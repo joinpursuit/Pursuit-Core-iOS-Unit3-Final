@@ -1,5 +1,5 @@
 //
-//  ElementCell.swift
+//  FavoriteCell.swift
 //  Elements
 //
 //  Created by Liubov Kaper  on 12/19/19.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ElementCell: UITableViewCell {
+class FavoriteCell: UITableViewCell {
+
+   
+    @IBOutlet weak var favoriteImage: UIImageView!
+    
     
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var symbolLabel: UILabel!
-    
-    
-    @IBOutlet weak var elementImage: UIImageView!
-    
     
     
     func configureCell(for element: ElementInfo) {
@@ -29,18 +29,17 @@ class ElementCell: UITableViewCell {
         let imageURL = "http://www.theodoregray.com/periodictable/Tiles/\(elementId)/s7.JPG"
         
         
-        elementImage.getImage(with: imageURL) { (result) in
+        favoriteImage.getImage(with: imageURL) { (result) in
             switch result {
             case .failure(let appError):
                 print("error\(appError)")
                 
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.elementImage.image = image
+                    self.favoriteImage.image = image
                 }
             }
         }
     }
-    
-}
 
+}

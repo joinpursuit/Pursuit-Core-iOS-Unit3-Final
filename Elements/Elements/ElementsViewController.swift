@@ -60,6 +60,7 @@ extension ElementsViewController: UITableViewDataSource {
         }
         let element = elements[indexPath.row]
         cell.configureCell(for: element)
+        cell.backgroundColor = .systemGray
         return cell
     }
 }

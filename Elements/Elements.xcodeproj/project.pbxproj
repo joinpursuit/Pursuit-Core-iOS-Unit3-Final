@@ -20,6 +20,8 @@
 		8DC7EA8223ABE0A100CA6A6B /* ImageAPIClient+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7EA8123ABE0A100CA6A6B /* ImageAPIClient+Extension.swift */; };
 		8DC7EA8423ABEE9600CA6A6B /* DetailElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7EA8323ABEE9600CA6A6B /* DetailElementViewController.swift */; };
 		8DC7EA8623ABFFAA00CA6A6B /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7EA8523ABFFAA00CA6A6B /* UIViewController+Alerts.swift */; };
+		8DC7EA8823AC10DE00CA6A6B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7EA8723AC10DE00CA6A6B /* FavoritesViewController.swift */; };
+		8DC7EA8A23AC110100CA6A6B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7EA8923AC110100CA6A6B /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		8DC7EA8123ABE0A100CA6A6B /* ImageAPIClient+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageAPIClient+Extension.swift"; sourceTree = "<group>"; };
 		8DC7EA8323ABEE9600CA6A6B /* DetailElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailElementViewController.swift; sourceTree = "<group>"; };
 		8DC7EA8523ABFFAA00CA6A6B /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		8DC7EA8723AC10DE00CA6A6B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		8DC7EA8923AC110100CA6A6B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +77,13 @@
 			children = (
 				5734756321DA90C700FB6177 /* ElementsViewController.swift */,
 				8DC7EA8323ABEE9600CA6A6B /* DetailElementViewController.swift */,
+				8DC7EA8723AC10DE00CA6A6B /* FavoritesViewController.swift */,
 				5734756521DA90C700FB6177 /* Main.storyboard */,
 				5734757321DA90F500FB6177 /* Supporting Files */,
 				5734756D21DA90C800FB6177 /* Info.plist */,
 				8DC7EA7D23ABCD8A00CA6A6B /* ElementModel.swift */,
 				8DC7EA7F23ABD72A00CA6A6B /* ElementCell.swift */,
+				8DC7EA8923AC110100CA6A6B /* FavoriteCell.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -181,8 +187,10 @@
 				8DC7EA8623ABFFAA00CA6A6B /* UIViewController+Alerts.swift in Sources */,
 				8DC7EA7A23ABCD5200CA6A6B /* AppError.swift in Sources */,
 				8DC7EA7C23ABCD6900CA6A6B /* ElementAPIClient.swift in Sources */,
+				8DC7EA8823AC10DE00CA6A6B /* FavoritesViewController.swift in Sources */,
 				5734756421DA90C700FB6177 /* ElementsViewController.swift in Sources */,
 				8DC7EA8223ABE0A100CA6A6B /* ImageAPIClient+Extension.swift in Sources */,
+				8DC7EA8A23AC110100CA6A6B /* FavoriteCell.swift in Sources */,
 				8DC7EA7823ABCD3300CA6A6B /* NetworkHelper.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
 			);

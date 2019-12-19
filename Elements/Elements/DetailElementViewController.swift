@@ -51,9 +51,9 @@ class DetailElementViewController: UIViewController {
         symbolLabel.text = element.symbol
         numberLabel.text = element.number.description
         discoveredByLabel.text = "Discobered by: \(element.discovered_by ?? "")"
-        boilingLabel.text = element.boil?.description
-        meltingLabel.text = element.melt?.description
-        weightLabel.text = element.atomic_mass.description
+        boilingLabel.text = "bp: \(element.boil?.description ?? "")"
+        meltingLabel.text = "mp: \(element.melt?.description ?? "")"
+        weightLabel.text = element.atomic_mass?.description
         
         let imageURL = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
         
