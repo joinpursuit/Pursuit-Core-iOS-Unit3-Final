@@ -18,6 +18,22 @@ class ElementCell: UITableViewCell {
     func configureCell(for element: Element) {
         nameLabel.text = element.name
         symbolLabel.text = element.symbol
+        
+        let imageURL = "https://www.theodoregray.com/periodictable/Tiles/018/s7.JPG"
+        
+        smallImage.getImage(with: imageURL) {[weak self] (result) in
+            switch result {
+            case .failure:
+            DispatchQueue.main.async {
+            self?.smallImage.image = UIImage(systemName: "exclamationmark.triangle")
+            }
+            case .success(let image):
+            DispatchQueue.main.async {
+            self?.smallImage.image = image
+            }
+            }
+            
+        }
     }
 
 }

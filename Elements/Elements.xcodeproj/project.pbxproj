@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		0F80114B23ABD71E0022CE1B /* ElementsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80114A23ABD71E0022CE1B /* ElementsAPIClient.swift */; };
 		0F80114E23ABD75B0022CE1B /* ElementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80114D23ABD75B0022CE1B /* ElementsModel.swift */; };
 		0F80115823ABE1770022CE1B /* ElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80115723ABE1770022CE1B /* ElementsTests.swift */; };
+		0F80116023ABEF850022CE1B /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80115F23ABEF850022CE1B /* Alerts.swift */; };
+		0F80116223ABF0F60022CE1B /* UIImage+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80116123ABF0F60022CE1B /* UIImage+Extentions.swift */; };
 		5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734756121DA90C700FB6177 /* AppDelegate.swift */; };
 		5734756421DA90C700FB6177 /* ElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734756321DA90C700FB6177 /* ElementsViewController.swift */; };
 		5734756721DA90C700FB6177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756521DA90C700FB6177 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		0F80115523ABE1770022CE1B /* ElementsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElementsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F80115723ABE1770022CE1B /* ElementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsTests.swift; sourceTree = "<group>"; };
 		0F80115923ABE1770022CE1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F80115F23ABEF850022CE1B /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		0F80116123ABF0F60022CE1B /* UIImage+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extentions.swift"; sourceTree = "<group>"; };
 		5734755E21DA90C700FB6177 /* Elements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5734756121DA90C700FB6177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5734756321DA90C700FB6177 /* ElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsViewController.swift; sourceTree = "<group>"; };
@@ -84,12 +88,14 @@
 			path = "Network Service";
 			sourceTree = "<group>";
 		};
-		0F80114C23ABD7230022CE1B /* Models */ = {
+		0F80114C23ABD7230022CE1B /* Models and Other Files */ = {
 			isa = PBXGroup;
 			children = (
 				0F80114D23ABD75B0022CE1B /* ElementsModel.swift */,
+				0F80115F23ABEF850022CE1B /* Alerts.swift */,
+				0F80116123ABF0F60022CE1B /* UIImage+Extentions.swift */,
 			);
-			path = Models;
+			path = "Models and Other Files";
 			sourceTree = "<group>";
 		};
 		0F80115623ABE1770022CE1B /* ElementsTests */ = {
@@ -104,7 +110,7 @@
 		5734755521DA90C700FB6177 = {
 			isa = PBXGroup;
 			children = (
-				0F80114C23ABD7230022CE1B /* Models */,
+				0F80114C23ABD7230022CE1B /* Models and Other Files */,
 				0F80114523ABD6450022CE1B /* Network Service */,
 				0F80114223ABD4A00022CE1B /* Cells */,
 				5734756021DA90C700FB6177 /* Elements */,
@@ -202,7 +208,7 @@
 				};
 			};
 			buildConfigurationList = 5734755921DA90C700FB6177 /* Build configuration list for PBXProject "Elements" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -255,10 +261,12 @@
 			files = (
 				0F80114B23ABD71E0022CE1B /* ElementsAPIClient.swift in Sources */,
 				0F80114723ABD6B00022CE1B /* AppError.swift in Sources */,
+				0F80116023ABEF850022CE1B /* Alerts.swift in Sources */,
 				0F80114E23ABD75B0022CE1B /* ElementsModel.swift in Sources */,
 				0F80114423ABD4D10022CE1B /* ElementCell.swift in Sources */,
 				0F80114923ABD6EC0022CE1B /* NetworkHelper.swift in Sources */,
 				5734756421DA90C700FB6177 /* ElementsViewController.swift in Sources */,
+				0F80116223ABF0F60022CE1B /* UIImage+Extentions.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -441,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -458,7 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Elements/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,7 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Elements/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

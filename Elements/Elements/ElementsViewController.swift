@@ -28,11 +28,13 @@ class ElementsViewController: UIViewController {
         navigationItem.title = "Chemical Elements"
     }
     
-  func loadElements() {
+    func loadElements() {
         ElementAPIClient.fetchElement {[weak self] result in
             switch result {
             case .failure(let appError):
-                print("error \(appError)")
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "App Error", message: "\(appError)")
+                }
             case .success(let elementss):
                 self?.elements = elementss
             }
@@ -61,6 +63,6 @@ extension ElementsViewController: UITableViewDataSource {
 
 extension ElementsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 150
     }
 }
