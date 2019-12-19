@@ -10,6 +10,7 @@ import UIKit
 
 class DetailedElementViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
@@ -18,15 +19,18 @@ class DetailedElementViewController: UIViewController {
     @IBOutlet weak var discoveredLabel: UILabel!
     @IBOutlet weak var fullImageView: UIImageView!
     
+    // MARK: Properties
     var currentElement: Element?
     var enableOrDisable: Bool?
     var imageURL = ""
     
+    // MARK: Lifecylce Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         viewWillSetUp()
     }
     
+    // MARK: Helper Methods
     private func viewWillSetUp(){
         if let _ = enableOrDisable{
             navigationItem.rightBarButtonItem?.isEnabled = false
@@ -95,6 +99,7 @@ class DetailedElementViewController: UIViewController {
         }
     }
     
+    // MARK: Actions
     @IBAction func favourited(_ sender: UIBarButtonItem){
         sender.isEnabled = false
         guard var curElement = currentElement else{

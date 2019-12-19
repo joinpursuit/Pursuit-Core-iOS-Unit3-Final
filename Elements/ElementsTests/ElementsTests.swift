@@ -10,7 +10,7 @@ import XCTest
 @testable import Elements
 
 class ElementsTests: XCTestCase {
-
+    
     let elementEndpointURL = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements"
     let postEndpointURL = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
     // Tests NetworkHelper
@@ -46,7 +46,7 @@ class ElementsTests: XCTestCase {
         
         // Act
         
-        ElementAPI.getElements { result in
+        ElementAPI.getElements(elementEndpointURL) { result in
             switch result{
             case .failure(let netError):
                 XCTFail("\(netError)")
@@ -68,7 +68,7 @@ class ElementsTests: XCTestCase {
         
         // Act
         
-        ElementAPI.getElements { result in
+        ElementAPI.getElements(elementEndpointURL) { result in
             switch result{
             case .failure(let netError):
                 XCTFail("\(netError)")
@@ -81,7 +81,7 @@ class ElementsTests: XCTestCase {
                     return
                 }
                 XCTAssertEqual(firstElementName, expectedName, "\(firstElementName) is not equal to \(expectedName)")
-        }
+            }
         }
         wait(for: [exp], timeout: 5.0)
     }

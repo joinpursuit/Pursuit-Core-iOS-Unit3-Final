@@ -7,24 +7,28 @@
 //
 
 import UIKit
-
+// Thrown error
 enum SetUpError: Error{
     case missingFields
 }
 
 class ElementCell: UITableViewCell{
     
+    // MARK: Outlets
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var elementNameLabel: UILabel!
     @IBOutlet weak var moreInfoLabel: UILabel!
     
+    // MARK: Properties
     var imageURL = ""
     
+    // MARK: Lifecycle Methods
     override func prepareForReuse() {
         super.prepareForReuse()
         thumbnailImage.image = nil
     }
     
+    // MARK: Helper Functions
     func setUp(_ element: Element) throws{
         
         if let name = element.name {

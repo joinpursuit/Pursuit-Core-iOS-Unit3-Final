@@ -10,9 +10,11 @@ import UIKit
 
 class FavouritesViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
-    private var refreshControl: UIRefreshControl!
     
+    // MARK: Properties
+    private var refreshControl: UIRefreshControl!
     let favouritesURL = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
     var elements = [Element]() {
         didSet{
@@ -22,12 +24,14 @@ class FavouritesViewController: UIViewController {
         }
     }
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
         configureRefreshControl()
     }
     
+    // MARK: Helper Methods
     @objc
     private func setUp(){
         tableView.delegate = self
@@ -57,6 +61,7 @@ class FavouritesViewController: UIViewController {
     }
 }
 
+// MARK: UITableView Data Source Methods
 extension FavouritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +84,7 @@ extension FavouritesViewController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableView Delegate Methods
 extension FavouritesViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

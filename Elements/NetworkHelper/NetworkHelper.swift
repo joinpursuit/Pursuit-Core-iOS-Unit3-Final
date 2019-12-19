@@ -10,13 +10,16 @@ import Foundation
 
 class NetworkHelper{
     
+    // MARK: Properties
     static let shared = NetworkHelper()
     private var session = URLSession()
     
+    // MARK: Initializers
     private init(){
         session = URLSession(configuration: .default)
     }
     
+    // MARK: Methods
     func performDataTask(_ request: URLRequest, completion: @escaping (Result<Data, NetworkError>) -> ()) {
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
