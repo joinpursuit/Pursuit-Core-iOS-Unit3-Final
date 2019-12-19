@@ -12,6 +12,10 @@
 		5734756721DA90C700FB6177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756521DA90C700FB6177 /* Main.storyboard */; };
 		5734756921DA90C800FB6177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5734756821DA90C800FB6177 /* Assets.xcassets */; };
 		5734756C21DA90C800FB6177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5734756A21DA90C800FB6177 /* LaunchScreen.storyboard */; };
+		BE53E11723ABD333002473D1 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE53E11623ABD333002473D1 /* Elements.swift */; };
+		BE53E11923ABD3BE002473D1 /* SampleElements.json in Resources */ = {isa = PBXBuildFile; fileRef = BE53E11823ABD3BE002473D1 /* SampleElements.json */; };
+		BE53E11C23ABD41B002473D1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE53E11B23ABD41B002473D1 /* NetworkHelper.swift */; };
+		BE53E11E23ABD43B002473D1 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE53E11D23ABD43B002473D1 /* UIImageView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		5734756821DA90C800FB6177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5734756B21DA90C800FB6177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5734756D21DA90C800FB6177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE53E11623ABD333002473D1 /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
+		BE53E11823ABD3BE002473D1 /* SampleElements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleElements.json; sourceTree = "<group>"; };
+		BE53E11B23ABD41B002473D1 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		BE53E11D23ABD43B002473D1 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +46,8 @@
 		5734755521DA90C700FB6177 = {
 			isa = PBXGroup;
 			children = (
+				BE53E11823ABD3BE002473D1 /* SampleElements.json */,
+				BE53E11A23ABD3F1002473D1 /* NetworkServices */,
 				5734756021DA90C700FB6177 /* Elements */,
 				5734755F21DA90C700FB6177 /* Products */,
 			);
@@ -54,6 +64,7 @@
 		5734756021DA90C700FB6177 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				BE53E11623ABD333002473D1 /* Elements.swift */,
 				5734756321DA90C700FB6177 /* ViewController.swift */,
 				5734756521DA90C700FB6177 /* Main.storyboard */,
 				5734757321DA90F500FB6177 /* Supporting Files */,
@@ -70,6 +81,15 @@
 				5734756A21DA90C800FB6177 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE53E11A23ABD3F1002473D1 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				BE53E11B23ABD41B002473D1 /* NetworkHelper.swift */,
+				BE53E11D23ABD43B002473D1 /* UIImageView + Extension.swift */,
+			);
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +152,7 @@
 			files = (
 				5734756C21DA90C800FB6177 /* LaunchScreen.storyboard in Resources */,
 				5734756921DA90C800FB6177 /* Assets.xcassets in Resources */,
+				BE53E11923ABD3BE002473D1 /* SampleElements.json in Resources */,
 				5734756721DA90C700FB6177 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,8 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE53E11C23ABD41B002473D1 /* NetworkHelper.swift in Sources */,
 				5734756421DA90C700FB6177 /* ViewController.swift in Sources */,
 				5734756221DA90C700FB6177 /* AppDelegate.swift in Sources */,
+				BE53E11723ABD333002473D1 /* Elements.swift in Sources */,
+				BE53E11E23ABD43B002473D1 /* UIImageView + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
