@@ -60,10 +60,15 @@ struct ElementAPIClient {
                     let elements = try JSONDecoder().decode([ElementInfo].self, from: data)
                     
                     
-                    completion(.success(elements))
-//                    fetchRemaining { (result) in
-//                        <#code#>
-//                    }
+                   // completion(.success(elements))
+                   fetchRemaining { (result) in
+                       switch result {
+                       case .failure(let appError):
+                           print("error: \(appError)")
+                       case .success(let elements2):
+                        completion(.success(elements + elements2))
+                       }
+                   }
                     // TODO: before you write the completion call ther remainging elements
                     
                     

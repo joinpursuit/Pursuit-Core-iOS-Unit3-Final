@@ -25,6 +25,7 @@ class ElementsViewController: UIViewController {
     tableView.dataSource = self
     loadData()
     tableView.delegate = self
+   
   }
 
     func loadData() {
@@ -51,8 +52,9 @@ class ElementsViewController: UIViewController {
 extension ElementsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         
         return elements.count
-    }
+   }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? ElementCell else {
