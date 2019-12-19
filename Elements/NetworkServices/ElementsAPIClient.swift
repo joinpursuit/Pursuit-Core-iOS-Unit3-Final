@@ -35,4 +35,34 @@ struct ElementsAPIClient {
         }
         
     }
+    
+   static func postFavorites(element: FavoriteElements, completion: @escaping (Result <Bool, AppError>)-> ()) {
+       
+       let endpointURLString = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
+       
+       guard let url = URL(string: endpointURLString) else {
+           completion(.failure(.badURL(endpointURLString)))
+           return
+       }
+       
+       do {
+           let data = try JSONEncoder().encode(element)
+           
+           var request = URLRequest(url: url)
+           request.httpMethod = "POST"
+           request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+           request.httpBody = data
+           NetworkHelper.shared.performDataTask(with: request) { (result) in
+               switch result {
+               case .failure(let appError):
+                   print("app error \(appError)")
+               case .success:
+                   completion(.success(true))
+               }
+           }
+       } catch {
+           completion(.failure(.encodingError(error)))
+       }
+       
+   }
 }

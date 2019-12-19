@@ -18,8 +18,6 @@ class ElementCell: UITableViewCell {
         elementNameLabel.text = element.name
         elementInfoLabel.text = "\(element.symbol)(\(element.number.description)) \(element.atomic_mass)"
 
-        
-     
         let elementId = element.number
         
         if elementId < 10 {
@@ -36,7 +34,7 @@ class ElementCell: UITableViewCell {
                 }
             }
             
-        } else if elementId >= 10 {
+        } else if elementId > 10 && elementId < 100 {
             let secondImage = "http:www.theodoregray.com/periodictable/Tiles/0\(element.number)/s7.JPG"
             
             elementImageView.getImage(with: secondImage) { (result) in
@@ -50,7 +48,7 @@ class ElementCell: UITableViewCell {
                 }
             }
             
-        } else if elementId > 99 {
+        } else if 100 >= elementId {
             let thirdImage = "http:www.theodoregray.com/periodictable/Tiles/\(element.number)/s7.JPG"
             
             elementImageView.getImage(with: thirdImage) { (result) in
