@@ -48,7 +48,7 @@ class ElementCell: UITableViewCell{
         
         let thumbnailEndpoint = "http://www.theodoregray.com/periodictable/Tiles/\(makeItThreeNumbers(number))/s7.JPG"
         imageURL = thumbnailEndpoint
-        thumbnailImage.getThumbnail(thumbnailEndpoint) { [weak self] result in
+        thumbnailImage.getImage(thumbnailEndpoint) { [weak self] result in
             switch result{
             case .failure(let netError):
                 print("Error: \(netError)")

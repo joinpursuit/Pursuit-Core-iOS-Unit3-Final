@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImageView {
-    func getThumbnail(_ thumbnailEndpoint: String, completion: @escaping (Result<UIImage,NetworkError>) -> ()){
+    func getImage(_ thumbnailEndpoint: String, completion: @escaping (Result<UIImage,NetworkError>) -> ()){
     
         guard let url = URL(string: thumbnailEndpoint) else {
             completion(.failure(.badURL(thumbnailEndpoint)))
@@ -29,24 +29,24 @@ extension UIImageView {
         }
     }
     
-    func getFullImage(_ elementName: String, completion: @escaping (Result<UIImage, NetworkError>) -> ()) {
-        
-        let fullImageEndpoint = "http://images-of-elements.com/\(elementName).jpg"
-        guard let url = URL(string: fullImageEndpoint) else {
-            completion(.failure(.badURL(fullImageEndpoint)))
-            return
-        }
-        let request = URLRequest(url: url)
-        
-        NetworkHelper.shared.performDataTask(request) { result in
-            switch result{
-            case .failure(let netError):
-                completion(.failure(.networkClientError(netError)))
-            case .success(let data):
-                if let image = UIImage(data: data){
-                    completion(.success(image))
-                }
-            }
-        }
-    }
+//    func getFullImage(_ elementName: String, completion: @escaping (Result<UIImage, NetworkError>) -> ()) {
+//
+//        let fullImageEndpoint = "http://images-of-elements.com/\(elementName).jpg"
+//        guard let url = URL(string: fullImageEndpoint) else {
+//            completion(.failure(.badURL(fullImageEndpoint)))
+//            return
+//        }
+//        let request = URLRequest(url: url)
+//
+//        NetworkHelper.shared.performDataTask(request) { result in
+//            switch result{
+//            case .failure(let netError):
+//                completion(.failure(.networkClientError(netError)))
+//            case .success(let data):
+//                if let image = UIImage(data: data){
+//                    completion(.success(image))
+//                }
+//            }
+//        }
+//    }
 }

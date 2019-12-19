@@ -21,6 +21,7 @@
 		C450378E23ABDF0A0097C49D /* ElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450378D23ABDF0A0097C49D /* ElementCell.swift */; };
 		C450379223ABE24F0097C49D /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450379123ABE24F0097C49D /* UIImageView+Extensions.swift */; };
 		C450379423ABE5430097C49D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450379323ABE5430097C49D /* UIViewController+Extension.swift */; };
+		C450379623ABF00E0097C49D /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450379523ABF00E0097C49D /* DetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		C450378D23ABDF0A0097C49D /* ElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCell.swift; sourceTree = "<group>"; };
 		C450379123ABE24F0097C49D /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		C450379323ABE5430097C49D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C450379523ABF00E0097C49D /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				5734756321DA90C700FB6177 /* ViewController.swift */,
+				C450379523ABF00E0097C49D /* DetailedViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				C450379423ABE5430097C49D /* UIViewController+Extension.swift in Sources */,
 				C450378E23ABDF0A0097C49D /* ElementCell.swift in Sources */,
+				C450379623ABF00E0097C49D /* DetailedViewController.swift in Sources */,
 				5734756421DA90C700FB6177 /* ViewController.swift in Sources */,
 				C450378423ABCD230097C49D /* NetworkError.swift in Sources */,
 				C450378223ABCD140097C49D /* NetworkHelper.swift in Sources */,
