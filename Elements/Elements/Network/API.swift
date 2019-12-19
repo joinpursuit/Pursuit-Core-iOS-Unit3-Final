@@ -10,11 +10,11 @@ import Foundation
 
 struct ElementAPICLient {
     
-    static func fetchElement(query: String, completion: @escaping (Result <[Element],AppError>)->()){
-        let searchTerm = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "" //wiil replace space with %20
-        let podcastEndPointURLString = "https://itunes.apple.com/search?media=podcast&limit=200&term=\(searchTerm)"
-        guard let url = URL(string: podcastEndPointURLString) else {
-            completion(.failure(.badURL(podcastEndPointURLString)))
+    static func fetchElement(completion: @escaping (Result <[Element],AppError>)->()){
+        
+        let elementEndPointURLString = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements
+        guard let url = URL(string: elementEndPointURLString) else {
+            completion(.failure(.badURL(elementEndPointURLString)))
             return
         }
         let request = URLRequest(url: url) //creating a url request
