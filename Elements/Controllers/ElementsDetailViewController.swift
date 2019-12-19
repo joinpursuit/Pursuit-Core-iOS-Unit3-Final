@@ -72,19 +72,19 @@ class ElementsDetailViewController: UIViewController {
         
         print("button pressed")
         
-        guard let someElement = favoriteElements else {
+        guard let someElement = element else {
             fatalError("error")
         }
 
         
-        let favorites = FavoriteElements(symbol: someElement.symbol, number: someElement.number, atomic_mass: someElement.atomic_mass, favoritedBy: "Oscar V", melt: someElement.melt, boil: someElement.boil, discovered_by: someElement.discovered_by)
+        let favorites = Elements(name: someElement.name, appearance: someElement.appearance, symbol: someElement.symbol, number: someElement.number, atomic_mass: someElement.atomic_mass, melt: someElement.melt, boil: someElement.boil, discovered_by: someElement.discovered_by, favoritedBy: "Oscar V")
         
         ElementsAPIClient.postFavorites(element: favorites) { (result) in
             switch result {
-            case .failure(let error):
-                print("error \(error)")
+            case .failure(let appError):
+                print("app error \(appError)")
             case .success:
-                print("succes")
+                print("success")
             }
         }
     }

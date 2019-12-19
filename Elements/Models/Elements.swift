@@ -17,6 +17,7 @@ struct Elements: Codable {
     let melt: Double?
     let boil: Double?
     let discovered_by: String?
+    let favoritedBy: String?
 }
 
 
