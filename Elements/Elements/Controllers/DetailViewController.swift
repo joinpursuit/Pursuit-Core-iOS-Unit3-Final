@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var discoveredLabel: UILabel!
     
+    @IBOutlet weak var favoriteButton: UIButton!
     
     var element: Element?
     
@@ -66,7 +67,46 @@ class DetailViewController: UIViewController {
             }
         }
         
+        if element.favoritedBy != nil {
+            let bookmarkImage = UIImage(systemName: "bookmark.fill")
+            favoriteButton.setImage(bookmarkImage, for: .normal)
+            favoriteButton.isEnabled = false
+        }
+        
     }
+    
+    
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        
+        let bookmarkImage = UIImage(systemName: "bookmark.fill")
+        favoriteButton.setImage(bookmarkImage, for: .normal)
+        sender.isEnabled = false
+        
+        guard let element = element else {
+            fatalError("check prepare for segue")
+        }
+        
+        // create instance of element to be posted as a favorite
+        
+        let favoritedElement = Element(name: element.name, discovered_by: element.discovered_by, number: element.number, melt: element.melt, symbol: element.symbol, summary: element.summary, boil: element.boil, atomic_mass: element.atomic_mass, favoritedBy: "Ameni A.")
+        
+        ElementAPIClient.postFavorite(favoritedElement: favoritedElement) { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Failed to post answer", message: "\(appError)")
+                }
+            case .success:
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "♥️", message: "\(element.name) have been added to Favorites") { alert in self?.dismiss(animated: true)
+                }
+            }
+        }
+    }
+    
+    
+    }
+    
     
 
 

@@ -137,6 +137,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="tintColor" red="0.76083047650000002" green="0.54738046900000004" blue="0.92133218049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button" image="bookmark" catalog="system"/>
+                                <connections>
+                                    <action selector="favoriteButtonPressed:" destination="0uy-Vd-dae" eventType="touchUpInside" id="kLX-nQ-MCs"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YTq-kE-gWH">
                                 <rect key="frame" x="47" y="30" width="320" height="320"/>
@@ -181,6 +184,7 @@
                         <outlet property="boilLabel" destination="mnB-Qe-IF9" id="PR6-9m-yP6"/>
                         <outlet property="discoveredLabel" destination="h7o-L6-gZv" id="H5r-se-adE"/>
                         <outlet property="elementImage" destination="YTq-kE-gWH" id="Bwa-sX-j2X"/>
+                        <outlet property="favoriteButton" destination="Wtg-xB-p3p" id="O64-Fp-R0c"/>
                         <outlet property="meltLabel" destination="UmM-Fi-99K" id="tZh-aI-AP9"/>
                         <outlet property="nameLabel" destination="6LH-86-qxH" id="DnE-rG-Ieu"/>
                         <outlet property="numberLabel" destination="Bpq-3l-8UV" id="2OU-zv-1QG"/>
@@ -190,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGa-mW-aSW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2834.7826086956525" y="117.85714285714285"/>
+            <point key="canvasLocation" x="2897" y="218"/>
         </scene>
         <!--Elements-->
         <scene sceneID="g5v-CP-mMa">
