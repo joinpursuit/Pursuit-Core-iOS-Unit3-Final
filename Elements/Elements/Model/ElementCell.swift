@@ -27,9 +27,36 @@ class ElementCell: UITableViewCell {
         elementNameLabel.text = element.name
         elementInfoLabel.text = "\(element.symbol)(\(element.number)) \(element.atomic_mass)"
         
-        // get thumbnail image
+       // get element Id
+      
+        var elementId = ""
         
+        switch String(element.number).count {
+        case 1:
+            elementId = "00\(element.number)"
+        case 2:
+            elementId = "0\(element.number)"
+        case 3:
+            elementId = "\(element.number)"
+        default:
+            print("issue with image")
+        }
         
+        var imageUrl = "https://www.theodoregray.com/periodictable/Tiles/\(elementId)/s7.JPG"
+        
+         // get thumbnail image
+        elementImage.getImage(with: imageUrl) { [weak self] (result) in
+            switch result {
+            case .failure:
+                DispatchQueue.main.async {
+                    self?.elementImage.image = UIImage(systemName: "exclamationmark.square")
+                }
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.elementImage.image = image
+                }
+            }
+        }
     }
 
 }

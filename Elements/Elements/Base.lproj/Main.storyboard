@@ -27,14 +27,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCX-2x-acO">
-                                                    <rect key="frame" x="136" y="30.5" width="270" height="21"/>
+                                                    <rect key="frame" x="150" y="30.5" width="256" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cube" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nlw-Vt-xug">
-                                                    <rect key="frame" x="8" y="7.5" width="120" height="120.5"/>
+                                                    <rect key="frame" x="20" y="7.5" width="120" height="120.5"/>
                                                     <color key="tintColor" red="0.99431266190000001" green="0.77818207819999996" blue="0.78264259020000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="0Jp-M9-JmK"/>
@@ -42,7 +42,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Symbol(#) Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Db-aw-28u">
-                                                    <rect key="frame" x="136" y="59.5" width="270" height="16"/>
+                                                    <rect key="frame" x="150" y="59.5" width="256" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <nil key="textColor"/>
@@ -51,7 +51,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="nlw-Vt-xug" firstAttribute="centerY" secondItem="rfb-HZ-gyt" secondAttribute="centerY" id="1cE-Ec-AkV"/>
-                                                <constraint firstItem="nlw-Vt-xug" firstAttribute="leading" secondItem="rfb-HZ-gyt" secondAttribute="leading" constant="8" id="t5a-rh-xd2"/>
+                                                <constraint firstItem="nlw-Vt-xug" firstAttribute="leading" secondItem="rfb-HZ-gyt" secondAttribute="leading" constant="20" id="3xh-RY-wzk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
