@@ -24,10 +24,11 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadFavorites()
         tableView.delegate = self
         tableView.dataSource = self
         configureRefreshControl()
+        loadFavorites()
+
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,6 +48,9 @@ class FavoritesViewController: UIViewController {
     
     @objc func loadFavorites() {
         ElementAPIClient.getFavorites { [weak self] (result) in // strong reference
+            DispatchQueue.main.async {
+                self?.refreshControl.endRefreshing()
+            }
                    switch result {
                        case .failure(let appError):
                        DispatchQueue.main.async {
