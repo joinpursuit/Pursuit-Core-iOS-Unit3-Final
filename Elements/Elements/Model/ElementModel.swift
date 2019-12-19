@@ -10,22 +10,28 @@ import Foundation
 struct Results:Codable{
     var results: [Element]
 }
+
 struct Element:Codable {
     var name: String
     var appearance: String
     var atomicMass:Double
     var boil: Double
-    let category: String
-    let density: Double
-    let discoveredBy: String
-    let melt: Double
-    let namedBy: String
-    let number, period: Int
-    let phase: String
-    let source: String
-    let spectralImg: String
-    let symbol: String
+    var category: String
+    var density: Double
+    var discoveredBy: String
+    var melt: Double
+    var namedBy: String
+    var number: Int
+    var period: Int
+    var phase: String
+   var source: String
+    var spectralImg: String?
+    var symbol: String
+    var summary: String
+    var id: String?
+    var favoritedBy: String?
     
+}
 
     enum CodingKeys: String, CodingKey {
         case atomicMass = "atomic_mass"
@@ -34,4 +40,4 @@ struct Element:Codable {
         case spectralImg = "spectral_img"
        
     }
-}
+

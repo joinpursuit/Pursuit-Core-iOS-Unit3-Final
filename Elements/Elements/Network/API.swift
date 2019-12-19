@@ -10,7 +10,7 @@ import Foundation
 
 struct ElementAPICLient {
     
-    static func fetchElement(query: String, completion: @escaping (Result <[Podcast],AppError>)->()){
+    static func fetchElement(query: String, completion: @escaping (Result <[Element],AppError>)->()){
         let searchTerm = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "" //wiil replace space with %20
         let podcastEndPointURLString = "https://itunes.apple.com/search?media=podcast&limit=200&term=\(searchTerm)"
         guard let url = URL(string: podcastEndPointURLString) else {
