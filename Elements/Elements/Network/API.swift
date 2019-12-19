@@ -12,7 +12,7 @@ struct ElementAPICLient {
     
     static func fetchElement(completion: @escaping (Result <[Element],AppError>)->()){
         
-        let elementEndPointURLString = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements
+        let elementEndPointURLString = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements"
         guard let url = URL(string: elementEndPointURLString) else {
             completion(.failure(.badURL(elementEndPointURLString)))
             return
@@ -26,9 +26,9 @@ struct ElementAPICLient {
                 completion(.failure(.networkClientError(appError)))
             case .success(let data):
                 do{//decoding raw data from the shared url session, according to our model=Results.self
-                    let podcasts = try
+                    let elements = try
                         JSONDecoder().decode(Results.self, from: data)
-                    completion(.success(podcasts.results))
+                    completion(.success(elements.results))
                 }catch{
                     completion(.failure(.decodingError(error)))
                     
@@ -39,9 +39,9 @@ struct ElementAPICLient {
     }
 
 
-static func postFavorite(favorite: Podcast, completion: @escaping (Result<Bool, AppError>)->()){
+static func postFavorite(favorite: Element, completion: @escaping (Result<Bool, AppError>)->()){
     
-    let endpointURLString = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
+    let endpointURLString = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
     guard let url = URL(string: endpointURLString) else{
         completion(.failure(.badURL(endpointURLString)))
         return
@@ -69,10 +69,10 @@ static func postFavorite(favorite: Podcast, completion: @escaping (Result<Bool, 
     
     
     
-    static func fetchFavorites(completion: @escaping (Result <[Podcast],AppError>)->()){
-         let favpodcastEndPointURLString = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
-         guard let url = URL(string: favpodcastEndPointURLString) else {
-             completion(.failure(.badURL(favpodcastEndPointURLString)))
+    static func fetchFavorites(completion: @escaping (Result <[Element],AppError>)->()){
+         let favElementEndPointURLString = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
+         guard let url = URL(string: favElementEndPointURLString) else {
+             completion(.failure(.badURL(favElementEndPointURLString)))
              return
          }
          let request = URLRequest(url: url)
@@ -84,9 +84,9 @@ static func postFavorite(favorite: Podcast, completion: @escaping (Result<Bool, 
                  completion(.failure(.networkClientError(appError)))
              case .success(let data):
                  do{
-                     let favpodcasts = try
-                         JSONDecoder().decode([Podcast].self, from: data)
-                    completion(.success(favpodcasts))
+                     let favElement = try
+                         JSONDecoder().decode([Element].self, from: data)
+                    completion(.success(favElement))
                  }catch{
                      completion(.failure(.decodingError(error)))
                      
