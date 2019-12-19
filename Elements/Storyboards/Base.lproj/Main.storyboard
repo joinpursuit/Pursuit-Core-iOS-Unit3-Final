@@ -106,7 +106,7 @@
         <!--Favourites-->
         <scene sceneID="c5m-gO-Fae">
             <objects>
-                <viewController id="rAo-Wz-tqM" sceneMemberID="viewController">
+                <viewController id="rAo-Wz-tqM" customClass="FavouritesViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9c-x5-uWt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,6 +172,9 @@
                         <viewLayoutGuide key="safeArea" id="bmB-nD-KAj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favourites" id="SNJ-Rw-ajo"/>
+                    <connections>
+                        <outlet property="tableView" destination="DNg-vn-tWH" id="afp-MC-SOU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlG-kx-EEq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

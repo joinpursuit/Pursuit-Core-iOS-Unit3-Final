@@ -49,5 +49,6 @@ struct Element: Codable{
         case spectralImage = "spectral_img"
         case summary = "summary"
         case symbol = "symbol"
+        case favouritedBy = "favoritedBy"
     }
 }
