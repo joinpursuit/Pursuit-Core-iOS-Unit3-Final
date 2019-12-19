@@ -14,12 +14,13 @@ class ElementCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!
     
-    
     func configureCell(for element: Element) {
         nameLabel.text = element.name
-        symbolLabel.text = element.symbol
+        symbolLabel.text = "\(element.symbol)" + "(\(element.number))" + "   " + "\(element.atomicMass)"
         
-        let imageURL = "https://www.theodoregray.com/periodictable/Tiles/018/s7.JPG"
+        let myInt = String(format: "%03d", element.number)
+        
+        let imageURL = "https://www.theodoregray.com/periodictable/Tiles/\(myInt)/s7.JPG"
         
         smallImage.getImage(with: imageURL) {[weak self] (result) in
             switch result {
