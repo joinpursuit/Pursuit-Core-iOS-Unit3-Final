@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detailed View Controller-->
         <scene sceneID="735-nE-V4O">
             <objects>
-                <viewController id="McN-qQ-q2k" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailedVC" id="McN-qQ-q2k" customClass="DetailedViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OJt-IX-0Mg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,8 +91,21 @@
                         <viewLayoutGuide key="safeArea" id="JNh-Oc-ToF"/>
                     </view>
                     <navigationItem key="navigationItem" id="JeD-PF-4J8">
-                        <barButtonItem key="rightBarButtonItem" title="Add to Favourites" id="X2v-h8-Mjy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add to Favourites" id="X2v-h8-Mjy">
+                            <connections>
+                                <action selector="favourited:" destination="McN-qQ-q2k" id="rYx-pT-Dmz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="boilingPointLabel" destination="Flc-6b-e4z" id="PuG-Lv-Pbh"/>
+                        <outlet property="discoveredLabel" destination="f2B-Cp-yun" id="XNc-5t-CTC"/>
+                        <outlet property="fullImageView" destination="IFx-wC-wUj" id="oCZ-Zv-BDY"/>
+                        <outlet property="meltingPointLabel" destination="e0H-nG-ajV" id="zPi-Qe-oVf"/>
+                        <outlet property="numberLabel" destination="And-fv-PIX" id="tXr-4R-k9P"/>
+                        <outlet property="symbolLabel" destination="8WK-yw-qGf" id="Q1f-p5-p6n"/>
+                        <outlet property="weightLabel" destination="HUg-xY-ltj" id="wnc-8m-cw0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcp-Uz-txt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
