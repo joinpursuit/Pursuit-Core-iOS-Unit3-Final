@@ -27,7 +27,12 @@ class ElementsViewController: UIViewController {
         loadData()
        
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("couldnt get indexpath or detailVC")
+        }
+        detailVC.element = elements[indexPath.row]
+    }
     func loadData() {
         
         ElementAPIClient.getElements { [weak self] (result) in // strong reference
@@ -56,8 +61,6 @@ extension ElementsViewController: UITableViewDataSource {
         }
         
         let element = elements[indexPath.row]
-        
-        //cell.textLabel?.text = element.name
         
         cell.configureCell(for: element)
         

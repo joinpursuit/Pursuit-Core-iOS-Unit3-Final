@@ -42,7 +42,7 @@ class ElementCell: UITableViewCell {
             print("issue with image")
         }
         
-        var imageUrl = "https://www.theodoregray.com/periodictable/Tiles/\(elementId)/s7.JPG"
+        let imageUrl = "https://www.theodoregray.com/periodictable/Tiles/\(elementId)/s7.JPG"
         
          // get thumbnail image
         elementImage.getImage(with: imageUrl) { [weak self] (result) in
