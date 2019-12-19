@@ -27,6 +27,13 @@ class FavoritesViewController: UIViewController {
         tableView.dataSource = self
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("couldnt get indexpath or detailVC")
+        }
+        detailVC.element = favorites[indexPath.row]
+    }
+
     
     func loadFavorites() {
         ElementAPIClient.getFavorites { [weak self] (result) in // strong reference
@@ -36,7 +43,7 @@ class FavoritesViewController: UIViewController {
                            self?.showAlert(title: "App Error", message: "\(appError)")
                        }
                    case .success(let favoriteElements):
-                       self?.favorites = favoriteElements
+                    self?.favorites = favoriteElements.filter {$0.favoritedBy == "Ameni A."}
                    }
                }
         
