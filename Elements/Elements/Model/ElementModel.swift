@@ -7,24 +7,24 @@
 //
 
 import Foundation
-struct Results:Codable{
-    var results: [Element]
+struct Results:Codable {
+    var results: Element
 }
 
 struct Element:Codable {
     var name: String
-    var appearance: String
-    var atomicMass:Double
-    var boil: Double
-    var category: String
-    var density: Double
-    var discoveredBy: String
-    var melt: Double
-    var namedBy: String
+    var appearance: String?
+    var atomicMass:Double?
+    var boil: Double?
+    var category: String?
+    var density: Double?
+    var discoveredBy: String?
+    var melt: Double?
+    var namedBy: String?
     var number: Int
     var period: Int
     var phase: String
-   var source: String
+    var source: String
     var spectralImg: String?
     var symbol: String
     var summary: String

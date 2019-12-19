@@ -8,28 +8,14 @@
 
 import UIKit
 
-//* Build a table view that loads and displays a list of the Elements, one per cell/row. Use a custom UITableViewCell subclass.  It should have 2 labels and one image.  The image should be pinned to the left of cell from the small images endpoint below.  The labels should be configured as below:
-//
-//    ```
-//    Name
-//    Symbol(Number) Atomic Weight
-//
-//    e.g.
-//
-//    Sodium
-//    Na(11) 22.989769282
-//    ```
-//
 
-//Load a thumbnail image on each row as described below under Endpoints > Images.  For full credit, use a custom tableViewCell to make the image more readable.
-//
 
 class ViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
     
- var elements = [Element](){
+var elements = [Element]() {
         didSet{
             DispatchQueue.main.async{
                 self.tableView.reloadData()
@@ -39,7 +25,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
         tableView.dataSource = self
         tableView.delegate = self
 
@@ -63,6 +49,7 @@ class ViewController: UIViewController {
                     self?.showAlert(title: "Unable to load Elements", message: "\(appError)")}
             case .success(let dataArray):
                 self?.elements = dataArray
+                dump(self!.elements)
             }
         })
             
@@ -74,7 +61,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 200
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

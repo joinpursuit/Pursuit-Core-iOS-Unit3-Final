@@ -27,8 +27,8 @@ struct ElementAPICLient {
             case .success(let data):
                 do{//decoding raw data from the shared url session, according to our model=Results.self
                     let elements = try
-                        JSONDecoder().decode(Results.self, from: data)
-                    completion(.success(elements.results))
+                        JSONDecoder().decode([Element].self, from: data)
+                    completion(.success(elements))
                 }catch{
                     completion(.failure(.decodingError(error)))
                     
