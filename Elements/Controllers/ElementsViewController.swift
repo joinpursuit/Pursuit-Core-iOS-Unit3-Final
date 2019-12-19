@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ElementsViewController: UIViewController {
     
 @IBOutlet weak var tableView: UITableView!
 
@@ -23,6 +23,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
+    tableView.delegate = self
     loadElements()
     
   }
@@ -37,19 +38,37 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let elementDVC = segue.destination as? ElementsDetailViewController,
+            let indexPath = tableView.indexPathForSelectedRow else {
+                fatalError("error")
+        }
+        
+        let elements = element[indexPath.row]
+        elementDVC.element = elements
+    }
 
 
 }
 
-extension ViewController: UITableViewDataSource {
+extension ElementsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return element.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? ElementCell else {
+            fatalError("error")
+        }
         let elements = element[indexPath.row]
-        cell.textLabel?.text = elements.name
+        cell.configured(for: elements)
         return cell
+    }
+}
+
+extension ElementsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 }
