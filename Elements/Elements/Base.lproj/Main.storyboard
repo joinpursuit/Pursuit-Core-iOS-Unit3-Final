@@ -89,7 +89,7 @@
         <!--Favorites-->
         <scene sceneID="4Ik-tO-42M">
             <objects>
-                <viewController id="78n-xO-8px" sceneMemberID="viewController">
+                <viewController id="78n-xO-8px" customClass="FavoritesViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G79-EG-436">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="elementCell" rowHeight="192" id="lKv-rb-y9t" customClass="ElementCell" customModule="Elements" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="192" id="lKv-rb-y9t" customClass="ElementCell" customModule="Elements" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lKv-rb-y9t" id="6Pj-r1-i4z">
@@ -140,6 +140,7 @@
                                             <outlet property="elementDetailLabel" destination="f1e-Ha-Z5j" id="C8V-Dg-fbI"/>
                                             <outlet property="elementImage" destination="O34-F6-gJA" id="Bsw-C6-uVo"/>
                                             <outlet property="elementNameLabel" destination="Grf-oG-PPS" id="izp-Lt-R6w"/>
+                                            <segue destination="Q6e-DX-thy" kind="show" id="i5u-qm-mG1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -155,6 +156,9 @@
                         <viewLayoutGuide key="safeArea" id="ae3-Bj-qtO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="ftM-dZ-jlW"/>
+                    <connections>
+                        <outlet property="tableView" destination="83b-jH-PBp" id="cMx-7s-wl0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2pm-mt-Swi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,26 +175,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2S-a7-aMG">
                                 <rect key="frame" x="0.0" y="140" width="414" height="403"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Element Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVX-JC-PUc">
-                                <rect key="frame" x="8" y="563" width="398" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol (Number) - Atomic Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnB-Hb-BPR">
-                                <rect key="frame" x="8" y="592" width="398" height="21"/>
+                                <rect key="frame" x="8" y="563" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melt Point - Boil Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0at-qm-jJt">
-                                <rect key="frame" x="8" y="621" width="398" height="21"/>
+                                <rect key="frame" x="8" y="592" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discovered By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBP-Jn-dP8">
-                                <rect key="frame" x="8" y="650" width="398" height="21"/>
+                                <rect key="frame" x="8" y="621" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -199,15 +197,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="nBP-Jn-dP8" firstAttribute="top" secondItem="0at-qm-jJt" secondAttribute="bottom" constant="8" id="3EM-Qg-NZZ"/>
-                            <constraint firstItem="5Jm-l1-80X" firstAttribute="trailing" secondItem="HVX-JC-PUc" secondAttribute="trailing" constant="8" id="8mN-HI-Yyb"/>
                             <constraint firstItem="g2S-a7-aMG" firstAttribute="trailing" secondItem="5Jm-l1-80X" secondAttribute="trailing" id="JhD-go-oUo"/>
                             <constraint firstItem="g2S-a7-aMG" firstAttribute="leading" secondItem="5Jm-l1-80X" secondAttribute="leading" id="MM2-a6-ueq"/>
                             <constraint firstItem="OnB-Hb-BPR" firstAttribute="leading" secondItem="5Jm-l1-80X" secondAttribute="leading" constant="8" id="Mk7-bE-yPE"/>
-                            <constraint firstItem="HVX-JC-PUc" firstAttribute="leading" secondItem="5Jm-l1-80X" secondAttribute="leading" constant="8" id="W1Q-oe-59c"/>
-                            <constraint firstItem="HVX-JC-PUc" firstAttribute="top" secondItem="g2S-a7-aMG" secondAttribute="bottom" constant="20" id="XMB-W4-xCo"/>
                             <constraint firstItem="g2S-a7-aMG" firstAttribute="height" secondItem="Ji9-HW-yjB" secondAttribute="height" multiplier="0.45" id="YKX-mw-N5k"/>
                             <constraint firstItem="5Jm-l1-80X" firstAttribute="trailing" secondItem="OnB-Hb-BPR" secondAttribute="trailing" constant="8" id="a9C-0y-nw0"/>
-                            <constraint firstItem="OnB-Hb-BPR" firstAttribute="top" secondItem="HVX-JC-PUc" secondAttribute="bottom" constant="8" id="cgO-ym-86Q"/>
+                            <constraint firstItem="OnB-Hb-BPR" firstAttribute="top" secondItem="g2S-a7-aMG" secondAttribute="bottom" constant="20" id="bHM-aI-2c4"/>
                             <constraint firstItem="nBP-Jn-dP8" firstAttribute="leading" secondItem="5Jm-l1-80X" secondAttribute="leading" constant="8" id="eUL-Go-rao"/>
                             <constraint firstItem="5Jm-l1-80X" firstAttribute="trailing" secondItem="nBP-Jn-dP8" secondAttribute="trailing" constant="8" id="hyU-ep-ete"/>
                             <constraint firstItem="0at-qm-jJt" firstAttribute="top" secondItem="OnB-Hb-BPR" secondAttribute="bottom" constant="8" id="jlQ-vY-TBa"/>
@@ -217,12 +212,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Jm-l1-80X"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BM3-Zb-ofD"/>
+                    <navigationItem key="navigationItem" id="BM3-Zb-ofD">
+                        <barButtonItem key="rightBarButtonItem" title="+ Favorite" id="bXm-Jw-hGq">
+                            <connections>
+                                <action selector="favoriteButtonPressed:" destination="Q6e-DX-thy" id="3NF-aX-xiK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="discoveredByLabel" destination="nBP-Jn-dP8" id="bfC-N1-OMa"/>
                         <outlet property="elementDetailLabel" destination="OnB-Hb-BPR" id="777-EG-bH6"/>
                         <outlet property="elementImage" destination="g2S-a7-aMG" id="uLd-G5-DHX"/>
-                        <outlet property="elementNameLabel" destination="HVX-JC-PUc" id="wQ1-ZH-A7K"/>
                         <outlet property="meltBoilLabel" destination="0at-qm-jJt" id="UxJ-iQ-x8X"/>
                     </connections>
                 </viewController>
@@ -291,4 +291,7 @@
         <image name="bolt" catalog="system" width="50" height="64"/>
         <image name="heart.fill" catalog="system" width="64" height="54"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="i5u-qm-mG1"/>
+    </inferredMetricsTieBreakers>
 </document>

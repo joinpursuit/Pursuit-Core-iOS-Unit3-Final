@@ -17,7 +17,7 @@ class ElementCell: UITableViewCell {
     func configureCell(element: Element) {
         elementNameLabel.text = element.name
         elementDetailLabel.text = "\(element.symbol) (\(element.number)) - \(element.atomic_mass)"
-        elementImage.getImage(with: "http://www.theodoregray.com/periodictable/Tiles/018/s7.JPG", completion: { [weak self] (result) in
+        elementImage.getImage(with: "http://www.theodoregray.com/periodictable/Tiles/\(element.numberForURLConverter())/s7.JPG", completion: { [weak self] (result) in
             switch (result) {
             case .failure:
                 DispatchQueue.main.async {
