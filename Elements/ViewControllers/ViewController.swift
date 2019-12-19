@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    private var refreshControl: UIRefreshControl!
     
     let elementEndpointURL = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements"
     var elements = [Element](){
@@ -24,13 +25,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        configureRefreshControl()
     }
     
+    @objc
     private func setUp(){
         tableView.delegate = self
         tableView.dataSource = self
         
         ElementAPI.getElements(elementEndpointURL) { [weak self] result in
+            
+            DispatchQueue.main.async{
+                self?.refreshControl.endRefreshing()
+            }
+            
             switch result{
             case .failure(let netError):
                 DispatchQueue.main.async{
@@ -40,6 +48,12 @@ class ViewController: UIViewController {
                 self?.elements = elementArr
             }
         }
+    }
+    
+    func configureRefreshControl() {
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(setUp), for: .valueChanged)
     }
 }
 

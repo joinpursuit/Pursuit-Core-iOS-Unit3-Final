@@ -11,6 +11,7 @@ import UIKit
 class FavouritesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    private var refreshControl: UIRefreshControl!
     
     let favouritesURL = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
     var elements = [Element]() {
@@ -24,13 +25,20 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        configureRefreshControl()
     }
     
+    @objc
     private func setUp(){
         tableView.delegate = self
         tableView.dataSource = self
         
         ElementAPI.getElements(favouritesURL) { [weak self] result in
+            
+            DispatchQueue.main.async{
+                self?.refreshControl.endRefreshing()
+            }
+            
             switch result{
             case .failure(let netError):
                 DispatchQueue.main.async{
@@ -40,6 +48,12 @@ class FavouritesViewController: UIViewController {
                 self?.elements = elementArr.filter{ $0.favouritedBy == "Cameron Rivera"}
             }
         }
+    }
+    
+    func configureRefreshControl() {
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(setUp), for: .valueChanged)
     }
 }
 
