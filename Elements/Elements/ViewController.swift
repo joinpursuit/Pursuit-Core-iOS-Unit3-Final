@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-var elements = [Element]() {
+    var elements = [Element]() {
         didSet{
             DispatchQueue.main.async{
                 self.tableView.reloadData()
@@ -25,10 +25,10 @@ var elements = [Element]() {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         tableView.dataSource = self
         tableView.delegate = self
-
+        
         loadElement()
         
     }
@@ -52,16 +52,16 @@ var elements = [Element]() {
                 dump(self!.elements)
             }
         })
-            
-        }
+        
     }
+}
 
 
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 150
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

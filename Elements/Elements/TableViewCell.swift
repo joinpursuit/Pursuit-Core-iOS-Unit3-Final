@@ -35,7 +35,7 @@ class TableViewCell: UITableViewCell {
         
             label.text = "\(element.name)"
             
-            infoLabel.text = "\(element.symbol)(\(element.number))  \(element.atomicMass)"
+            infoLabel.text = "\(element.symbol)(\(element.number))  \(String(describing: element.atomicMass)))"
             
             
           let imageURL = ElementAPICLient.thumbImageUrl(elementNumber: element.number)

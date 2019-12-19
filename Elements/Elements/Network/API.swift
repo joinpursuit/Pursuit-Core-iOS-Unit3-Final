@@ -69,33 +69,6 @@ static func postFavorite(favorite: Element, completion: @escaping (Result<Bool, 
     
     
     
-    static func fetchFavorites(completion: @escaping (Result <[Element],AppError>)->()){
-         let favElementEndPointURLString = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
-         guard let url = URL(string: favElementEndPointURLString) else {
-             completion(.failure(.badURL(favElementEndPointURLString)))
-             return
-         }
-         let request = URLRequest(url: url)
-         
-         NetworkHelper.shared.performDataTask(with: request){
-             (result) in
-             switch result{
-             case .failure(let appError):
-                 completion(.failure(.networkClientError(appError)))
-             case .success(let data):
-                 do{
-                     let favElement = try
-                         JSONDecoder().decode([Element].self, from: data)
-                    completion(.success(favElement))
-                 }catch{
-                     completion(.failure(.decodingError(error)))
-                     
-                 }
-                 
-             }
-         }
-     }
-    
     static func thumbImageUrl(elementNumber: Int)-> String {
         var thumbNailUrl = ""
         switch elementNumber {
@@ -109,13 +82,4 @@ static func postFavorite(favorite: Element, completion: @escaping (Result<Bool, 
         return thumbNailUrl
 }
     
-//    static func fullImageUrl(elementName: String){
-//        var fullSizeImageUrl = ""
-//        elementName = element.name.lowercased
-//
-//            = "http://images-of-elements.com/\(elementName).jpg"
-//
-//    }
-//
-//}
 }
