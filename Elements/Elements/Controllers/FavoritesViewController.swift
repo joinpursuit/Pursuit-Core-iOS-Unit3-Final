@@ -11,6 +11,8 @@ import UIKit
 class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    private var refreshControl: UIRefreshControl!
+    
     
     var favorites = [Element]() {
         didSet {
@@ -25,6 +27,7 @@ class FavoritesViewController: UIViewController {
         loadFavorites()
         tableView.delegate = self
         tableView.dataSource = self
+        configureRefreshControl()
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,9 +36,16 @@ class FavoritesViewController: UIViewController {
         }
         detailVC.element = favorites[indexPath.row]
     }
+    
+    func configureRefreshControl() {
+           refreshControl = UIRefreshControl()
+           tableView.refreshControl = refreshControl
+           
+           refreshControl.addTarget(self, action: #selector(loadFavorites), for: .valueChanged)
+       }
 
     
-    func loadFavorites() {
+    @objc func loadFavorites() {
         ElementAPIClient.getFavorites { [weak self] (result) in // strong reference
                    switch result {
                        case .failure(let appError):
