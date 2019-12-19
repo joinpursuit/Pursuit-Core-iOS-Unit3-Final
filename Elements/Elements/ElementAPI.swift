@@ -9,8 +9,8 @@
 import Foundation
 
 struct ElementAPI {
-    static func getElements(completion: @escaping (Result<[Element],NetworkError>) -> ()){
-        let elementEndpointURL = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements"
+    static func getElements(_ elementEndpointURL: String, completion: @escaping (Result<[Element],NetworkError>) -> ()){
+
         guard let url = URL(string: elementEndpointURL) else {
             completion(.failure(.badURL(elementEndpointURL)))
             return

@@ -36,7 +36,7 @@ class ElementCell: UITableViewCell{
         if let weight = element.atomicMass,
            let symbol = element.symbol,
            let number = element.number {
-            moreInfoLabel.text = "\(symbol)(\(number) \(String(format: "%.3f", weight)))"
+            moreInfoLabel.text = "\(symbol) (\(number) \(String(format: "%.3f", weight)))"
         } else {
             moreInfoLabel.isHidden = true
             throw SetUpError.missingFields

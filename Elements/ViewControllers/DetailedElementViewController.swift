@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailedViewController: UIViewController {
+class DetailedElementViewController: UIViewController {
 
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
@@ -29,9 +29,9 @@ class DetailedViewController: UIViewController {
     
     private func viewWillSetUp(){
         if let _ = enableOrDisable{
+            navigationItem.rightBarButtonItem?.isEnabled = false
             setUp()
         } else {
-            navigationItem.rightBarButtonItem?.isEnabled = false
             setUp()
         }
     }
