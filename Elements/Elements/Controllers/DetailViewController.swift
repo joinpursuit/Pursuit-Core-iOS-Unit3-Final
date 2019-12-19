@@ -43,12 +43,12 @@ class DetailViewController: UIViewController {
         }
         
         nameLabel.text = element.name
-        numberLabel.text = "Atomic Number: \(element.number)"
-        weightLabel.text = "Atomic Mass: \(element.atomic_mass)"
-        boilLabel.text = "Boiling Point: \(element.boil ?? 0.0)"
-        meltLabel.text = "Melting Point: \(element.melt ?? 0.0)"
+        numberLabel.text = "🔢 Atomic Number: \(element.number)"
+        weightLabel.text = "🏋🏽‍♀️ Atomic Mass: \(element.atomic_mass)"
+        boilLabel.text = "♨ Boiling Point: \(element.boil ?? 0.0)"
+        meltLabel.text = "💧Melting Point: \(element.melt ?? 0.0)"
         summaryLabel.text = element.summary
-        discoveredLabel.text = "Discovered by: \(element.discovered_by ?? "N/A")"
+        discoveredLabel.text = "💡Discovered by: \(element.discovered_by ?? "N/A")"
         
         // get image
         
@@ -58,7 +58,7 @@ class DetailViewController: UIViewController {
             switch result {
             case .failure:
                 DispatchQueue.main.async {
-                    self?.elementImage.image = UIImage(systemName: "exclamationmark.square")
+                    self?.elementImage.image = UIImage(systemName: "cube")
                 }
             case .success(let image):
                 DispatchQueue.main.async {

@@ -27,7 +27,16 @@ struct ElementAPIClient {
             case .success(let data):
                 do {
                     let elements = try JSONDecoder().decode([Element].self, from: data)
-                    completion(.success(elements))
+                    // get remaining
+                    ElementAPIClient.getRemainingElements { (result) in
+                        switch result {
+                        case .failure(let appError):
+                            print(appError)
+                        case .success(let remainderElements):
+                            completion(.success(elements + remainderElements))
+                        }
+                    }
+                    
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
@@ -60,6 +69,34 @@ struct ElementAPIClient {
            }
            
        }
+    
+    static func getRemainingElements(completion: @escaping (Result<[Element], AppError>)-> ()) {
+        
+        let endpoint = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements_remaining"
+        guard let url = URL(string: endpoint) else {
+            completion(.failure(.badURL(endpoint)))
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do {
+                    let elements = try JSONDecoder().decode([Element].self, from: data)
+                    completion(.success(elements))
+                } catch {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
+        
+        
+    }
+     
     static func postFavorite(favoritedElement: Element, completion: @escaping (Result<Bool, AppError>)-> ()) {
         
         let endpoint = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"

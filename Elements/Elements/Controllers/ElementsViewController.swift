@@ -43,6 +43,7 @@ class ElementsViewController: UIViewController {
                 }
             case .success(let elements):
                 self?.elements = elements
+                print(elements.count)
             }
         }
         
