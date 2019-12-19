@@ -38,7 +38,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="10a-AL-pqp" userLabel="thumbnailImageView">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" translatesAutoresizingMaskIntoConstraints="NO" id="10a-AL-pqp" userLabel="thumbnailImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="169" height="169"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="10a-AL-pqp" secondAttribute="height" multiplier="1:1" id="DuK-wK-yb7"/>
@@ -222,5 +222,6 @@
     <resources>
         <image name="1.circle" catalog="system" width="64" height="60"/>
         <image name="2.circle" catalog="system" width="64" height="60"/>
+        <image name="square" width="16" height="16"/>
     </resources>
 </document>

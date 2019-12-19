@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     private var refreshControl: UIRefreshControl!
     
     let elementEndpointURL = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements"
+    let remainingElementsURL = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/elements_remaining"
     var elements = [Element](){
         didSet{
             DispatchQueue.main.async{
@@ -46,6 +47,18 @@ class ViewController: UIViewController {
                 }
             case .success(let elementArr):
                 self?.elements = elementArr
+            }
+        }
+        
+        ElementAPI.getElements(remainingElementsURL) { [weak self] result in
+            switch result{
+            case .failure(let netError):
+                DispatchQueue.main.async{
+                    self?.showAlert("Element Error", "Could not fetch remaining elements. Error: \(netError)")
+                }
+            case .success(let elementArr):
+                self?.elements += elementArr
+                dump(self?.elements)
             }
         }
     }

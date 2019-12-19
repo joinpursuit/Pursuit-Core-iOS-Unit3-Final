@@ -83,9 +83,9 @@ class DetailedElementViewController: UIViewController {
         
         fullImageView.getImage(endpointURL) { [weak self] result in
             switch result{
-            case .failure(let netError):
+            case .failure:
                 DispatchQueue.main.async{
-                    self?.showAlert("Image Error", "\(netError)")
+                    self?.fullImageView.image = UIImage(systemName: "square")
                 }
             case .success(let image):
                 DispatchQueue.main.async{
@@ -113,7 +113,9 @@ class DetailedElementViewController: UIViewController {
                 }
             case .success:
                 DispatchQueue.main.async{
-                    self?.showAlert("Post Successful", "Element was successfully favourited.")
+                    self?.showAlert("Post Successful", "Element was successfully favourited.") { alert in
+                        self?.dismiss(animated: true)
+                    }
                 }
             }
         }
