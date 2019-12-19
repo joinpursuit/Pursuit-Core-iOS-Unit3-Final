@@ -59,6 +59,7 @@
                                             <outlet property="elementImage" destination="ubc-j3-hXn" id="3Kb-UF-Klp"/>
                                             <outlet property="nameLabel" destination="8qE-yB-B7L" id="GG4-aI-jCq"/>
                                             <outlet property="symbolLabel" destination="qub-LA-jfl" id="jGm-nU-Bvh"/>
+                                            <segue destination="QTF-4b-gMv" kind="show" id="oBb-uM-u0G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -82,20 +83,91 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="117.85714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Element View Controller-->
         <scene sceneID="fwN-V1-aIN">
             <objects>
-                <viewController id="QTF-4b-gMv" sceneMemberID="viewController">
+                <viewController id="QTF-4b-gMv" customClass="DetailElementViewController" customModule="Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rhi-eO-sUL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sun.max.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Veu-3B-Kal">
+                                <rect key="frame" x="0.0" y="87.5" width="414" height="808.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="of2-70-lY8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="H" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lH2-UK-T4m">
+                                        <rect key="frame" x="186" y="382" width="42" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="59"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WU7-Pk-iPw">
+                                        <rect key="frame" x="261" y="382" width="42" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dicovered by" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0b-fj-Axz">
+                                        <rect key="frame" x="8" y="657" width="130" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="boiling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTe-E3-AXU">
+                                        <rect key="frame" x="347" y="687" width="67" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="melting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9A-CS-U6W">
+                                        <rect key="frame" x="347" y="627" width="67" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltp-ee-oJ6">
+                                        <rect key="frame" x="347" y="562" width="67" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ENQ-qJ-VGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Bvo-GU-fmG">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart.fill" catalog="system" id="Si6-ln-lQB">
+                            <connections>
+                                <action selector="addToFavorites:" destination="QTF-4b-gMv" id="Y7o-nJ-hVX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="boilingLabel" destination="eTe-E3-AXU" id="Tu7-wN-Zip"/>
+                        <outlet property="discoveredByLabel" destination="Y0b-fj-Axz" id="wNc-Vz-CHI"/>
+                        <outlet property="elementImage" destination="Veu-3B-Kal" id="zAd-4m-JDy"/>
+                        <outlet property="meltingLabel" destination="b9A-CS-U6W" id="v7q-ew-0eb"/>
+                        <outlet property="numberLabel" destination="WU7-Pk-iPw" id="ThR-1n-chI"/>
+                        <outlet property="symbolLabel" destination="lH2-UK-T4m" id="7LK-lW-Qaj"/>
+                        <outlet property="weightLabel" destination="Ltp-ee-oJ6" id="GXU-hW-TGN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oj5-L8-2b6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2787" y="126"/>
+            <point key="canvasLocation" x="2850.7246376811595" y="117.85714285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NDP-RF-x8b">
@@ -135,4 +207,8 @@
             <point key="canvasLocation" x="1047.8260869565217" y="117.85714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart.fill" catalog="system" width="64" height="54"/>
+        <image name="sun.max.fill" catalog="system" width="64" height="62"/>
+    </resources>
 </document>

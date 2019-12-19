@@ -18,6 +18,7 @@ struct ElementInfo: Codable {
     let phase: String
     let symbol: String
     let boil: Double?
+    let favoritedBy: String
 }
 
 

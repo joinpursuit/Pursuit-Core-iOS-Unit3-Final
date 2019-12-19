@@ -37,6 +37,14 @@ class ElementsViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailElementVC = segue.destination as? DetailElementViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("error")
+        }
+        let elementInfo = elements[indexPath.row]
+        detailElementVC.elementInfo = elementInfo
+    }
 
 }
 
