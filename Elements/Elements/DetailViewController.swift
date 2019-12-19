@@ -27,13 +27,14 @@ import UIKit
 //Try to format the detail view as much like an individual element on a traditional periodic table as you can. You **cannot** use the thumbnail image inside the detail view controller, you need to format it yourself.
 //
 //Sample element: [https://sciencenotes.org/wp-content/uploads/2015/04/06-Carbon-Tile.png](https://sciencenotes.org/wp-content/uploads/2015/04/06-Carbon-Tile.png)
+
 class DetailViewController: UIViewController {
 
   
-    @IBOutlet weak var podcastImage: UIImageView!
+    @IBOutlet weak var elementImage: UIImageView!
     @IBOutlet weak var detailLabel: UILabel!
      
-    var podcast: Podcast?
+    var element: Element?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,22 +45,26 @@ class DetailViewController: UIViewController {
 
     
     func loadDetails(){
-        guard let podcast = podcast else{
+        guard let element = element else{
             fatalError("unable to access passed information")
         }
-        navigationItem.title = "\(podcast.collectionName)"
-        detailLabel.text = "\(podcast.collectionName)\n\nArtist Name: \(podcast.artistName ?? "")\nGenre:  \(podcast.primaryGenreName ?? "")\nSubGenre: \(podcast.genres?.joined(separator: ", ") ?? "")\nTrack Name: \(podcast.trackName ?? "")\nPrice: \(podcast.trackPrice ?? 0)\nTrack Rental Price: \(podcast.trackRentalPrice ?? 0)"
+        navigationItem.title = "\(element.name)"
+        detailLabel.text = "Symbol: \(element.symbol)\nNumber: \(element.number)\nWeight: \(element.atomicMass)\nMelting Point: \(element.melt)\nBoilingPoint: \(element.boil)\nDiscovered By: \(element.discoveredBy)"
         
-        podcastImage.getImage(with: podcast.artworkUrl600) {[weak self] (result) in
+      
+        
+
+        
+        elementImage.getImage(with: element.artworkUrl600) {[weak self] (result) in
                 switch result{
                 case .failure:
                     DispatchQueue.main.sync{
-                        self?.podcastImage.image = UIImage(systemName: "exclamationmark.triangle")
+                        self?.elementImage.image = UIImage(systemName: "exclamationmark.triangle")
                         
                     }
                 case .success(let image):
                     DispatchQueue.main.async {
-                        self?.podcastImage.image = image
+                        self?.elementImage.image = image
                         
                     }
                 }
@@ -70,9 +75,26 @@ class DetailViewController: UIViewController {
     
     @IBAction func favoriteAddButton(_ sender: Any) {
 
-        let vpodcast = Podcast(kind: podcast?.kind, collectionId: nil, trackId: podcast?.trackId ?? 0, artistName: podcast?.artistName ?? "", collectionName: podcast?.collectionName ?? "", trackName: podcast?.trackName ?? "", trackViewUrl: nil, artworkUrl100: podcast?.artworkUrl100 ?? "", trackPrice: podcast?.trackPrice ?? 0, trackRentalPrice: podcast?.trackPrice ?? 0, releaseDate: nil , primaryGenreName: podcast?.primaryGenreName ?? "", artworkUrl600: podcast?.artworkUrl600 ?? "", genres: podcast?.genres ?? ["N/A"], favoritedBy: "Tanya")
+        let favElememnt = Element(name: element?.name ?? "",
+                                  appearance: element?.appearance ?? "",
+                                  atomicMass: element?.atomicMass ?? 0.0,
+                                  boil: element?.boil ?? 0.0,
+                                  category: element?.category ?? "",
+                                  density: element?.density ?? 0.0,
+                                  discoveredBy: element?.discoveredBy ?? "",
+                                  melt: element?.melt ?? 0.0,
+                                  namedBy: element?.namedBy ?? "",
+                                  number: element?.number ?? 0,
+                                  period: element?.period ?? 0,
+                                  phase: element?.phase ?? "",
+                                  source: element?.source ?? "",
+                                  spectralImg: element?.spectralImg,
+                                  symbol: element?.symbol ?? "",
+                                  summary: element?.summary ?? "",
+                                  id: element?.id,
+                                  favoritedBy: "Tanya")
         
-        PodcastAPICLient.postFavorite(favorite: vpodcast) { [weak self](result) in
+        ElementAPICLient.postFavorite(favorite: favElememnt) { [weak self](result) in
             switch result{
             case .failure(let appError):
                 DispatchQueue.main.async{

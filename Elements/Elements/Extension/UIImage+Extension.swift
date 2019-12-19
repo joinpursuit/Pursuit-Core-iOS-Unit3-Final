@@ -8,7 +8,8 @@
 import UIKit
 
 extension UIImageView {
-  func getImage(with urlString: String,
+    @available(iOS 13.0, *)
+    func getImage(with urlString: String,
                 completion: @escaping (Result<UIImage, AppError>) -> ()) {
     
     // The UIActivityIndicatorView is used to indicate to the user that a download is in progress

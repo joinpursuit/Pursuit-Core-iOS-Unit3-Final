@@ -60,7 +60,7 @@ This is a public read-only GET endpoint so no authentication is necessary.
 
 ```
 Thumbnail (for table view): http://www.theodoregray.com/periodictable/Tiles/{ElementIDWithThreeDigits}/s7.JPG
-Example: http://www.theodoregray.com/periodictable/Tiles/018/s7.JPG
+Example: 7777
 
 Full-size: (for detail view): http://images-of-elements.com/{lowercasedElementName}.jpg
 Example: http://images-of-elements.com/argon.jpg

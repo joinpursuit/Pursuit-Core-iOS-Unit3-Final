@@ -23,30 +23,38 @@ import UIKit
 //    ```
 class TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var infoLabel:UILabel!
+    @IBOutlet weak var elementImage: UIImageView!
+    
+    
      private var urlString = ""
         
         
-        func configureCell(podcast: Podcast){
+        func configureCell(element: Element){
+            //assign stuff to labels in cell
             label.text = """
-            \(podcast.collectionName)\n\(podcast.artistName ?? "")
-            
+        
     """
-            guard let imageURL = podcast.artworkUrl100 else {
-                podcastImage.image = UIImage(systemName: "mic.fill")
+            //have to make function to get the images
+            //it would be element.number that would be used to access the images
+            guard let imageURL = element.number
+                else {
+                elementImage.image = UIImage(systemName: "mic.fill")
                 return
             }
     //        urlString = imageURL
             
-            podcastImage.getImage(with: imageURL) {[weak self] (result) in
+            elementImage.getImage(with: imageURL) {[weak self] (result) in
                 switch result{
                 case .failure:
                     DispatchQueue.main.async{//async- right away with no interruptions
-                        self?.podcastImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
+                        self?.elementImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
                         
                     }
                 case .success(let image):
                     DispatchQueue.main.async {
-                        self?.podcastImage.image = image
+                        self?.elementImage.image = image
                         
                     }
                 }
@@ -55,11 +63,11 @@ class TableViewCell: UITableViewCell {
         }
          override func prepareForReuse() {
                 super.prepareForReuse()
-                podcastImage.image = UIImage(systemName: "mic.fill")
+                elementImage.image = UIImage(systemName: "mic.fill")
             }
         
         
         }
 
 
-}
+

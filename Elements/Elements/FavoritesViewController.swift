@@ -12,7 +12,7 @@ class FavoritesViewController: UIViewController {
 
         @IBOutlet weak var tableView: UITableView!
         
-        var favorites = [Podcast](){
+        var favorites = [Element](){
             didSet{
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -36,7 +36,7 @@ class FavoritesViewController: UIViewController {
                 fatalError("can't segue")
             }
             
-            detailVC.podcast = favorites[indexPath.row]
+            detailVC.element = favorites[indexPath.row]
         }
         
         func configureRefreshControl(){
@@ -48,7 +48,7 @@ class FavoritesViewController: UIViewController {
        
         @objc
         func loadFavorites(){
-            PodcastAPICLient.fetchFavorites { [weak self](result) in
+            ElementAPICLient.fetchFavorites { [weak self](result) in
                 DispatchQueue.main.async{
                        self?.refreshControl.endRefreshing()
                        }
@@ -76,9 +76,9 @@ class FavoritesViewController: UIViewController {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
          let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
-            let favPodcast = favorites[indexPath.row]
+            let favElement = favorites[indexPath.row]
             
-            cell.imageView?.getImage(with: favPodcast.artworkUrl600, completion: { (result) in
+            cell.imageView?.getImage(with: favElement.artworkUrl600, completion: { (result) in
                 switch result {
                 case .failure:
                     DispatchQueue.main.async{
@@ -90,8 +90,8 @@ class FavoritesViewController: UIViewController {
                 }
                 }
             })
-            cell.textLabel?.text = favPodcast.collectionName
-            cell.detailTextLabel?.text = favPodcast.favoritedBy
+            cell.textLabel?.text = favElement.name
+            cell.detailTextLabel?.text = String(describing: favElement.number)
             
             return cell
         }
