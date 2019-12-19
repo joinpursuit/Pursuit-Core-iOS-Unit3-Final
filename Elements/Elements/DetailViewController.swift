@@ -35,9 +35,10 @@ class DetailViewController: UIViewController {
         navigationItem.title = oneElement.name
         symbolLabel.text = oneElement.symbol
         numberLabel.text = String(oneElement.number)
-        weightLabel.text = String(oneElement.atomicMass)
-        meltingLabel.text = String(oneElement.melt ?? 0)
-        boilingLabel.text = String(oneElement.boil ?? 0)
+        weightLabel.text = "Atomic weight: " + String(oneElement.atomicMass)
+        meltingLabel.text = "Melting temperature:\n" + String(oneElement.melt ?? 0)
+        boilingLabel.text = "Boiling temperature:\n" + String(oneElement.boil ?? 0)
+        discoveredbyLabel.text = "Descovered by \(oneElement.discoveredBy ?? "")"
         
         let bigImageURL = "https://images-of-elements.com/\(oneElement.name.lowercased()).jpg"
         
