@@ -23,10 +23,32 @@ class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFavorites()
         tableView.dataSource = self
         tableView.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("Error: Couldn't prepare segue")
+        }
+        detailVC.element = favorites[indexPath.row]
+    }
+
+    
+    func getFavorites() {
+    ElementAPIClient.fetchUserFavorites(completion: { [weak self] (result) in
+        switch result {
+        case .failure(let appError):
+            DispatchQueue.main.async {
+                    self?.showAlert(title: "Error: Could not read data", message: "\(appError)")
+                }
+            case .success(let favorites):
+                    self?.favorites = favorites
+                }
+        }
+    )
+    }
     
 }
 
@@ -35,16 +57,16 @@ extension FavoritesViewController: UITableViewDataSource {
         favorites.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell", for: indexPath) as? ElementCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as? ElementCell else {
             fatalError("Couldn't access ElementCell")
         }
-        let element = elements[indexPath.row]
-        cell.configureCell(element: element)
+        let favorite = favorites[indexPath.row]
+        cell.configureCell(element: favorite)
         return cell
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         207
     }

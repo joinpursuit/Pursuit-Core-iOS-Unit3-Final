@@ -30,8 +30,8 @@ class DetailViewController: UIViewController {
             fatalError("Error: Couldn't pull Element, check prepare for segue")
         }
         title = detailVCElement.name
-        elementDetailLabel.text = "\(detailVCElement.symbol) (\(detailVCElement.number)) - \(detailVCElement.atomic_mass)"
-        meltBoilLabel.text = "Melt Point: \(detailVCElement.melt ?? -0.1) - Boil Point: \(detailVCElement.boil ?? -0.1)"
+        elementDetailLabel.text = "\(detailVCElement.symbol) (\(detailVCElement.number)) - \(detailVCElement.atomic_mass ?? -0.01)"
+        meltBoilLabel.text = "Melt Point: \(detailVCElement.melt ?? -0.01) - Boil Point: \(detailVCElement.boil ?? -0.01)"
         discoveredByLabel.text = "Discovered by " + (detailVCElement.discovered_by ?? "Unknown")
         elementImage.getImage(with: "http://images-of-elements.com/\(detailVCElement.name.lowercased()).jpg", completion: { [weak self] (result) in
             switch (result) {

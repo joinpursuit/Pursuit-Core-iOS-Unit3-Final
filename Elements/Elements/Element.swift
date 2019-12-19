@@ -13,7 +13,7 @@ struct Element: Codable {
     let name: String
     let symbol: String
     let number: Int
-    let atomic_mass: Double
+    let atomic_mass: Double?
     let melt: Double?
     let boil: Double?
     let discovered_by: String?

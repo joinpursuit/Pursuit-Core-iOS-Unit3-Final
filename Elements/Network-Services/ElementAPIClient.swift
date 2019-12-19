@@ -35,6 +35,33 @@ struct ElementAPIClient {
         }
     }
     
+    static func fetchUserFavorites (completion: @escaping (Result<[Element],AppError>) -> ()) {
+        
+        let favoriteEndPointURL = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
+        
+        guard let url = URL(string: favoriteEndPointURL) else {
+            completion(.failure(.badURL(favoriteEndPointURL)))
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do {
+                    let allFavorites = try JSONDecoder().decode([Element].self, from: data)
+                    let userFavorites = allFavorites.filter { $0.favoritedBy == "Matthew Ramos"}
+                    completion(.success(userFavorites))
+                } catch {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
+    }
+    
     static func postElement (element: Element, completion: @escaping (Result<Bool, AppError>) -> ()) {
         
         let elementURLString = "http://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
