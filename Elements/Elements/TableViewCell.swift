@@ -32,12 +32,10 @@ class TableViewCell: UITableViewCell {
         
         
         func configureCell(element: Element){
-            //assign stuff to labels in cell
-            label.text = """
         
-    """
-            //have to make function to get the images
-            //it would be element.number that would be used to access the images
+            label.text = "\(element.name)"
+            
+            infoLabel.text = "\(element.symbol)(\(element.number))  \(element.atomicMass)"
             
             
           let imageURL = ElementAPICLient.thumbImageUrl(elementNumber: element.number)
@@ -47,7 +45,7 @@ class TableViewCell: UITableViewCell {
             elementImage.getImage(with: imageURL) {[weak self] (result) in
                 switch result{
                 case .failure:
-                    DispatchQueue.main.async{//async- right away with no interruptions
+                    DispatchQueue.main.async{
                         self?.elementImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
                         
                     }
