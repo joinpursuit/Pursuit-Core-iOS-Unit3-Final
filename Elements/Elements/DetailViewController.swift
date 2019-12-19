@@ -55,4 +55,33 @@ class DetailViewController: UIViewController {
             
         }
     }
+    
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        
+        sender.isEnabled = false
+        
+        guard let someElement = oneElement else {
+            fatalError("error")
+        }
+        let elementPost = Element(name: someElement.name, appearance: someElement.appearance, atomicMass: someElement.atomicMass, boil: someElement.boil, category: someElement.category, color: someElement.color, density: someElement.density, discoveredBy: someElement.discoveredBy, melt: someElement.melt, molarHeat: someElement.molarHeat, namedBy: someElement.namedBy, number: someElement.number, period: someElement.period, phase: someElement.phase.self, source: someElement.source, spectralImg: someElement.spectralImg, summary: someElement.summary, symbol: someElement.symbol, favoritedBy: "Yuliia")
+        
+        ElementAPIClient.postFavoriteElement(favoriteElement: elementPost) {[weak self, weak sender] result in
+            switch result {
+            case .failure(let appError):
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Failed to post element", message: "\(appError)")
+                    sender?.isEnabled = true
+                }
+            case .success:
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Favorite Element Added", message: "") {
+                        alert in
+                        self?.dismiss(animated: true)
+                    }
+                }
+            }
+            
+        }
+    }
+    
 }

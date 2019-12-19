@@ -44,49 +44,49 @@ struct ElementAPIClient {
         }
     }
     
-//    static func postFavoritePodcast(favoritePodcast: Podcast, completion: @escaping (Result<Bool, AppError>) -> ()) {
-//
-//      let endpointURLString = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
-//
-//      // create a url
-//      guard let url = URL(string: endpointURLString) else {
-//        completion(.failure(.badURL(endpointURLString)))
-//        return
-//      }
-//
-//      // convert FavoritePodcast to Data
-//      do {
-//        let data = try JSONEncoder().encode(favoritePodcast)
-//
-//        // configure our URLRequest
-//        // url
-//        var request = URLRequest(url: url)
-//
-//        // type of http method
-//        request.httpMethod = "POST"
-//
-//        // type of data
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//        // provide data being sent to web api
-//        request.httpBody = data
-//
-//        // execute POST request
-//        // either our completion captures Data or an AppError
-//        NetworkHelper.shared.performDataTask(with: request) { (result) in
-//          switch result {
-//          case .failure(let appError):
-//            completion(.failure(.networkClientError(appError)))
-//          case .success:
-//            completion(.success(true))
-//          }
-//        }
-//
-//      } catch {
-//        completion(.failure(.encodingError(error)))
-//      }
-//
-//    }
+    static func postFavoriteElement(favoriteElement: Element, completion: @escaping (Result<Bool, AppError>) -> ()) {
+
+      let endpointURLString = "https://5c1d79abbc26950013fbcaa9.mockapi.io/api/v1/favorites"
+
+      // create a url
+      guard let url = URL(string: endpointURLString) else {
+        completion(.failure(.badURL(endpointURLString)))
+        return
+      }
+
+      // convert FavoritePodcast to Data
+      do {
+        let data = try JSONEncoder().encode(favoriteElement)
+
+        // configure our URLRequest
+        // url
+        var request = URLRequest(url: url)
+
+        // type of http method
+        request.httpMethod = "POST"
+
+        // type of data
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        // provide data being sent to web api
+        request.httpBody = data
+
+        // execute POST request
+        // either our completion captures Data or an AppError
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+          switch result {
+          case .failure(let appError):
+            completion(.failure(.networkClientError(appError)))
+          case .success:
+            completion(.success(true))
+          }
+        }
+
+      } catch {
+        completion(.failure(.encodingError(error)))
+      }
+
+    }
 //
 //
 ////     GET request: to get all favorites

@@ -27,6 +27,7 @@ struct Element: Codable {
     let spectralImg: String?
     let summary: String
     let symbol: String
+    let favoritedBy: String?
 
     enum CodingKeys: String, CodingKey {
         case name, appearance
@@ -39,6 +40,7 @@ struct Element: Codable {
         case number, period, phase, source
         case spectralImg = "spectral_img"
         case summary, symbol
+        case favoritedBy
     }
     
     enum Phase: String, Codable {
@@ -49,30 +51,29 @@ struct Element: Codable {
 }
 
 
+//struct PodcastSearch: Codable {
+//    let results: [Podcast]
+//}
+//
+//struct Podcast: Codable {
+//    let artistName: String?
+//    let trackName: String?
+//    let collectionName: String // we doing search on it
+//    //let genres: [String]
+//    let artworkUrl100: String? // URL image more main VC
+//    let artworkUrl600: String // URL image
+//    let trackId: Int?
+//    let favoritedBy: String?
+//}
 
-//[
-//{
-//    "name": "Hydrogen",
-//    "appearance": "colorless gas",
-//    "atomic_mass": 1.008,
-//    "boil": 20.271,
-//    "category": "diatomic nonmetal",
-//    "color": null,
-//    "density": 0.08988,
-//    "discovered_by": "Henry Cavendish",
-//    "melt": 13.99,
-//    "molar_heat": 28.836,
-//    "named_by": "Antoine Lavoisier",
-//    "number": 1,
-//    "period": 1,
-//    "phase": "Gas",
-//    "source": "https://en.wikipedia.org/wiki/Hydrogen",
-//    "spectral_img": "https://en.wikipedia.org/wiki/File:Hydrogen_Spectra.jpg",
-//    "summary": "Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass.",
-//    "symbol": "H",
-//    "xpos": 1,
-//    "ypos": 1,
-//    "shells": [
-//        1
-//    ]
-//},
+
+//"id": "39",
+//    "number": 70,
+//    "phase": "Solid",
+//    "atomic_mass": 173.0451,
+//    "symbol": "Yb",
+//    "boil": 1469,
+//    "favoritedBy": "Luba",
+//    "discovered_by": "Jean Charles Galissard de Marignac",
+//    "melt": 1097,
+//    "name": "Ytterbium"

@@ -134,6 +134,9 @@
                                         <rect key="frame" x="180" y="700" width="55" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="favoriteButtonPressed:" destination="34m-Dg-xm1" eventType="touchUpInside" id="Bh7-z5-zvw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
