@@ -67,13 +67,3 @@ class ElementCell: UITableViewCell {
 }
 
 
-
-//        let elementNum = element.number
-     //        var newElementNum = [elementNum]
-     //        if newElementNum.count > 2 {
-     //            newElementNum.append(00)
-     //        } else {
-     //            newElementNum.append(0)
-     //        }
-     //
-     

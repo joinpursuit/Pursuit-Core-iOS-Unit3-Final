@@ -12,12 +12,11 @@ extension UIImageView {
   func getImage(with urlString: String,
                 completion: @escaping (Result<UIImage, AppError>) -> ()) {
     
-    // The UIActivityIndicatorView is used to indicate to the user that a download is in progress
     let activityIndicator = UIActivityIndicatorView(style: .large)
     activityIndicator.color = .orange
-    activityIndicator.startAnimating() // it's hidden until we explicitly start animating
+    activityIndicator.startAnimating()
     activityIndicator.center = center
-    addSubview(activityIndicator) // we add the indicattor as a subview of the image view
+    addSubview(activityIndicator)
     
     guard let url = URL(string: urlString) else {
       completion(.failure(.badURL(urlString)))
@@ -28,7 +27,7 @@ extension UIImageView {
     
     NetworkHelper.shared.performDataTask(with: request) { [weak activityIndicator] (result) in
       DispatchQueue.main.async {
-        activityIndicator?.stopAnimating() // hides when we stop animating the indicator
+        activityIndicator?.stopAnimating() 
       }
       switch result {
       case .failure(let appError):
