@@ -95,6 +95,22 @@ static func postFavorite(favorite: Element, completion: @escaping (Result<Bool, 
              }
          }
      }
-
+    
+    static func thumbImageUrl(number: Int)-> String {
+        var thumbNailUrl = ""
+        switch number {
+        case 1...9:
+            thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/00\(number)/s7.JPG"
+        case 10...99:
+           thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/0\(number)/s7.JPG"
+        default:
+            thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/\(number)/s7.JPG"
+        }
+        return thumbNailUrl
+}
+    
+    static func fullImageUrl(){
+        
+    }
 
 }
