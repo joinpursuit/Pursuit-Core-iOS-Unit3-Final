@@ -16,6 +16,9 @@ class ElementsDetailViewController: UIViewController {
 @IBOutlet weak var meltingLabel: UILabel!
 @IBOutlet weak var boilingLabel: UILabel!
 @IBOutlet weak var discoveredLabel: UILabel!
+@IBOutlet weak var nameLabel: UILabel!
+@IBOutlet weak var numbelLabel: UILabel!
+    
     
     
     var element: Elements?
@@ -31,15 +34,18 @@ class ElementsDetailViewController: UIViewController {
         guard let elements = element else {
             fatalError("error")
         }
+
         let imageURL = "http://images-of-elements.com/\(element?.name.lowercased() ?? "").jpg"
         
         
         title = elements.name
+        numbelLabel.text = element?.number.description
+        nameLabel.text = element?.name
         symbolLabel.text = element?.symbol
         weightLabel.text = element?.atomic_mass.description
-        meltingLabel.text = element?.melt?.description
-        boilingLabel.text = element?.boil?.description
-        discoveredLabel.text = element?.discovered_by
+        meltingLabel.text = "Melting: \(element?.melt?.description ?? "")"
+        boilingLabel.text = "Boiling: \(element?.boil?.description ?? "")"
+        discoveredLabel.text = "Discovered by: \(element?.discovered_by ?? "")"
         elementImageView.getImage(with: imageURL) { (result) in
             switch result {
             case .failure(let appError):

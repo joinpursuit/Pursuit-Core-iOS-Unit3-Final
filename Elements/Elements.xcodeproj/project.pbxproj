@@ -58,9 +58,9 @@
 		5734755521DA90C700FB6177 = {
 			isa = PBXGroup;
 			children = (
+				BE53E11823ABD3BE002473D1 /* SampleElements.json */,
 				BE53E12923ABF389002473D1 /* sampleFavorites.json */,
 				BE53E12423ABDD58002473D1 /* Controllers */,
-				BE53E11823ABD3BE002473D1 /* SampleElements.json */,
 				BE53E11F23ABD511002473D1 /* Models */,
 				BE53E11A23ABD3F1002473D1 /* NetworkServices */,
 				5734756021DA90C700FB6177 /* Elements */,
