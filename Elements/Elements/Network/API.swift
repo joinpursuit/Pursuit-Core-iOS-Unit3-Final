@@ -96,21 +96,26 @@ static func postFavorite(favorite: Element, completion: @escaping (Result<Bool, 
          }
      }
     
-    static func thumbImageUrl(number: Int)-> String {
+    static func thumbImageUrl(elementNumber: Int)-> String {
         var thumbNailUrl = ""
-        switch number {
+        switch elementNumber {
         case 1...9:
-            thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/00\(number)/s7.JPG"
+            thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/00\(elementNumber)/s7.JPG"
         case 10...99:
-           thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/0\(number)/s7.JPG"
+           thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/0\(elementNumber)/s7.JPG"
         default:
-            thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/\(number)/s7.JPG"
+            thumbNailUrl = "http://www.theodoregray.com/periodictable/Tiles/\(elementNumber)/s7.JPG"
         }
         return thumbNailUrl
 }
     
-    static func fullImageUrl(){
-        
-    }
-
+//    static func fullImageUrl(elementName: String){
+//        var fullSizeImageUrl = ""
+//        elementName = element.name.lowercased
+//
+//            = "http://images-of-elements.com/\(elementName).jpg"
+//
+//    }
+//
+//}
 }

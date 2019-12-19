@@ -53,9 +53,9 @@ class DetailViewController: UIViewController {
         
       
         
-
+        let fullImageUrl = "http://images-of-elements.com/\(element.name.lowercased()).jpg"
         
-        elementImage.getImage(with: element.artworkUrl600) {[weak self] (result) in
+        elementImage.getImage(with: fullImageUrl) {[weak self] (result) in
                 switch result{
                 case .failure:
                     DispatchQueue.main.sync{

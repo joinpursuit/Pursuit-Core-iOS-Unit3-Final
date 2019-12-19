@@ -38,11 +38,10 @@ class TableViewCell: UITableViewCell {
     """
             //have to make function to get the images
             //it would be element.number that would be used to access the images
-            guard let imageURL = element.number
-                else {
-                elementImage.image = UIImage(systemName: "mic.fill")
-                return
-            }
+            
+            
+          let imageURL = ElementAPICLient.thumbImageUrl(elementNumber: element.number)
+    
     //        urlString = imageURL
             
             elementImage.getImage(with: imageURL) {[weak self] (result) in

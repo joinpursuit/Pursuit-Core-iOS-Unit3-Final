@@ -78,7 +78,7 @@ class FavoritesViewController: UIViewController {
          let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath)
             let favElement = favorites[indexPath.row]
             
-            cell.imageView?.getImage(with: favElement.artworkUrl600, completion: { (result) in
+            cell.imageView?.getImage(with: ElementAPICLient.thumbImageUrl(elementNumber: favElement.number ), completion: { (result) in
                 switch result {
                 case .failure:
                     DispatchQueue.main.async{
