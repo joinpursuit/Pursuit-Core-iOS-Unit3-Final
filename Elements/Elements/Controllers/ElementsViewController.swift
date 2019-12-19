@@ -24,7 +24,7 @@ class ElementsViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        loadData()
+        loadElements()
        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,7 +33,7 @@ class ElementsViewController: UIViewController {
         }
         detailVC.element = elements[indexPath.row]
     }
-    func loadData() {
+    func loadElements() {
         
         ElementAPIClient.getElements { [weak self] (result) in // strong reference
             switch result {

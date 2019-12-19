@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     
     @IBOutlet weak var elementImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -27,15 +27,15 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadElementInfo()
-
+        
     }
     
     
-       override func viewDidLayoutSubviews() {
-           super.viewDidLayoutSubviews()
-           
-           elementImage.layer.cornerRadius = elementImage.frame.width/20
-       }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        elementImage.layer.cornerRadius = elementImage.frame.width/20
+    }
     
     func loadElementInfo(){
         guard let element = element else {
@@ -43,15 +43,15 @@ class DetailViewController: UIViewController {
         }
         
         nameLabel.text = element.name
-        numberLabel.text = element.number.description
-        weightLabel.text = element.atomic_mass.description
-        boilLabel.text = element.boil?.description
-        meltLabel.text = element.melt?.description
+        numberLabel.text = "Atomic Number: \(element.number)"
+        weightLabel.text = "Atomic Mass: \(element.atomic_mass)"
+        boilLabel.text = "Boiling Point: \(element.boil ?? 0.0)"
+        meltLabel.text = "Melting Point: \(element.melt ?? 0.0)"
         summaryLabel.text = element.summary
-        discoveredLabel.text = element.discovered_by
+        discoveredLabel.text = "Discovered by: \(element.discovered_by ?? "N/A")"
         
         // get image
-
+        
         let imageURL = "https://images-of-elements.com/\(element.name.lowercased()).jpg"
         
         elementImage.getImage(with: imageURL) { [weak self] (result) in
@@ -75,7 +75,6 @@ class DetailViewController: UIViewController {
         
     }
     
-    
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         
         let bookmarkImage = UIImage(systemName: "bookmark.fill")
@@ -98,16 +97,14 @@ class DetailViewController: UIViewController {
                 }
             case .success:
                 DispatchQueue.main.async {
-                    self?.showAlert(title: "♥️", message: "\(element.name) have been added to Favorites") { alert in self?.dismiss(animated: true)
+                    self?.showAlert(title: "♥️ + 🧪", message: "\(element.name) have been added to Favorites")
                 }
             }
         }
     }
-    
-    
-    }
-    
-    
-
-
 }
+
+
+
+
+

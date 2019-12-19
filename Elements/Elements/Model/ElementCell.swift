@@ -12,7 +12,6 @@ class ElementCell: UITableViewCell {
     
 
     @IBOutlet weak var elementImage: UIImageView!
-    
     @IBOutlet weak var elementNameLabel: UILabel!
     @IBOutlet weak var elementInfoLabel: UILabel!
     

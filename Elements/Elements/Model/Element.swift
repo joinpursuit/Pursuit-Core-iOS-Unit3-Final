@@ -14,8 +14,8 @@ struct Element: Codable {
     let number: Int
     let melt: Double?
     let symbol: String
-    let summary: String
+    let summary: String?
     let boil: Double?
-    let atomic_mass: Double
+    let atomic_mass: Double?
     let favoritedBy: String?
 }
