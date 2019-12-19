@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Element {
+struct Element: Codable {
     let name: String
     let discovered_by: String
     let number: Int
