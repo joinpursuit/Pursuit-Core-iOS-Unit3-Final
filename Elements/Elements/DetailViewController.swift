@@ -26,7 +26,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        
+        self.view.superview?.bringSubviewToFront(view)
     }
+        //subview.superview?.bringSubview(toFront: subview)
+//        And to expand on this answer a bit, this bit of code works from the UIView itself: [self.superview bringSubviewToFront:self];. – MusiGenesis Sep 27 '11 at 19:08
+//        2
+//        I would nitpick the answer to [childView.superview bringSubviewToFront:childView]; so that it's not necessary to "have" the superview already referenced. – Rob Sep 8 '15 at 18:53
+    
     
     func updateUI() {
         guard let oneElement = oneElement else {
